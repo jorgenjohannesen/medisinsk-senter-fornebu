@@ -6,11 +6,9 @@ import InformationCard from '~/components/InformationCard'
 import Services from '~/components/Services'
 import Employees from '~/components/Employees'
 import Contact from '~/components/Contact'
-import { useLiveQuery } from 'next-sanity/preview'
-import { getPosts, type Post, postsQuery } from '~/lib/sanity.queries'
+import { getPosts } from '~/lib/sanity.queries'
 import { readToken } from '~/lib/sanity.api'
 import { getClient } from '~/lib/sanity.client'
-import type { SharedPageProps } from '~/pages/_app'
 
 export const getStaticProps = async ({ draftMode = false }) => {
   const client = getClient(draftMode ? { token: readToken } : undefined)
