@@ -1,3 +1,4 @@
+import React, { useState } from 'react'
 import { Button } from '@/components/ui/button'
 
 export default function Navbar({
@@ -7,6 +8,13 @@ export default function Navbar({
   onContactClick,
   children,
 }) {
+  const [activeButton, setActiveButton] = useState('')
+
+  const handleButtonClick = (buttonName: string, onClickFunction: Function) => {
+    setActiveButton(buttonName)
+    onClickFunction()
+  }
+
   return (
     <div>
       <header className="header flex justify-between items-center h-28 py-0 px-[var(--space-1)] border-b border-[#ced2d9] z-10 bg-white fixed top-0 left-0 right-0">
@@ -19,10 +27,44 @@ export default function Navbar({
           </div>
         </div>
         <div className="flex flex-row space-x-9 text-xl">
-          <Button onClick={onHomeClick}>Hjem</Button>
-          <Button onClick={onServicesClick}>Tjenester</Button>
-          <Button onClick={onEmployeesClick}>Ansatte</Button>
-          <Button onClick={onContactClick}>Kontakt</Button>
+          <Button
+            onClick={() => handleButtonClick('home', onHomeClick)}
+            className={`border-b-2 pb-1 ${
+              activeButton === 'home' ? 'border-current' : 'border-transparent'
+            }`}
+          >
+            Hjem
+          </Button>
+          <Button
+            onClick={() => handleButtonClick('services', onServicesClick)}
+            className={`border-b-2 pb-1 ${
+              activeButton === 'services'
+                ? 'border-current'
+                : 'border-transparent'
+            }`}
+          >
+            Tjenester
+          </Button>
+          <Button
+            onClick={() => handleButtonClick('employees', onEmployeesClick)}
+            className={`border-b-2 pb-1 ${
+              activeButton === 'employees'
+                ? 'border-current'
+                : 'border-transparent'
+            }`}
+          >
+            Ansatte
+          </Button>
+          <Button
+            onClick={() => handleButtonClick('contact', onContactClick)}
+            className={`border-b-2 pb-1 ${
+              activeButton === 'contact'
+                ? 'border-current'
+                : 'border-transparent'
+            }`}
+          >
+            Kontakt
+          </Button>
         </div>
         <div className="mr-8"></div>
       </header>

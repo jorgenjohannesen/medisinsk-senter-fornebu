@@ -1,5 +1,5 @@
 import type { InferGetStaticPropsType } from 'next'
-import React, { useRef } from 'react'
+import React, { RefObject, useRef } from 'react'
 import Navbar from '~/components/Navbar'
 import Home from '~/components/Home'
 import InformationCard from '~/components/InformationCard'
@@ -31,7 +31,7 @@ export default function IndexPage(
   const employeesRef = useRef(null)
   const contactRef = useRef(null)
 
-  const scrollToRef = (ref) =>
+  const scrollToRef = (ref: RefObject<HTMLDivElement>) =>
     ref.current &&
     window.scrollTo({ top: ref.current.offsetTop, behavior: 'smooth' })
 
