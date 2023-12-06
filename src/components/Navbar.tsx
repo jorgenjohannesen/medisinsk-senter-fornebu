@@ -1,4 +1,12 @@
-export default function Container({ children }: { children: React.ReactNode }) {
+import { Button } from '@/components/ui/button'
+
+export default function Navbar({
+  onHomeClick,
+  onServicesClick,
+  onEmployeesClick,
+  onContactClick,
+  children,
+}) {
   return (
     <div>
       <header className="header flex justify-between items-center h-28 py-0 px-[var(--space-1)] border-b border-[#ced2d9] z-10 bg-white fixed top-0 left-0 right-0">
@@ -11,12 +19,12 @@ export default function Container({ children }: { children: React.ReactNode }) {
           </div>
         </div>
         <div className="flex flex-row space-x-9 text-xl">
-          <div>Hjem</div>
-          <div>Tjenester</div>
-          <div>Ansatte</div>
-          <div>Kontakt</div>
+          <Button onClick={onHomeClick}>Hjem</Button>
+          <Button onClick={onServicesClick}>Tjenester</Button>
+          <Button onClick={onEmployeesClick}>Ansatte</Button>
+          <Button onClick={onContactClick}>Kontakt</Button>
         </div>
-        <div className="mr-8"> {} </div>
+        <div className="mr-8"></div>
       </header>
       <main>{children}</main>
       <footer className="footer bg-secondary h-28">

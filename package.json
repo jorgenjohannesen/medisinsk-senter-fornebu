@@ -17,6 +17,7 @@
     "@next/env": "^14.0.3",
     "@portabletext/react": "3.0.11",
     "@portabletext/types": "^2.0.8",
+    "@radix-ui/react-slot": "^1.0.2",
     "@sanity/client": "6.8.6",
     "@sanity/demo": "1.0.2",
     "@sanity/image-url": "^1.0.2",

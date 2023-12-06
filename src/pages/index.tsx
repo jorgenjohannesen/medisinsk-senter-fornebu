@@ -1,21 +1,18 @@
-import type { GetStaticProps, InferGetStaticPropsType } from 'next'
-import { useLiveQuery } from 'next-sanity/preview'
-import Employees from '~/components/Employees'
-import InformationCard from '~/components/InformationCard'
+import type { InferGetStaticPropsType } from 'next'
+import React, { useRef } from 'react'
 import Navbar from '~/components/Navbar'
-import Services from '~/components/Services'
 import Home from '~/components/Home'
+import InformationCard from '~/components/InformationCard'
+import Services from '~/components/Services'
+import Employees from '~/components/Employees'
+import Contact from '~/components/Contact'
+import { useLiveQuery } from 'next-sanity/preview'
+import { getPosts, type Post, postsQuery } from '~/lib/sanity.queries'
 import { readToken } from '~/lib/sanity.api'
 import { getClient } from '~/lib/sanity.client'
-import { getPosts, type Post, postsQuery } from '~/lib/sanity.queries'
 import type { SharedPageProps } from '~/pages/_app'
-import Contact from '~/components/Contact'
 
-export const getStaticProps: GetStaticProps<
-  SharedPageProps & {
-    posts: Post[]
-  }
-> = async ({ draftMode = false }) => {
+export const getStaticProps = async ({ draftMode = false }) => {
   const client = getClient(draftMode ? { token: readToken } : undefined)
   const posts = await getPosts(client)
 
@@ -31,14 +28,35 @@ export const getStaticProps: GetStaticProps<
 export default function IndexPage(
   props: InferGetStaticPropsType<typeof getStaticProps>,
 ) {
-  const [posts] = useLiveQuery<Post[]>(props.posts, postsQuery)
+  const homeRef = useRef(null)
+  const servicesRef = useRef(null)
+  const employeesRef = useRef(null)
+  const contactRef = useRef(null)
+
+  const scrollToRef = (ref) =>
+    ref.current &&
+    window.scrollTo({ top: ref.current.offsetTop, behavior: 'smooth' })
+
   return (
-    <Navbar>
-      <Home />
+    <Navbar
+      onHomeClick={() => scrollToRef(homeRef)}
+      onServicesClick={() => scrollToRef(servicesRef)}
+      onEmployeesClick={() => scrollToRef(employeesRef)}
+      onContactClick={() => scrollToRef(contactRef)}
+    >
+      <div ref={homeRef}>
+        <Home />
+      </div>
       <InformationCard />
-      <Services />
-      <Employees />
-      <Contact />
+      <div ref={servicesRef}>
+        <Services />
+      </div>
+      <div ref={employeesRef}>
+        <Employees />
+      </div>
+      <div ref={contactRef}>
+        <Contact />
+      </div>
     </Navbar>
   )
 }
