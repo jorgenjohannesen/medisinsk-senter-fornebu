@@ -17,7 +17,7 @@ export default function Navbar({
 
   return (
     <div>
-      <header className="header flex justify-between items-center h-28 py-0 px-[var(--space-1)] border-b border-[#ced2d9] z-10 bg-white fixed top-0 left-0 right-0">
+      <header className="header flex justify-between items-center h-28 py-0 px-[var(--space-1)] border-b border-[#ced2d9] z-10 bg-white top-0 left-0 right-0">
         <div className="flex items-center ml-8">
           <img className="h-20 mr-4" src="logo.png" />
           <div className="flex flex-col">
