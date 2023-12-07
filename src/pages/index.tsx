@@ -39,7 +39,7 @@ export default function IndexPage(
     queryKey: 'allPosts',
     queryFn: async () => {
       const response = await request(
-        process.env.GRAPHQL_ENDPOINT,
+        'https://bldcloyv.api.sanity.io/v1/graphql/production/default',
         AllPostsQuery,
       )
       return response.allPost
@@ -70,11 +70,9 @@ export default function IndexPage(
       <div ref={contactRef}>
         <Contact />
       </div>
-      <Container>
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
-          {data?.map((post) => <Card key={post._id} post={post} />)}
-        </div>
-      </Container>
+      <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+        {data?.map((post) => <Card key={post._id} post={post} />)}
+      </div>
     </Navbar>
   )
 }
