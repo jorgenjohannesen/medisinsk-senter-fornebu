@@ -41,6 +41,53 @@ export type BooleanFilter = {
   neq?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
+export type ContactInformation = Document & {
+  __typename?: 'ContactInformation';
+  /** Date the document was created */
+  _createdAt?: Maybe<Scalars['DateTime']['output']>;
+  /** Document ID */
+  _id?: Maybe<Scalars['ID']['output']>;
+  _key?: Maybe<Scalars['String']['output']>;
+  /** Current document revision */
+  _rev?: Maybe<Scalars['String']['output']>;
+  /** Document type */
+  _type?: Maybe<Scalars['String']['output']>;
+  /** Date the document was last modified */
+  _updatedAt?: Maybe<Scalars['DateTime']['output']>;
+  address?: Maybe<Scalars['String']['output']>;
+  email?: Maybe<Scalars['String']['output']>;
+  openingHours?: Maybe<Scalars['String']['output']>;
+  phone?: Maybe<Scalars['String']['output']>;
+};
+
+export type ContactInformationFilter = {
+  /** Apply filters on document level */
+  _?: InputMaybe<Sanity_DocumentFilter>;
+  _createdAt?: InputMaybe<DatetimeFilter>;
+  _id?: InputMaybe<IdFilter>;
+  _key?: InputMaybe<StringFilter>;
+  _rev?: InputMaybe<StringFilter>;
+  _type?: InputMaybe<StringFilter>;
+  _updatedAt?: InputMaybe<DatetimeFilter>;
+  address?: InputMaybe<StringFilter>;
+  email?: InputMaybe<StringFilter>;
+  openingHours?: InputMaybe<StringFilter>;
+  phone?: InputMaybe<StringFilter>;
+};
+
+export type ContactInformationSorting = {
+  _createdAt?: InputMaybe<SortOrder>;
+  _id?: InputMaybe<SortOrder>;
+  _key?: InputMaybe<SortOrder>;
+  _rev?: InputMaybe<SortOrder>;
+  _type?: InputMaybe<SortOrder>;
+  _updatedAt?: InputMaybe<SortOrder>;
+  address?: InputMaybe<SortOrder>;
+  email?: InputMaybe<SortOrder>;
+  openingHours?: InputMaybe<SortOrder>;
+  phone?: InputMaybe<SortOrder>;
+};
+
 export type CrossDatasetReference = {
   __typename?: 'CrossDatasetReference';
   _dataset?: Maybe<Scalars['String']['output']>;
@@ -133,6 +180,48 @@ export type DocumentSorting = {
   _rev?: InputMaybe<SortOrder>;
   _type?: InputMaybe<SortOrder>;
   _updatedAt?: InputMaybe<SortOrder>;
+};
+
+export type Employee = Document & {
+  __typename?: 'Employee';
+  /** Date the document was created */
+  _createdAt?: Maybe<Scalars['DateTime']['output']>;
+  /** Document ID */
+  _id?: Maybe<Scalars['ID']['output']>;
+  _key?: Maybe<Scalars['String']['output']>;
+  /** Current document revision */
+  _rev?: Maybe<Scalars['String']['output']>;
+  /** Document type */
+  _type?: Maybe<Scalars['String']['output']>;
+  /** Date the document was last modified */
+  _updatedAt?: Maybe<Scalars['DateTime']['output']>;
+  descriptionRaw?: Maybe<Scalars['JSON']['output']>;
+  image?: Maybe<Image>;
+  name?: Maybe<Scalars['String']['output']>;
+};
+
+export type EmployeeFilter = {
+  /** Apply filters on document level */
+  _?: InputMaybe<Sanity_DocumentFilter>;
+  _createdAt?: InputMaybe<DatetimeFilter>;
+  _id?: InputMaybe<IdFilter>;
+  _key?: InputMaybe<StringFilter>;
+  _rev?: InputMaybe<StringFilter>;
+  _type?: InputMaybe<StringFilter>;
+  _updatedAt?: InputMaybe<DatetimeFilter>;
+  image?: InputMaybe<ImageFilter>;
+  name?: InputMaybe<StringFilter>;
+};
+
+export type EmployeeSorting = {
+  _createdAt?: InputMaybe<SortOrder>;
+  _id?: InputMaybe<SortOrder>;
+  _key?: InputMaybe<SortOrder>;
+  _rev?: InputMaybe<SortOrder>;
+  _type?: InputMaybe<SortOrder>;
+  _updatedAt?: InputMaybe<SortOrder>;
+  image?: InputMaybe<ImageSorting>;
+  name?: InputMaybe<SortOrder>;
 };
 
 export type File = {
@@ -247,6 +336,46 @@ export type IntFilter = {
   neq?: InputMaybe<Scalars['Int']['input']>;
 };
 
+export type News = Document & {
+  __typename?: 'News';
+  /** Date the document was created */
+  _createdAt?: Maybe<Scalars['DateTime']['output']>;
+  /** Document ID */
+  _id?: Maybe<Scalars['ID']['output']>;
+  _key?: Maybe<Scalars['String']['output']>;
+  /** Current document revision */
+  _rev?: Maybe<Scalars['String']['output']>;
+  /** Document type */
+  _type?: Maybe<Scalars['String']['output']>;
+  /** Date the document was last modified */
+  _updatedAt?: Maybe<Scalars['DateTime']['output']>;
+  bodyRaw?: Maybe<Scalars['JSON']['output']>;
+  previewRaw?: Maybe<Scalars['JSON']['output']>;
+  title?: Maybe<Scalars['String']['output']>;
+};
+
+export type NewsFilter = {
+  /** Apply filters on document level */
+  _?: InputMaybe<Sanity_DocumentFilter>;
+  _createdAt?: InputMaybe<DatetimeFilter>;
+  _id?: InputMaybe<IdFilter>;
+  _key?: InputMaybe<StringFilter>;
+  _rev?: InputMaybe<StringFilter>;
+  _type?: InputMaybe<StringFilter>;
+  _updatedAt?: InputMaybe<DatetimeFilter>;
+  title?: InputMaybe<StringFilter>;
+};
+
+export type NewsSorting = {
+  _createdAt?: InputMaybe<SortOrder>;
+  _id?: InputMaybe<SortOrder>;
+  _key?: InputMaybe<SortOrder>;
+  _rev?: InputMaybe<SortOrder>;
+  _type?: InputMaybe<SortOrder>;
+  _updatedAt?: InputMaybe<SortOrder>;
+  title?: InputMaybe<SortOrder>;
+};
+
 export type Post = Document & {
   __typename?: 'Post';
   /** Date the document was created */
@@ -260,7 +389,6 @@ export type Post = Document & {
   _type?: Maybe<Scalars['String']['output']>;
   /** Date the document was last modified */
   _updatedAt?: Maybe<Scalars['DateTime']['output']>;
-  bodyRaw?: Maybe<Scalars['JSON']['output']>;
   excerpt?: Maybe<Scalars['String']['output']>;
   mainImage?: Maybe<Image>;
   slug?: Maybe<Slug>;
@@ -297,18 +425,39 @@ export type PostSorting = {
 
 export type RootQuery = {
   __typename?: 'RootQuery';
+  ContactInformation?: Maybe<ContactInformation>;
   Document?: Maybe<Document>;
+  Employee?: Maybe<Employee>;
+  News?: Maybe<News>;
   Post?: Maybe<Post>;
   SanityFileAsset?: Maybe<SanityFileAsset>;
   SanityImageAsset?: Maybe<SanityImageAsset>;
+  allContactInformation: Array<ContactInformation>;
   allDocument: Array<Document>;
+  allEmployee: Array<Employee>;
+  allNews: Array<News>;
   allPost: Array<Post>;
   allSanityFileAsset: Array<SanityFileAsset>;
   allSanityImageAsset: Array<SanityImageAsset>;
 };
 
 
+export type RootQueryContactInformationArgs = {
+  id: Scalars['ID']['input'];
+};
+
+
 export type RootQueryDocumentArgs = {
+  id: Scalars['ID']['input'];
+};
+
+
+export type RootQueryEmployeeArgs = {
+  id: Scalars['ID']['input'];
+};
+
+
+export type RootQueryNewsArgs = {
   id: Scalars['ID']['input'];
 };
 
@@ -328,11 +477,35 @@ export type RootQuerySanityImageAssetArgs = {
 };
 
 
+export type RootQueryAllContactInformationArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  sort?: InputMaybe<Array<ContactInformationSorting>>;
+  where?: InputMaybe<ContactInformationFilter>;
+};
+
+
 export type RootQueryAllDocumentArgs = {
   limit?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
   sort?: InputMaybe<Array<DocumentSorting>>;
   where?: InputMaybe<DocumentFilter>;
+};
+
+
+export type RootQueryAllEmployeeArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  sort?: InputMaybe<Array<EmployeeSorting>>;
+  where?: InputMaybe<EmployeeFilter>;
+};
+
+
+export type RootQueryAllNewsArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  sort?: InputMaybe<Array<NewsSorting>>;
+  where?: InputMaybe<NewsFilter>;
 };
 
 

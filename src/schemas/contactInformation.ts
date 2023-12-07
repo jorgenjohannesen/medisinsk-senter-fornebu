@@ -1,28 +1,25 @@
+import { HomeIcon } from '@sanity/icons'
 import { defineField, defineType } from 'sanity'
 
 export default defineType({
   name: 'contactInformation',
-  title: 'Contact Information',
+  title: 'Kontaktinformasjon',
   type: 'document',
+  icon: HomeIcon,
   fields: [
     defineField({
-      name: 'email',
-      title: 'Email',
+      name: 'address',
+      title: 'Adresse',
       type: 'string',
     }),
     defineField({
       name: 'phone',
-      title: 'Phone',
-      type: 'string',
-    }),
-    defineField({
-      name: 'address',
-      title: 'Address',
+      title: 'Telefon',
       type: 'string',
     }),
     defineField({
       name: 'openingHours',
-      title: 'Opening Hours',
+      title: 'Åpningstider',
       type: 'string',
     }),
   ],
