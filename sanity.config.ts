@@ -2,6 +2,7 @@
  * This config is used to set up Sanity Studio that's mounted on the `/pages/studio/[[...index]].tsx` route
  */
 
+import { documentInternationalization } from '@sanity/document-internationalization'
 import { visionTool } from '@sanity/vision'
 import { defineConfig } from 'sanity'
 import { deskTool } from 'sanity/desk'
@@ -39,6 +40,14 @@ export default defineConfig({
   //edit schemas in './src/schemas'
   schema,
   plugins: [
+    documentInternationalization({
+      // Required configuration
+      supportedLanguages: [
+        { id: 'no', title: 'Norsk' },
+        { id: 'en', title: 'English' },
+      ],
+      schemaTypes: ['employee'],
+    }),
     deskTool({
       // `defaultDocumentNode` is responsible for adding a “Preview” tab to the document pane
       // You can add any React component to `S.view.component` and it will be rendered in the pane

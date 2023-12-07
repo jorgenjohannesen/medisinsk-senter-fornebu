@@ -24,5 +24,11 @@ export default defineType({
       type: 'richText',
       validation: (Rule) => Rule.max(10),
     }),
+    defineField({
+      name: 'language',
+      type: 'string',
+      readOnly: true,
+      hidden: true,
+    }),
   ],
 })
