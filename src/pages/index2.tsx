@@ -31,7 +31,7 @@ export default function IndexPage(
   props: InferGetStaticPropsType<typeof getStaticProps>,
 ) {
   const { data } = useQuery({
-    queryKey: 'allPosts',
+    queryKey: ['allPosts'],
     queryFn: async () => {
       const response = await request(GRAPHQL_ENPOINT, AllPostsQuery)
       return response.allPost
