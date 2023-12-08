@@ -38,6 +38,10 @@ module.exports = {
           DEFAULT: '#FDFAF5',
           foreground: '#FDFAF5',
         },
+        red: {
+          DEFAULT: '#CF0606',
+          foreground: '#FDFAF5',
+        },
         muted: {
           DEFAULT: 'hsl(var(--muted))',
           foreground: 'hsl(var(--muted-foreground))',
