@@ -28,16 +28,18 @@ export default function Navbar({
         </div>
         <div className="flex flex-row space-x-9 text-xl">
           <Button
+            variant={'link'}
             onClick={() => handleButtonClick('home', onHomeClick)}
-            className={`border-b-2 pb-1 ${
+            className={`border-b-2 pb-1 text-xl ${
               activeButton === 'home' ? 'border-current' : 'border-transparent'
             }`}
           >
             Hjem
           </Button>
           <Button
+            variant={'link'}
             onClick={() => handleButtonClick('services', onServicesClick)}
-            className={`border-b-2 pb-1 ${
+            className={`border-b-2 pb-1 text-xl ${
               activeButton === 'services'
                 ? 'border-current'
                 : 'border-transparent'
@@ -46,8 +48,9 @@ export default function Navbar({
             Tjenester
           </Button>
           <Button
+            variant={'link'}
             onClick={() => handleButtonClick('employees', onEmployeesClick)}
-            className={`border-b-2 pb-1 ${
+            className={`border-b-2 pb-1 text-xl ${
               activeButton === 'employees'
                 ? 'border-current'
                 : 'border-transparent'
@@ -56,8 +59,9 @@ export default function Navbar({
             Ansatte
           </Button>
           <Button
+            variant={'link'}
             onClick={() => handleButtonClick('contact', onContactClick)}
-            className={`border-b-2 pb-1 ${
+            className={`border-b-2 pb-1 text-xl ${
               activeButton === 'contact'
                 ? 'border-current'
                 : 'border-transparent'
