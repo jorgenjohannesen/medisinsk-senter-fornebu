@@ -13,38 +13,59 @@ export default function Home() {
           <div className="mt-6">Hvordan kan vi hjelpe deg?</div>
         </div>
         <div className="flex gap-12 w-full px-40 mb-12">
-          <Card className="text-center flex-1">
-            <CardHeader>
-              <div className="flex flex-row items-center">
+          <a
+            href="https://helsenorge.no"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-center flex-1"
+          >
+            <Card>
+              <CardHeader>
+                <div className="flex flex-row items-center">
+                  <img
+                    className="h-12 mr-8"
+                    src="/calender-outline.svg"
+                    alt="calender"
+                  />
+                  <CardTitle>Bestill time</CardTitle>
+                </div>
+              </CardHeader>
+            </Card>
+          </a>
+          <a
+            href="https://helsenorge.no"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-center flex-1"
+          >
+            <Card>
+              <CardHeader className="flex flex-row items-center">
                 <img
                   className="h-12 mr-8"
-                  src="/calender-outline.svg"
-                  alt="calender"
+                  src="/document-pill.svg"
+                  alt="document"
                 />
-                <CardTitle>Bestill time</CardTitle>
-              </div>
-            </CardHeader>
-          </Card>
-          <Card className="text-center flex-1">
-            <CardHeader className="flex flex-row items-center">
-              <img
-                className="h-12 mr-8"
-                src="/document-pill.svg"
-                alt="document"
-              />
-              <CardTitle>Forny resept</CardTitle>
-            </CardHeader>
-          </Card>
-          <Card className="text-center flex-1">
-            <CardHeader className="flex flex-row items-center">
-              <img
-                className="h-12 mr-8"
-                src="/customer-service.svg"
-                alt="document"
-              />
-              <CardTitle>Start e-konsultasjon</CardTitle>
-            </CardHeader>
-          </Card>
+                <CardTitle>Forny resept</CardTitle>
+              </CardHeader>
+            </Card>
+          </a>
+          <a
+            href="https://helsenorge.no"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-center flex-1"
+          >
+            <Card>
+              <CardHeader className="flex flex-row items-center">
+                <img
+                  className="h-12 mr-8"
+                  src="/customer-service.svg"
+                  alt="document"
+                />
+                <CardTitle>Start e-konsultasjon</CardTitle>
+              </CardHeader>
+            </Card>
+          </a>
         </div>
       </div>
     </div>
