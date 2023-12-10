@@ -8,7 +8,7 @@ export default function Navbar({
   onContactClick,
   children,
 }) {
-  const [activeButton, setActiveButton] = useState('')
+  const [activeButton, setActiveButton] = useState('home')
 
   const handleButtonClick = (buttonName: string, onClickFunction: Function) => {
     setActiveButton(buttonName)
