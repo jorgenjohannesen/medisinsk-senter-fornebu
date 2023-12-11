@@ -1,6 +1,10 @@
 import { Card, CardHeader, CardTitle } from '@/components/ui/card'
+import { useState } from 'react'
+import BookingDialog from './BookingDialog'
 
 export default function Home() {
+  const [isModalOpen, setModalOpen] = useState(false)
+
   return (
     <div className="h-screen bg-secondary flex flex-col">
       <div className="mt-32">
@@ -12,12 +16,7 @@ export default function Home() {
           <div className="mt-6">Hvordan kan vi hjelpe deg?</div>
         </div>
         <div className="flex gap-12 w-full px-40 mb-12">
-          <a
-            href="https://helsenorge.no"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-center flex-1"
-          >
+          <a className="text-center flex-1" onClick={() => setModalOpen(true)}>
             <Card>
               <CardHeader>
                 <div className="flex flex-row items-center">
@@ -31,6 +30,10 @@ export default function Home() {
               </CardHeader>
             </Card>
           </a>
+          <BookingDialog
+            isOpen={isModalOpen}
+            onDismiss={() => setModalOpen(false)}
+          />
           <a
             href="https://helsenorge.no"
             target="_blank"

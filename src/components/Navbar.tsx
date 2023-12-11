@@ -10,7 +10,7 @@ export default function Navbar({
 }) {
   const [activeButton, setActiveButton] = useState('home')
 
-  const handleButtonClick = (buttonName, onClickFunction) => {
+  const handleButtonClick = (buttonName: string, onClickFunction: any) => {
     setActiveButton(buttonName)
     onClickFunction()
   }
@@ -73,13 +73,13 @@ export default function Navbar({
               Kontakt
             </Button>
           </div>
-          <div className="mr-8"> {/* Placeholder for button spacing */} </div>
+          <div className="mr-8"> {} </div>
         </div>
       </header>
       <Button
         variant={'outline'}
         onClick={undefined}
-        className="fixed right-8 top-8 z-50 bg-red text-white hover:bg-red-600 hover:text-white w-48"
+        className="fixed right-8 top-8 z-20 bg-red text-white hover:bg-red-600 hover:text-white w-48"
         size={'lg'}
       >
         <img className="h-6 mr-2" src="/bell.svg" alt="bell" />
