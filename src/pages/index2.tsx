@@ -13,34 +13,31 @@ dotenv.config()
 
 // This file is for demonstration purposes only. It is not used in the final.
 //TODO: Remove this file.
-const GRAPHQL_ENPOINT = process.env.GRAPHQL_ENDPOINT!
+const GRAPHQL_ENDPOINT = process.env.GRAPHQL_ENDPOINT!
 
 export const getStaticProps = async ({ draftMode = false }) => {
   const client = getClient(draftMode ? { token: readToken } : undefined)
 
+  // Perform the GraphQL query in getStaticProps
+  const response = await request(GRAPHQL_ENDPOINT, AllPostsQuery)
+
   return {
     props: {
+      posts: response.allPost,
       draftMode,
       token: draftMode ? readToken : '',
     },
-    revalidate: 1,
+    revalidate: 1, // Set appropriate revalidation time
   }
 }
 
-export default function IndexPage(
-  props: InferGetStaticPropsType<typeof getStaticProps>,
-) {
-  const { data } = useQuery({
-    queryKey: ['allPosts'],
-    queryFn: async () => {
-      const response = await request(GRAPHQL_ENPOINT, AllPostsQuery)
-      return response.allPost
-    },
-  })
-
+export default function IndexPage({ posts }) {
+  // Render the posts passed as props
   return (
     <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
-      {data?.map((post) => <Card key={post._id} post={post} />)}
+      {posts.map((post) => (
+        <Card key={post._id} post={post} />
+      ))}
     </div>
   )
 }

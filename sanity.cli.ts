@@ -14,9 +14,8 @@ export default defineCliConfig({
   api: { projectId, dataset },
   graphql: [
     {
-      playground: false,
-      tag: 'experiment',
-      workspace: 'staging',
+      playground: true,
+      tag: 'default',
       id: 'schema-experiment',
     },
   ],
