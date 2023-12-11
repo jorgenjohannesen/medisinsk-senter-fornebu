@@ -8,7 +8,7 @@ export default function Navbar({
   onContactClick,
   children,
 }) {
-  const [activeButton, setActiveButton] = useState('')
+  const [activeButton, setActiveButton] = useState('home')
 
   const handleButtonClick = (buttonName: string, onClickFunction: Function) => {
     setActiveButton(buttonName)
@@ -19,7 +19,7 @@ export default function Navbar({
     <div>
       <header className="header flex justify-between items-center h-28 py-0 px-[var(--space-1)] border-b border-[#ced2d9] z-10 bg-white top-0 left-0 right-0">
         <div className="flex items-center ml-8">
-          <img className="h-20 mr-4" src="logo.png" />
+          <img className="h-20 mr-4" src="/logo.svg" alt="logo" />
           <div className="flex flex-col">
             <div>Medisinsk</div>
             <div>Senter</div>
@@ -28,16 +28,18 @@ export default function Navbar({
         </div>
         <div className="flex flex-row space-x-9 text-xl">
           <Button
+            variant={'link'}
             onClick={() => handleButtonClick('home', onHomeClick)}
-            className={`border-b-2 pb-1 ${
+            className={`border-b-2 pb-1 text-xl ${
               activeButton === 'home' ? 'border-current' : 'border-transparent'
             }`}
           >
             Hjem
           </Button>
           <Button
+            variant={'link'}
             onClick={() => handleButtonClick('services', onServicesClick)}
-            className={`border-b-2 pb-1 ${
+            className={`border-b-2 pb-1 text-xl ${
               activeButton === 'services'
                 ? 'border-current'
                 : 'border-transparent'
@@ -46,8 +48,9 @@ export default function Navbar({
             Tjenester
           </Button>
           <Button
+            variant={'link'}
             onClick={() => handleButtonClick('employees', onEmployeesClick)}
-            className={`border-b-2 pb-1 ${
+            className={`border-b-2 pb-1 text-xl ${
               activeButton === 'employees'
                 ? 'border-current'
                 : 'border-transparent'
@@ -56,8 +59,9 @@ export default function Navbar({
             Ansatte
           </Button>
           <Button
+            variant={'link'}
             onClick={() => handleButtonClick('contact', onContactClick)}
-            className={`border-b-2 pb-1 ${
+            className={`border-b-2 pb-1 text-xl ${
               activeButton === 'contact'
                 ? 'border-current'
                 : 'border-transparent'
