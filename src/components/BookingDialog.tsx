@@ -17,11 +17,15 @@ const BookingDialog = ({ isOpen, onDismiss }) => {
         <DialogTitle className="text-4xl text-primary">
           Bestill time
         </DialogTitle>
-        <DialogDescription className="mt-2 text-base">
+        <DialogDescription className="mt-2 text-base mb-6">
           Du blir nå videresendt til helsenorge.no. Der kan du se og booke alle
           våre tilgjengelige timer.
         </DialogDescription>
-        <div className="mt-4">
+        <a
+          href="https://helsenorge.no"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <Button
             variant={'outline'}
             onClick={undefined}
@@ -31,8 +35,8 @@ const BookingDialog = ({ isOpen, onDismiss }) => {
             Bestill time på helsenorge.no
             <img className="h-4 ml-2 w-6" src="/arrow.svg" alt="arrow" />
           </Button>
-        </div>
-        <DialogTitle className="text-4xl text-primary mt-24">
+        </a>
+        <DialogTitle className="text-4xl text-primary mt-28">
           Haster det?
         </DialogTitle>
         <DialogDescription className="mt-4 text-base">
