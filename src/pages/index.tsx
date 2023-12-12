@@ -1,25 +1,24 @@
 import type { InferGetStaticPropsType } from 'next'
 import React, { RefObject, useRef } from 'react'
-import Navbar from '~/components/Navbar'
+
+import Contact from '~/components/Contact'
+import Employees from '~/components/Employees'
 import Home from '~/components/Home'
 import InformationCard from '~/components/InformationCard'
+import Navbar from '~/components/Navbar'
 import Services from '~/components/Services'
-import Employees from '~/components/Employees'
-import Contact from '~/components/Contact'
-import { getPosts } from '~/lib/sanity.queries'
 import { readToken } from '~/lib/sanity.api'
 import { getClient } from '~/lib/sanity.client'
 
 export const getStaticProps = async ({ draftMode = false }) => {
   const client = getClient(draftMode ? { token: readToken } : undefined)
-  const posts = await getPosts(client)
 
   return {
     props: {
       draftMode,
       token: draftMode ? readToken : '',
-      posts,
     },
+    revalidate: 1,
   }
 }
 
