@@ -1,6 +1,7 @@
 import { Card, CardHeader, CardTitle } from '@/components/ui/card'
 import { useState } from 'react'
 import BookingDialog from './BookingDialog'
+import NotificationSlideshow from './NotificationCard'
 
 export default function Home() {
   const [isModalOpen, setModalOpen] = useState(false)
@@ -17,7 +18,7 @@ export default function Home() {
         </div>
         <div className="flex gap-12 w-full px-40 mb-12">
           <a className="text-center flex-1" onClick={() => setModalOpen(true)}>
-            <Card>
+            <Card className="bg-white">
               <CardHeader>
                 <div className="flex flex-row items-center">
                   <img
@@ -40,7 +41,7 @@ export default function Home() {
             rel="noopener noreferrer"
             className="text-center flex-1"
           >
-            <Card>
+            <Card className="bg-white">
               <CardHeader className="flex flex-row items-center">
                 <img
                   className="h-12 mr-8"
@@ -57,7 +58,7 @@ export default function Home() {
             rel="noopener noreferrer"
             className="text-center flex-1"
           >
-            <Card>
+            <Card className="bg-white">
               <CardHeader className="flex flex-row items-center">
                 <img
                   className="h-12 mr-8"
@@ -68,6 +69,9 @@ export default function Home() {
               </CardHeader>
             </Card>
           </a>
+        </div>
+        <div className="flex items-center justify-center">
+          <NotificationSlideshow />
         </div>
       </div>
     </div>
