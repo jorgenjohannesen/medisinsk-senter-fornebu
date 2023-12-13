@@ -8,7 +8,11 @@ import {
 } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 
-const InformationCard = () => {
+const InformationCard = ({ onEmployeesClick }) => {
+  const handleButtonClick = (onClickFunction: any) => {
+    onClickFunction()
+  }
+
   return (
     <div className="relative w-full lg:h-[507px] mx-auto">
       <div className="absolute top-0 left-0 w-full h-1/2 bg-secondary"></div>
@@ -65,24 +69,14 @@ const InformationCard = () => {
                 <p>Vi holder til inne på kjøpesenteret Fornebu S, bygg C.</p>
               </div>
             </div>
-            <a
-              href="https://helsenorge.no"
-              target="_blank"
-              rel="noopener noreferrer"
+            <Button
+              variant={'outline'}
+              onClick={() => handleButtonClick(onEmployeesClick)}
+              className="bg-primary text-base text-black hover:bg-primary-600 bg-white mt-4"
             >
-              <Button
-                variant={'outline'}
-                onClick={undefined}
-                className="bg-primary text-base text-black hover:bg-primary-600 bg-white mt-4"
-              >
-                Bestill time på helsenorge.no
-                <img
-                  className="h-4 ml-2 w-6"
-                  src="/arrow-dark.svg"
-                  alt="arrow"
-                />
-              </Button>
-            </a>
+              Bli kjent med våre ansatte
+              <img className="h-4 ml-2 w-6" src="/arrow-dark.svg" alt="arrow" />
+            </Button>
           </CardContent>
         </div>
       </Card>

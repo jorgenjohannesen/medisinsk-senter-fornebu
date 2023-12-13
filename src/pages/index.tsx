@@ -45,7 +45,7 @@ export default function IndexPage(
       <div ref={homeRef}>
         <Home />
       </div>
-      <InformationCard />
+      <InformationCard onEmployeesClick={() => scrollToRef(employeesRef)} />
       <div ref={servicesRef}>
         <Services />
       </div>
