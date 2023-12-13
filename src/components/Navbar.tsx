@@ -77,7 +77,7 @@ export default function Navbar({
         </div>
       </header>
       <Button
-        variant={'outline'}
+        variant={'default'}
         onClick={undefined}
         className="fixed right-8 top-8 z-20 bg-red text-white hover:bg-red-600 hover:text-white w-48"
         size={'lg'}

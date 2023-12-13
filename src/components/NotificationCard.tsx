@@ -32,7 +32,7 @@ export default function NotificationSlideshow() {
     dots: false,
     arrows: false,
     infinite: true,
-    speed: 3500,
+    speed: 4000,
     slidesToShow: 3,
     slidesToScroll: 1,
     autoplay: true,
