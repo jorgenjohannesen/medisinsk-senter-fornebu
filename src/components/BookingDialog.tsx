@@ -12,8 +12,8 @@ import { Button } from '@/components/ui/button'
 const BookingDialog = ({ isOpen, onDismiss }) => {
   return (
     <Dialog open={isOpen} onOpenChange={onDismiss}>
-      <DialogOverlay className="fixed inset-0 bg-black opacity-30 z-20" />
-      <DialogContent className="fixed bg-white top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded-md shadow-lg p-16 z-30 w-2/3 lg:w-7/12">
+      <DialogOverlay className="fixed inset-0 bg-black opacity-30 z-50" />
+      <DialogContent className="fixed bg-white top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded-md shadow-lg p-16 z-50 w-2/3 lg:w-7/12">
         <DialogTitle className="text-4xl text-primary">
           Bestill time
         </DialogTitle>
@@ -29,14 +29,14 @@ const BookingDialog = ({ isOpen, onDismiss }) => {
           <Button
             variant={'outline'}
             onClick={undefined}
-            className="fixed bg-primary text-base text-white hover:bg-primary-600 hover:text-white w-72"
+            className="bg-primary text-base text-white hover:bg-primary-600 hover:text-white w-72"
             size={'lg'}
           >
             Bestill time på helsenorge.no
             <img className="h-4 ml-2 w-6" src="/arrow.svg" alt="arrow" />
           </Button>
         </a>
-        <DialogTitle className="text-4xl text-primary mt-28">
+        <DialogTitle className="text-4xl text-primary mt-9">
           Haster det?
         </DialogTitle>
         <DialogDescription className="mt-4 text-base w-3/4">

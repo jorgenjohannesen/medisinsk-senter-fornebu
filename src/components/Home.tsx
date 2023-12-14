@@ -70,7 +70,7 @@ export default function Home() {
             </Card>
           </a>
         </div>
-        <div className="flex items-center justify-center">
+        <div className="flex items-center justify-center px-40">
           <NotificationSlideshow />
         </div>
       </div>
