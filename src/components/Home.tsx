@@ -1,5 +1,7 @@
-import { Card, CardHeader, CardTitle } from '@/components/ui/card'
 import { useState } from 'react'
+
+import { Card, CardHeader, CardTitle } from '@/components/ui/card'
+
 import BookingDialog from './BookingDialog'
 import NotificationSlideshow from './NotificationCard'
 
@@ -17,7 +19,10 @@ export default function Home() {
           <div className="mt-6">Hvordan kan vi hjelpe deg?</div>
         </div>
         <div className="flex gap-12 w-full px-40 mb-12">
-          <a className="text-center flex-1" onClick={() => setModalOpen(true)}>
+          <a
+            className="text-center flex-1 cursor-pointer"
+            onClick={() => setModalOpen(true)}
+          >
             <Card className="bg-white">
               <CardHeader>
                 <div className="flex flex-row items-center">
@@ -41,7 +46,7 @@ export default function Home() {
             rel="noopener noreferrer"
             className="text-center flex-1"
           >
-            <Card className="bg-white">
+            <Card className="bg-white border-none">
               <CardHeader className="flex flex-row items-center">
                 <img
                   className="h-12 mr-8"
@@ -58,7 +63,7 @@ export default function Home() {
             rel="noopener noreferrer"
             className="text-center flex-1"
           >
-            <Card className="bg-white">
+            <Card className="bg-white border-none">
               <CardHeader className="flex flex-row items-center">
                 <img
                   className="h-12 mr-8"
