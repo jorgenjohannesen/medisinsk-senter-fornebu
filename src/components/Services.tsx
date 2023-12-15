@@ -15,7 +15,7 @@ const services = [
 export default function Services() {
   return (
     <div className="services-layout h-screen bg-white flex flex-col p-4">
-      <div className="header mb-10 pt-20 px-44 text-primary font-medium">
+      <div className="header mb-10 pt-20 px-44 text-primary">
         <h1 className="text-2xl">
           I tillegg til vår fastlegekonsultasjon kan vi også hjelpe{' '}
         </h1>
@@ -26,6 +26,10 @@ export default function Services() {
           <Card
             key={service}
             className="bg-white text-card-foreground shadow-lg rounded-lg border"
+            style={{
+              boxShadow:
+                '0 -4px 10px -2px rgba(0, 0, 0, 0.1), 0 4px 10px -2px rgba(0, 0, 0, 0.1)',
+            }}
           >
             <CardContent className="flex justify-center items-center p-6">
               <CardTitle className="text-2xl font-base leading-none tracking-tight">
