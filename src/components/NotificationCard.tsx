@@ -53,12 +53,12 @@ export default function NotificationSlideshow() {
           >
             <Card className="bg-white bg-opacity-50 rounded-lg mx-2">
               <CardHeader className="flex flex-row justify-between items-center p-2 mt-2 ml-2">
-                <CardTitle className="text-md text-xl">
+                <CardTitle className="text-md text-2xl">
                   {notification.title}
                 </CardTitle>
                 <img className="h-6 mr-4" src={'/bell-red.svg'} alt={'bell'} />
               </CardHeader>
-              <div className="p-4">
+              <div className="p-4 text-lg">
                 <p>{notification.description}</p>
               </div>
             </Card>
