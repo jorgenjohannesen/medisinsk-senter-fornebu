@@ -1,7 +1,5 @@
-import { useQuery } from '@tanstack/react-query'
 import dotenv from 'dotenv'
 import { request } from 'graphql-request'
-import type { InferGetStaticPropsType } from 'next'
 import React from 'react'
 
 import Card from '~/components/Card'
