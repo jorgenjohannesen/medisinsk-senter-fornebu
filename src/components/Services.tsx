@@ -23,7 +23,7 @@ export default function Services() {
           med en rekke andre tjenester
         </h1>
       </div>
-      <div className=" mt-16 cards-container grid grid-cols-2 gap-8 mx-auto w-1/2 pb-28">
+      <div className=" mt-16 cards-container grid grid-cols-1 lg:grid-cols-2 gap-8 mx-auto w-1/2 pb-28">
         {services.map((service) => (
           <Card
             key={service}
