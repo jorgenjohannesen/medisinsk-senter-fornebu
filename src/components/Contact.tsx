@@ -30,30 +30,30 @@ const emergencyContacts = [
 export default function Contact() {
   return (
     <div className="h-screen bg-white flex flex-col items-center justify-center">
-      <div className="text-3xl text-primary px-20 py-5 text-left self-start font-light">
+      <h1 className="text-3xl font-normal text-primary px-44 text-left self-start mt-28">
         Trenger du øyeblikkelig hjelp
-      </div>
-      <div className="flex flex-col items-center mt-10 w-2/3 px-20 gap-y-8">
+      </h1>
+      <div className="flex flex-col w-1/2 py-16 gap-8 mb-12">
         {emergencyContacts.map((contact, index) => (
           <Card
             key={index}
-            className="mb-4 w-full bg-primary rounded-lg shadow-md overflow-hidden"
+            className="mb-4 w-full bg-primary rounded-lg shadow-md overflow-hidden h-44 flex"
           >
-            <div className="flex justify-start p-8 items-center">
-              <div className="p-6 bg-white w-64">
-                <span className="text-primary font-bold text-3xl w-64">
+            <CardContent className="flex justify-start p-8 items-center">
+              <div className="flex-none flex items-center justify-center p-2 bg-white w-64 rounded-lg h-28">
+                <CardHeader className="text-primary font-bold text-3xl">
                   {contact.number}
-                </span>
+                </CardHeader>
               </div>
               <div className="flex-grow p-6">
-                <CardTitle className="font-bold text-xl text-white">
+                <CardTitle className="text-3xl text-white mb-6">
                   {contact.title}
                 </CardTitle>
-                <CardDescription className="text-white">
+                <CardDescription className="text-white text-base">
                   {contact.description}
                 </CardDescription>
               </div>
-            </div>
+            </CardContent>
           </Card>
         ))}
       </div>

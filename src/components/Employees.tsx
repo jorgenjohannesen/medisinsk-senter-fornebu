@@ -60,7 +60,7 @@ export default function Employees() {
         Bli kjent med våre ansatte
       </div>
       <div className="flex flex-col items-center">
-        <div className="grid grid-cols-1 lg:grid-cols-2  gap-24 mt-24 mb-32">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 mt-24 mb-32">
           {employees.map((employee, index: any) => (
             <div
               key={employee.name}
