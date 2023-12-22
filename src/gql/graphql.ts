@@ -55,7 +55,6 @@ export type ContactInformation = Document & {
   /** Date the document was last modified */
   _updatedAt?: Maybe<Scalars['DateTime']['output']>;
   address?: Maybe<Scalars['String']['output']>;
-  email?: Maybe<Scalars['String']['output']>;
   openingHours?: Maybe<Scalars['String']['output']>;
   phone?: Maybe<Scalars['String']['output']>;
 };
@@ -70,7 +69,6 @@ export type ContactInformationFilter = {
   _type?: InputMaybe<StringFilter>;
   _updatedAt?: InputMaybe<DatetimeFilter>;
   address?: InputMaybe<StringFilter>;
-  email?: InputMaybe<StringFilter>;
   openingHours?: InputMaybe<StringFilter>;
   phone?: InputMaybe<StringFilter>;
 };
@@ -83,7 +81,6 @@ export type ContactInformationSorting = {
   _type?: InputMaybe<SortOrder>;
   _updatedAt?: InputMaybe<SortOrder>;
   address?: InputMaybe<SortOrder>;
-  email?: InputMaybe<SortOrder>;
   openingHours?: InputMaybe<SortOrder>;
   phone?: InputMaybe<SortOrder>;
 };
@@ -959,5 +956,23 @@ export type AllPostQueryVariables = Exact<{ [key: string]: never; }>;
 
 export type AllPostQuery = { __typename?: 'RootQuery', allPost: Array<{ __typename?: 'Post', _id?: string | null, title?: string | null, excerpt?: string | null, slug?: { __typename?: 'Slug', current?: string | null } | null, mainImage?: { __typename?: 'Image', asset?: { __typename?: 'SanityImageAsset', url?: string | null } | null } | null }> };
 
+export type AllEmployeeQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type AllEmployeeQuery = { __typename?: 'RootQuery', allEmployee: Array<{ __typename?: 'Employee', _id?: string | null, name?: string | null, descriptionRaw?: any | null, image?: { __typename?: 'Image', asset?: { __typename?: 'SanityImageAsset', url?: string | null } | null } | null }> };
+
+export type AllNewsQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type AllNewsQuery = { __typename?: 'RootQuery', allNews: Array<{ __typename?: 'News', _id?: string | null, title?: string | null, previewRaw?: any | null, bodyRaw?: any | null }> };
+
+export type ContactInformationQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type ContactInformationQuery = { __typename?: 'RootQuery', allContactInformation: Array<{ __typename?: 'ContactInformation', _id?: string | null, address?: string | null, phone?: string | null, openingHours?: string | null }> };
+
 
 export const AllPostDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"allPost"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"allPost"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"_id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"slug"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"current"}}]}},{"kind":"Field","name":{"kind":"Name","value":"excerpt"}},{"kind":"Field","name":{"kind":"Name","value":"mainImage"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"asset"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"}}]}}]}}]}}]}}]} as unknown as DocumentNode<AllPostQuery, AllPostQueryVariables>;
+export const AllEmployeeDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"allEmployee"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"allEmployee"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"_id"}},{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"descriptionRaw"}},{"kind":"Field","name":{"kind":"Name","value":"image"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"asset"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"}}]}}]}}]}}]}}]} as unknown as DocumentNode<AllEmployeeQuery, AllEmployeeQueryVariables>;
+export const AllNewsDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"allNews"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"allNews"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"_id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"previewRaw"}},{"kind":"Field","name":{"kind":"Name","value":"bodyRaw"}}]}}]}}]} as unknown as DocumentNode<AllNewsQuery, AllNewsQueryVariables>;
+export const ContactInformationDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"contactInformation"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"allContactInformation"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"_id"}},{"kind":"Field","name":{"kind":"Name","value":"address"}},{"kind":"Field","name":{"kind":"Name","value":"phone"}},{"kind":"Field","name":{"kind":"Name","value":"openingHours"}}]}}]}}]} as unknown as DocumentNode<ContactInformationQuery, ContactInformationQueryVariables>;

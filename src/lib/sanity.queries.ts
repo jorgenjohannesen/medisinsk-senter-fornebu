@@ -23,7 +23,7 @@ export const AllEmployeesQuery = graphql(/* GraphQL */ `
     allEmployee {
       _id
       name
-      description
+      descriptionRaw
       image {
         asset {
           url
@@ -38,15 +38,15 @@ export const AllNewsQuery = graphql(/* GraphQL */ `
     allNews {
       _id
       title
-      preview
-      body
+      previewRaw
+      bodyRaw
     }
   }
 `)
 
-export const ContactInfoQuery = graphql(/* GraphQL */ `
-  query contactInfo {
-    contactInfo {
+export const ContactInformationQuery = graphql(/* GraphQL */ `
+  query contactInformation {
+    allContactInformation {
       _id
       address
       phone
