@@ -4,9 +4,13 @@ import { Card, CardHeader, CardTitle } from '@/components/ui/card'
 
 import BookingDialog from './BookingDialog'
 import NotificationSlideshow from './NotificationCard'
+import GeneralDialog from './GeneralDialog'
 
 export default function Home() {
-  const [isModalOpen, setModalOpen] = useState(false)
+  const [isBookingModalOpen, setBookingModalOpen] = useState(false)
+  const [isPrescriptionRenewalModalOpen, setPrescriptionRenewalModalOpen] =
+    useState(false)
+  const [isEConsultationModalOpen, setEConsultationModalOpen] = useState(false)
 
   return (
     <div className="h-screen bg-secondary flex flex-col">
@@ -21,7 +25,7 @@ export default function Home() {
         <div className="flex gap-12 w-full px-40 mb-12">
           <a
             className="text-center flex-1 cursor-pointer"
-            onClick={() => setModalOpen(true)}
+            onClick={() => setBookingModalOpen(true)}
           >
             <Card className="bg-white">
               <CardHeader>
@@ -37,14 +41,12 @@ export default function Home() {
             </Card>
           </a>
           <BookingDialog
-            isOpen={isModalOpen}
-            onDismiss={() => setModalOpen(false)}
+            isOpen={isBookingModalOpen}
+            onDismiss={() => setBookingModalOpen(false)}
           />
           <a
-            href="https://helsenorge.no"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-center flex-1"
+            className="text-center flex-1 cursor-pointer"
+            onClick={() => setPrescriptionRenewalModalOpen(true)}
           >
             <Card className="bg-white border-none">
               <CardHeader className="flex flex-row items-center">
@@ -57,11 +59,19 @@ export default function Home() {
               </CardHeader>
             </Card>
           </a>
+          <GeneralDialog
+            isOpen={isPrescriptionRenewalModalOpen}
+            onDismiss={() => setPrescriptionRenewalModalOpen(false)}
+            dialogTitle={'Forny resept'}
+            dialogDescription={
+              'Du blir nå videresendt til helsenorge.no. Der kan du fornye din resept NB: Det er kun våre fastlegepasienter som kan fornye respet gjennom helsenorge'
+            }
+            buttonText={'Forny resept på helsenorge.no'}
+            href={'https://helsenorge.no'}
+          />
           <a
-            href="https://helsenorge.no"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-center flex-1"
+            className="text-center flex-1 cursor-pointer"
+            onClick={() => setEConsultationModalOpen(true)}
           >
             <Card className="bg-white border-none">
               <CardHeader className="flex flex-row items-center">
@@ -74,6 +84,16 @@ export default function Home() {
               </CardHeader>
             </Card>
           </a>
+          <GeneralDialog
+            isOpen={isEConsultationModalOpen}
+            onDismiss={() => setEConsultationModalOpen(false)}
+            dialogTitle={'Start e-konsultasjon'}
+            dialogDescription={
+              'Du blir nå videresendt til helsenorge.no. Der kan du starte din e-konsultasjon'
+            }
+            buttonText={'Start e-konsultasjon på helsenorge.no'}
+            href={'https://helsenorge.no'}
+          />
         </div>
         <div className="flex items-center justify-center px-40">
           <NotificationSlideshow />
