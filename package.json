@@ -26,6 +26,7 @@
     "@radix-ui/react-slot": "^1.0.2",
     "@sanity/client": "6.8.6",
     "@sanity/demo": "1.0.2",
+    "@sanity/icons": "^2.7.0",
     "@sanity/image-url": "^1.0.2",
     "@sanity/types": "^3.21.0",
     "@sanity/vision": "3.20.0",
