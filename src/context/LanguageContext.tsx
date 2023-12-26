@@ -14,7 +14,7 @@ interface LanguageProviderProps {
 }
 
 export const LanguageProvider = ({ children }: LanguageProviderProps) => {
-  const [language, setLanguage] = useState<string>('en')
+  const [language, setLanguage] = useState<string>('no')
 
   const toggleLanguage = () => {
     setLanguage((currentLanguage) => (currentLanguage === 'no' ? 'en' : 'no'))
