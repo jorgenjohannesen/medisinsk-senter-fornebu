@@ -46,7 +46,8 @@ export default defineConfig({
         { id: 'no', title: 'Norsk' },
         { id: 'en', title: 'English' },
       ],
-      schemaTypes: ['employee'],
+      schemaTypes: ['employee', 'news', 'contactInformation'],
+      languageField: 'Språk',
     }),
     deskTool({
       // `defaultDocumentNode` is responsible for adding a “Preview” tab to the document pane
