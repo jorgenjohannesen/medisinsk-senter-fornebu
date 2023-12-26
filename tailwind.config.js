@@ -6,6 +6,7 @@ module.exports = {
     './components/**/*.{ts,tsx}',
     './app/**/*.{ts,tsx}',
     './src/**/*.{ts,tsx}',
+    './@/components/ui/**/*.{js,ts,jsx,tsx}',
   ],
   theme: {
     container: {
@@ -36,6 +37,10 @@ module.exports = {
         },
         white: {
           DEFAULT: '#FDFAF5',
+          foreground: '#FDFAF5',
+        },
+        red: {
+          DEFAULT: '#CF0606',
           foreground: '#FDFAF5',
         },
         muted: {
