@@ -16,7 +16,7 @@ export default function Navbar({
     setActiveButton(buttonName)
     onClickFunction()
   }
-  const { language } = useLanguage()
+  const { language, toggleLanguage } = useLanguage()
 
   return (
     <div>
@@ -77,6 +77,12 @@ export default function Navbar({
             </Button>
           </div>
           <div className="mr-8"> {} </div>
+          <img
+            className="h-6 w-6 object-fill mr-60 rounded-sm"
+            src={language === 'no' ? '/flag_no.png' : '/flag_en.png'}
+            alt="Norwegian flag"
+            onClick={toggleLanguage}
+          />
         </div>
       </header>
       <Button
