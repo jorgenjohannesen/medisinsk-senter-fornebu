@@ -30,7 +30,7 @@ const ServiceDialog = ({
         <DialogDescription className="mt-2 text-base mb-6 w-3/4">
           {dialogDescription}
         </DialogDescription>
-        <div className="additional-info">
+        <div>
           <p className="text-xl mb-4">
             Har du flere spørsmål eller ønsker å bestille time? Ta kontakt med
           </p>
