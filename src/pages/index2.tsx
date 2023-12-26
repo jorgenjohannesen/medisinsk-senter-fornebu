@@ -1,13 +1,11 @@
-import { useQuery } from '@tanstack/react-query'
 import dotenv from 'dotenv'
 import { request } from 'graphql-request'
-import type { InferGetStaticPropsType } from 'next'
 import React from 'react'
 
 import Card from '~/components/Card'
 import { readToken } from '~/lib/sanity.api'
 import { getClient } from '~/lib/sanity.client'
-import { AllPostsQuery } from '~/lib/sanity.queries'
+import { AllEmployeesQuery, AllPostsQuery } from '~/lib/sanity.queries'
 
 dotenv.config()
 
@@ -19,11 +17,13 @@ export const getStaticProps = async ({ draftMode = false }) => {
   const client = getClient(draftMode ? { token: readToken } : undefined)
 
   // Perform the GraphQL query in getStaticProps
-  const response = await request(GRAPHQL_ENDPOINT, AllPostsQuery)
+  const posts = await request(GRAPHQL_ENDPOINT, AllPostsQuery)
+  const employees = await request(GRAPHQL_ENDPOINT, AllEmployeesQuery)
 
   return {
     props: {
-      posts: response.allPost,
+      posts: posts.allPost,
+      employees: employees.allEmployee,
       draftMode,
       token: draftMode ? readToken : '',
     },
@@ -31,12 +31,15 @@ export const getStaticProps = async ({ draftMode = false }) => {
   }
 }
 
-export default function IndexPage({ posts }) {
+export default function IndexPage({ posts, employees }) {
   // Render the posts passed as props
   return (
-    <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+    <div className="">
       {posts.map((post) => (
         <Card key={post._id} post={post} />
+      ))}
+      {employees.map((employee) => (
+        <p key={employee._id}>{employee.description}</p>
       ))}
     </div>
   )
