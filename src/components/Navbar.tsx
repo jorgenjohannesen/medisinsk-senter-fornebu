@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-
 import { Button } from '@/components/ui/button'
 
 export default function Navbar({
@@ -7,13 +6,16 @@ export default function Navbar({
   onServicesClick,
   onEmployeesClick,
   onContactClick,
+  onImportantInfoClick,
   children,
 }) {
   const [activeButton, setActiveButton] = useState('home')
 
   const handleButtonClick = (buttonName: string, onClickFunction: any) => {
     setActiveButton(buttonName)
-    onClickFunction()
+    if (onClickFunction) {
+      onClickFunction()
+    }
   }
 
   return (
@@ -79,7 +81,7 @@ export default function Navbar({
       </header>
       <Button
         variant={'default'}
-        onClick={undefined}
+        onClick={() => handleButtonClick('important', onImportantInfoClick)}
         className="fixed right-8 top-8 z-20 bg-red text-white hover:bg-red-600 hover:text-white w-48"
         size={'lg'}
       >
