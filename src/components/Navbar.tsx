@@ -11,18 +11,29 @@ export default function Navbar({
 }) {
   const [activeButton, setActiveButton] = useState('home')
 
-  const handleButtonClick = (buttonName: string, onClickFunction: any) => {
+  const handleButtonClick = (buttonName, onClickFunction) => {
     setActiveButton(buttonName)
+    if (buttonName !== 'important') {
+      onHomeClick()
+    }
     if (onClickFunction) {
       onClickFunction()
     }
+  }
+
+  const handleLogoClick = () => {
+    setActiveButton('home')
+    onHomeClick()
   }
 
   return (
     <div>
       <header className="relative z-10 bg-white border-b border-[#ced2d9] m-0 p-0">
         <div className="flex justify-between items-center h-28 py-0 px-[var(--space-1)] m-0">
-          <div className="flex items-center ml-8">
+          <div
+            className="flex items-center ml-8 cursor-pointer"
+            onClick={handleLogoClick}
+          >
             <img className="h-20 mr-4" src="/logo.svg" alt="logo" />
             <div className="flex flex-col">
               <div>Medisinsk</div>
