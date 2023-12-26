@@ -1,4 +1,6 @@
 import React, { useState } from 'react'
+
+import { Button } from '@/components/ui/button'
 import {
   Card,
   CardContent,
@@ -7,7 +9,7 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card'
-import { Button } from '@/components/ui/button'
+import { useLanguage } from '~/context/LanguageContext'
 
 const employees = [
   {
@@ -50,6 +52,7 @@ const employees = [
 
 export default function Employees() {
   const [hovered, setHovered] = useState(null)
+  const { language } = useLanguage()
 
   return (
     <div className="flex flex-col justify-center min-h-screen bg-secondary">
@@ -57,7 +60,9 @@ export default function Employees() {
         className="text-3xl mt-16 text-primary px-44 text-left self-start"
         style={{ fontWeight: 400 }}
       >
-        Bli kjent med våre ansatte
+        {language === 'no'
+          ? 'Bli kjent med våre ansatte'
+          : 'Meet our employees'}
       </div>
       <div className="flex flex-col items-center">
         <div className="grid grid-cols-1 lg:grid-cols-2  gap-24 mt-24 mb-32">
@@ -97,7 +102,9 @@ export default function Employees() {
                         className="bg-white text-base text-primary w-28"
                         size={'lg'}
                       >
-                        Bytt fastlege
+                        {language === 'no'
+                          ? 'Bytt fastlege'
+                          : 'Change your general practioner'}
                       </Button>
                     </div>
                   )}
