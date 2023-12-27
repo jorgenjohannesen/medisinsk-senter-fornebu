@@ -115,14 +115,14 @@ export default function Navbar({
             <strong>
               {language === 'no' ? 'Åpningstider: ' : 'Opening hours: '}
             </strong>
-            : Mandag - Fredag 08:00 - 15:30
+            Mandag - Fredag 08:00 - 15:30
           </div>
           <div>
-            <strong>{language === 'no' ? 'Telefon: ' : 'Phone: '}</strong>: +47
+            <strong>{language === 'no' ? 'Telefon: ' : 'Phone: '}</strong> +47
             675 90 636
           </div>
           <div>
-            <strong> {language === 'no' ? 'Adresse: ' : 'Address: '}</strong>:
+            <strong> {language === 'no' ? 'Adresse: ' : 'Address: '}</strong>
             Forneburingen 209, 1364 Fornebu
           </div>
         </div>
