@@ -48,7 +48,12 @@ export default function IndexPage(
       onServicesClick={() => scrollToRef(servicesRef)}
       onEmployeesClick={() => scrollToRef(employeesRef)}
       onContactClick={() => scrollToRef(contactRef)}
-      onImportantInfoClick={() => setShowImportantInfo(true)}
+      onImportantInfoClick={(shouldScrollToTop: any) => {
+        setShowImportantInfo(true)
+        if (shouldScrollToTop) {
+          window.scrollTo({ top: 0, behavior: 'auto' })
+        }
+      }}
     >
       {showImportantInfo ? (
         <ImportantInfoPage />

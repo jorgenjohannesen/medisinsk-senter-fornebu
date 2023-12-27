@@ -11,13 +11,10 @@ export default function Navbar({
 }) {
   const [activeButton, setActiveButton] = useState('home')
 
-  const handleButtonClick = (buttonName, onClickFunction) => {
+  const handleButtonClick = (buttonName: string, onClickFunction: any) => {
     setActiveButton(buttonName)
-    if (buttonName !== 'important') {
-      onHomeClick()
-    }
     if (onClickFunction) {
-      onClickFunction()
+      onClickFunction(buttonName === 'important')
     }
   }
 

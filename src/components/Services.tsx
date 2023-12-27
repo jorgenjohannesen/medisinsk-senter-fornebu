@@ -15,7 +15,7 @@ const services = [
   {
     title: 'Akupunktur',
     description:
-      'Yngve Røe er autorisert fysioterapeut med kommunal driftstilskuddsavtale. I tillegg til lang erfaring med å behandle pasienter, har han en hovedfagsgrad (Cand. San) og en doktorgrad (PhD) fra Universitetet i Oslo. Det legges vekt på at den behandlingen du får som pasient er kunnskapsbasert, det vil si at både dine egne erfaringer med smertene/plagene og oppdatert forskningskunnskap får betydning for den behandlingsplanen som settes opp. Behandlingen som gis er øvelser, ofte supplert med tøyninger. Andre behandlingstyper vil kun unntaksvis bli benyttet.',
+      'Yngve Røe er autorisert fysioterapeut med kommunal driftstilskuddsavtale. I tillegg til lang erfaring med å behandle pasienter, har han en hovedfagsgrad (Cand. San) og en doktorgrad (PhD) fra Universitetet i Oslo. Det legges vekt på at den behandlingen du får som pasient er kunnskapsbasert, det vil si at både dine egne erfaringer med smertene/plagene og oppdatert forskningskunnskap får betydning for den behandlingsplanen som settes opp. Behandlingen som gis er øvelser, ofte supplert med tøyninger. Andre behandlingstyper vil kun unntaksvis bli benyttet. Yngve Røe er autorisert fysioterapeut med kommunal driftstilskuddsavtale. I tillegg til lang erfaring med å behandle pasienter, har han en hovedfagsgrad (Cand. San) og en doktorgrad (PhD) fra Universitetet i Oslo. Det legges vekt på at den behandlingen du får som pasient er kunnskapsbasert, det vil si at både dine egne erfaringer med smertene/plagene og oppdatert forskningskunnskap får betydning for den behandlingsplanen som settes opp. Behandlingen som gis er øvelser, ofte supplert med tøyninger. Andre behandlingstyper vil kun unntaksvis bli benyttet.',
     doctorName: 'Yngve Røe',
     number: '123456789',
     email: 'hansen@example.com',
@@ -23,7 +23,8 @@ const services = [
   },
   {
     title: 'Psykolog',
-    description: 'Detailed description of Akupunktur service.',
+    description:
+      'Yngve Røe er autorisert fysioterapeut med kommunal driftstilskuddsavtale. Yngve Røe er autorisert fysioterapeut med kommunal driftstilskuddsavtale. I tillegg til lang erfaring med å behandle pasienter, har han en hovedfagsgrad',
     doctorName: 'Dr. Hansen',
     number: '123456789',
     email: 'hansen@example.com',
@@ -31,7 +32,8 @@ const services = [
   },
   {
     title: 'Akupunktur',
-    description: 'Detailed description of Akupunktur service.',
+    description:
+      'Yngve Røe er autorisert fysioterapeut med kommunal driftstilskuddsavtale. I tillegg til lang erfaring med å behandle pasienter, har han en hovedfagsgrad',
     doctorName: 'Dr. Hansen',
     number: '123456789',
     email: 'hansen@example.com',
@@ -39,7 +41,8 @@ const services = [
   },
   {
     title: 'Akupunktur',
-    description: 'Detailed description of Akupunktur service.',
+    description:
+      'Yngve Røe er autorisert fysioterapeut med kommunal driftstilskuddsavtale. I tillegg til lang erfaring med å behandle pasienter, har han en hovedfagsgrad',
     doctorName: 'Dr. Hansen',
     number: '123456789',
     email: 'hansen@example.com',
@@ -47,7 +50,8 @@ const services = [
   },
   {
     title: 'Akupunktur',
-    description: 'Detailed description of Akupunktur service.',
+    description:
+      'Yngve Røe er autorisert fysioterapeut med kommunal driftstilskuddsavtale. I tillegg til lang erfaring med å behandle pasienter, har han en hovedfagsgrad',
     doctorName: 'Dr. Hansen',
     number: '123456789',
     email: 'hansen@example.com',
@@ -55,7 +59,8 @@ const services = [
   },
   {
     title: 'Akupunktur',
-    description: 'Detailed description of Akupunktur service.',
+    description:
+      'Yngve Røe er autorisert fysioterapeut med kommunal driftstilskuddsavtale. I tillegg til lang erfaring med å behandle pasienter, har han en hovedfagsgrad',
     doctorName: 'Dr. Hansen',
     number: '123456789',
     email: 'hansen@example.com',
@@ -63,7 +68,8 @@ const services = [
   },
   {
     title: 'Akupunktur',
-    description: 'Detailed description of Akupunktur service.',
+    description:
+      'Yngve Røe er autorisert fysioterapeut med kommunal driftstilskuddsavtale. I tillegg til lang erfaring med å behandle pasienter, har han en hovedfagsgrad',
     doctorName: 'Dr. Hansen',
     number: '123456789',
     email: 'hansen@example.com',
@@ -71,7 +77,8 @@ const services = [
   },
   {
     title: 'Akupunktur',
-    description: 'Detailed description of Akupunktur service.',
+    description:
+      'Yngve Røe er autorisert fysioterapeut med kommunal driftstilskuddsavtale. I tillegg til lang erfaring med å behandle pasienter, har han en hovedfagsgrad',
     doctorName: 'Dr. Hansen',
     number: '123456789',
     email: 'hansen@example.com',
