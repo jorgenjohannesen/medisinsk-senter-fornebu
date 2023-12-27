@@ -1,17 +1,20 @@
 import React from 'react'
+
+import { Button } from '@/components/ui/button'
 import {
   Card,
+  CardContent,
+  CardDescription,
   CardHeader,
   CardTitle,
-  CardDescription,
-  CardContent,
 } from '@/components/ui/card'
-import { Button } from '@/components/ui/button'
+import { useLanguage } from '~/context/LanguageContext'
 
 const InformationCard = ({ onEmployeesClick }) => {
   const handleButtonClick = (onClickFunction: any) => {
     onClickFunction()
   }
+  const { language } = useLanguage()
 
   return (
     <div className="relative w-full lg:h-[507px] mx-auto">
@@ -28,29 +31,36 @@ const InformationCard = ({ onEmployeesClick }) => {
         <div className="text-white pl-24">
           <CardHeader>
             <CardTitle className="text-3xl">
-              Hos oss vil du bli tatt godt vare på
+              {language === 'no'
+                ? 'Hos oss vil du bli tatt godt vare på'
+                : 'We will take good care of you'}
             </CardTitle>
             <CardDescription className="text-white w-3/4 text-base pt-4">
-              Her på Medisinsk Senter Fornebu er vi en gjeng med dyktige ansatte
-              som gjerne vil hjelpe deg.
+              {language === 'no'
+                ? 'Her på Medisinsk Senter Fornebu er vi en gjeng med dyktige ansatte som gjerne vil hjelpe deg.'
+                : 'Here at Medisinsk Senter Fornebu we are a bunch of skilled employees who would love to help you.'}
             </CardDescription>
           </CardHeader>
           <CardContent>
             <div className="flex flex-row mb-4">
               <div className="flex flex-col mr-2">
                 <span className="border-b border-white pb-1 w-28">
-                  Åpningstider:
+                  {language === 'no' ? 'Åpningstider:' : 'Opening hours:'}
                 </span>
               </div>
               <div className="flex flex-col">
                 <p>Mandag - Fredag 08:00 - 15:30.</p>
-                <p>Kveldstimer etter avtale</p>
+                <p>
+                  {language === 'no'
+                    ? 'Kveldstimer etter avtale'
+                    : 'Evening hours by appointment'}
+                </p>
               </div>
             </div>
             <div className="flex flex-row mb-4">
               <div className="flex flex-col mr-2">
                 <span className="border-b border-white pb-1 w-28">
-                  Telefon:
+                  {language === 'no' ? 'Telefon:' : 'Phone:'}
                 </span>
               </div>
               <div className="flex flex-col">
@@ -74,7 +84,9 @@ const InformationCard = ({ onEmployeesClick }) => {
               onClick={() => handleButtonClick(onEmployeesClick)}
               className="bg-primary text-base text-black hover:bg-primary-600 bg-white mt-4"
             >
-              Bli kjent med våre ansatte
+              {language === 'no'
+                ? 'Bli kjent med våre ansatte'
+                : 'Our employees'}
               <img className="h-4 ml-2 w-6" src="/arrow-dark.svg" alt="arrow" />
             </Button>
           </CardContent>

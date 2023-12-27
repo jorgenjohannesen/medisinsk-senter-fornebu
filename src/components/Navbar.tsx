@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Button } from '@/components/ui/button'
+import { useLanguage } from '~/context/LanguageContext'
 
 export default function Navbar({
   onHomeClick,
@@ -13,8 +14,11 @@ export default function Navbar({
 
   const handleButtonClick = (buttonName: string, onClickFunction: any) => {
     setActiveButton(buttonName)
+    if (buttonName !== 'important') {
+      onHomeClick()
+    }
     if (onClickFunction) {
-      onClickFunction(buttonName === 'important')
+      onClickFunction(true)
     }
   }
 
@@ -22,6 +26,8 @@ export default function Navbar({
     setActiveButton('home')
     onHomeClick()
   }
+
+  const { language, toggleLanguage } = useLanguage()
 
   return (
     <div>
@@ -48,7 +54,7 @@ export default function Navbar({
                   : 'border-transparent'
               }`}
             >
-              Hjem
+              {language === 'no' ? 'Hjem' : 'Home'}
             </Button>
             <Button
               variant={'link'}
@@ -59,7 +65,7 @@ export default function Navbar({
                   : 'border-transparent'
               }`}
             >
-              Tjenester
+              {language === 'no' ? 'Tjenester' : 'Services'}
             </Button>
             <Button
               variant={'link'}
@@ -70,7 +76,7 @@ export default function Navbar({
                   : 'border-transparent'
               }`}
             >
-              Ansatte
+              {language === 'no' ? 'Ansatte' : 'Employees'}
             </Button>
             <Button
               variant={'link'}
@@ -81,10 +87,16 @@ export default function Navbar({
                   : 'border-transparent'
               }`}
             >
-              Kontakt
+              {language === 'no' ? 'Kontakt' : 'Contact'}
             </Button>
           </div>
           <div className="mr-8"> {} </div>
+          <img
+            className="h-6 w-6 object-fill mr-60 rounded-sm"
+            src={language === 'no' ? '/flag_no.png' : '/flag_en.png'}
+            alt="Norwegian flag"
+            onClick={toggleLanguage}
+          />
         </div>
       </header>
       <Button
@@ -94,19 +106,24 @@ export default function Navbar({
         size={'lg'}
       >
         <img className="h-6 mr-2" src="/bell.svg" alt="bell" />
-        Viktig informasjon
+        {language === 'no' ? 'Viktig informasjon' : 'Important information'}
       </Button>
       <main>{children}</main>
       <footer className="footer bg-secondary h-28">
         <div className="flex justify-around items-center h-full w-full px-4">
           <div>
-            <strong>Åpningstider</strong>: Mandag - Fredag 08:00 - 15:30
+            <strong>
+              {language === 'no' ? 'Åpningstider: ' : 'Opening hours: '}
+            </strong>
+            : Mandag - Fredag 08:00 - 15:30
           </div>
           <div>
-            <strong>Telefon</strong>: +47 675 90 636
+            <strong>{language === 'no' ? 'Telefon: ' : 'Phone: '}</strong>: +47
+            675 90 636
           </div>
           <div>
-            <strong>Adresse</strong>: Forneburingen 209, 1364 Fornebu
+            <strong> {language === 'no' ? 'Adresse: ' : 'Address: '}</strong>:
+            Forneburingen 209, 1364 Fornebu
           </div>
         </div>
       </footer>
