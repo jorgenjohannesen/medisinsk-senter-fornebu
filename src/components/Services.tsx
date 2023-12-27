@@ -1,6 +1,7 @@
 import React from 'react'
-import { Card, CardContent, CardTitle } from '@/components/ui/card'
 
+import { Card, CardContent, CardTitle } from '@/components/ui/card'
+import { useLanguage } from '~/context/LanguageContext'
 const services = [
   'Akupunktur',
   'Psykolog',
@@ -13,14 +14,14 @@ const services = [
 ]
 
 export default function Services() {
+  const { language } = useLanguage()
   return (
     <div className="services-layout h-5/6 bg-white flex flex-col p-4">
       <div className="header mb-10 pt-20 px-44 text-primary">
-        <h1 className="text-3xl" style={{ fontWeight: 400 }}>
-          I tillegg til vår fastlegekonsultasjon kan vi også hjelpe{' '}
-        </h1>
-        <h1 className="text-3xl" style={{ fontWeight: 400 }}>
-          med en rekke andre tjenester
+        <h1 className="text-3xl w-3/4" style={{ fontWeight: 400 }}>
+          {language === 'no'
+            ? 'I tillegg til vår fastlegekonsultasjon kan vi også hjelpe med en rekke andre tjenester'
+            : 'In addition to our general practitioner consultation, we can also help with a number of other services'}{' '}
         </h1>
       </div>
       <div className=" mt-16 cards-container grid grid-cols-1 lg:grid-cols-2 gap-8 mx-auto w-1/2 pb-28">

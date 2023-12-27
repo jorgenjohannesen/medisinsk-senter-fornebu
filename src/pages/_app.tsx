@@ -4,6 +4,8 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import type { AppProps } from 'next/app'
 import { lazy } from 'react'
 
+import { LanguageProvider } from '~/context/LanguageContext'
+
 export interface SharedPageProps {
   draftMode: boolean
   token: string
@@ -20,7 +22,9 @@ export default function App({
 
   const content = (
     <QueryClientProvider client={queryClient}>
-      <Component {...pageProps} />
+      <LanguageProvider>
+        <Component {...pageProps} />
+      </LanguageProvider>
     </QueryClientProvider>
   )
 
