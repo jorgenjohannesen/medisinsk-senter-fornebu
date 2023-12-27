@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-
 import { Button } from '@/components/ui/button'
 import { useLanguage } from '~/context/LanguageContext'
 
@@ -8,21 +7,36 @@ export default function Navbar({
   onServicesClick,
   onEmployeesClick,
   onContactClick,
+  onImportantInfoClick,
   children,
 }) {
   const [activeButton, setActiveButton] = useState('home')
 
   const handleButtonClick = (buttonName: string, onClickFunction: any) => {
     setActiveButton(buttonName)
-    onClickFunction()
+    if (buttonName !== 'important') {
+      onHomeClick()
+    }
+    if (onClickFunction) {
+      onClickFunction(true)
+    }
   }
+
+  const handleLogoClick = () => {
+    setActiveButton('home')
+    onHomeClick()
+  }
+
   const { language, toggleLanguage } = useLanguage()
 
   return (
     <div>
       <header className="relative z-10 bg-white border-b border-[#ced2d9] m-0 p-0">
         <div className="flex justify-between items-center h-28 py-0 px-[var(--space-1)] m-0">
-          <div className="flex items-center ml-8">
+          <div
+            className="flex items-center ml-8 cursor-pointer"
+            onClick={handleLogoClick}
+          >
             <img className="h-20 mr-4" src="/logo.svg" alt="logo" />
             <div className="flex flex-col">
               <div>Medisinsk</div>
@@ -87,7 +101,7 @@ export default function Navbar({
       </header>
       <Button
         variant={'default'}
-        onClick={undefined}
+        onClick={() => handleButtonClick('important', onImportantInfoClick)}
         className="fixed right-8 top-8 z-20 bg-red text-white hover:bg-red-600 hover:text-white w-48"
         size={'lg'}
       >
@@ -104,7 +118,7 @@ export default function Navbar({
             Mandag - Fredag 08:00 - 15:30
           </div>
           <div>
-            <strong>{language === 'no' ? 'Telefon: ' : 'Phone: '}</strong>+47
+            <strong>{language === 'no' ? 'Telefon: ' : 'Phone: '}</strong> +47
             675 90 636
           </div>
           <div>
