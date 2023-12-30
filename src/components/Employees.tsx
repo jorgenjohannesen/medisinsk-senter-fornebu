@@ -50,7 +50,7 @@ const employees = [
   },
 ]
 
-export default function Employees() {
+export default function Employees({ employees }) {
   const [hovered, setHovered] = useState(null)
   const { language } = useLanguage()
 

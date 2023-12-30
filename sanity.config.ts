@@ -46,7 +46,7 @@ export default defineConfig({
         { id: 'no', title: 'Norsk' },
         { id: 'en', title: 'English' },
       ],
-      schemaTypes: ['employee', 'news', 'contactInformation'],
+      schemaTypes: ['employee', 'news', 'contactInformation', 'service'],
       languageField: 'Språk',
     }),
     deskTool({

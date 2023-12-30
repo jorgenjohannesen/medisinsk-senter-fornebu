@@ -1,96 +1,90 @@
 import React, { useState } from 'react'
+
 import { Card, CardContent, CardTitle } from '@/components/ui/card'
-import ServiceDialog from './ServiceDialog'
 import { useLanguage } from '~/context/LanguageContext'
+import { Service } from '~/gql/graphql'
 
-interface Service {
-  title: string
-  description: string
-  doctorName: string
-  number: string
-  email: string
-  clinicNumber: string
-}
+import ServiceDialog from './ServiceDialog'
 
-const services = [
-  {
-    title: 'Akupunktur',
-    description:
-      'Yngve Røe er autorisert fysioterapeut med kommunal driftstilskuddsavtale. I tillegg til lang erfaring med å behandle pasienter, har han en hovedfagsgrad (Cand. San) og en doktorgrad (PhD) fra Universitetet i Oslo. Det legges vekt på at den behandlingen du får som pasient er kunnskapsbasert, det vil si at både dine egne erfaringer med smertene/plagene og oppdatert forskningskunnskap får betydning for den behandlingsplanen som settes opp. Behandlingen som gis er øvelser, ofte supplert med tøyninger. Andre behandlingstyper vil kun unntaksvis bli benyttet. Yngve Røe er autorisert fysioterapeut med kommunal driftstilskuddsavtale. I tillegg til lang erfaring med å behandle pasienter, har han en hovedfagsgrad (Cand. San) og en doktorgrad (PhD) fra Universitetet i Oslo. Det legges vekt på at den behandlingen du får som pasient er kunnskapsbasert, det vil si at både dine egne erfaringer med smertene/plagene og oppdatert forskningskunnskap får betydning for den behandlingsplanen som settes opp. Behandlingen som gis er øvelser, ofte supplert med tøyninger. Andre behandlingstyper vil kun unntaksvis bli benyttet.',
-    doctorName: 'Yngve Røe',
-    number: '123456789',
-    email: 'hansen@example.com',
-    clinicNumber: '987654321',
-  },
-  {
-    title: 'Psykolog',
-    description:
-      'Yngve Røe er autorisert fysioterapeut med kommunal driftstilskuddsavtale. Yngve Røe er autorisert fysioterapeut med kommunal driftstilskuddsavtale. I tillegg til lang erfaring med å behandle pasienter, har han en hovedfagsgrad',
-    doctorName: 'Dr. Hansen',
-    number: '123456789',
-    email: 'hansen@example.com',
-    clinicNumber: '987654321',
-  },
-  {
-    title: 'Akupunktur',
-    description:
-      'Yngve Røe er autorisert fysioterapeut med kommunal driftstilskuddsavtale. I tillegg til lang erfaring med å behandle pasienter, har han en hovedfagsgrad',
-    doctorName: 'Dr. Hansen',
-    number: '123456789',
-    email: 'hansen@example.com',
-    clinicNumber: '987654321',
-  },
-  {
-    title: 'Akupunktur',
-    description:
-      'Yngve Røe er autorisert fysioterapeut med kommunal driftstilskuddsavtale. I tillegg til lang erfaring med å behandle pasienter, har han en hovedfagsgrad',
-    doctorName: 'Dr. Hansen',
-    number: '123456789',
-    email: 'hansen@example.com',
-    clinicNumber: '987654321',
-  },
-  {
-    title: 'Akupunktur',
-    description:
-      'Yngve Røe er autorisert fysioterapeut med kommunal driftstilskuddsavtale. I tillegg til lang erfaring med å behandle pasienter, har han en hovedfagsgrad',
-    doctorName: 'Dr. Hansen',
-    number: '123456789',
-    email: 'hansen@example.com',
-    clinicNumber: '987654321',
-  },
-  {
-    title: 'Akupunktur',
-    description:
-      'Yngve Røe er autorisert fysioterapeut med kommunal driftstilskuddsavtale. I tillegg til lang erfaring med å behandle pasienter, har han en hovedfagsgrad',
-    doctorName: 'Dr. Hansen',
-    number: '123456789',
-    email: 'hansen@example.com',
-    clinicNumber: '987654321',
-  },
-  {
-    title: 'Akupunktur',
-    description:
-      'Yngve Røe er autorisert fysioterapeut med kommunal driftstilskuddsavtale. I tillegg til lang erfaring med å behandle pasienter, har han en hovedfagsgrad',
-    doctorName: 'Dr. Hansen',
-    number: '123456789',
-    email: 'hansen@example.com',
-    clinicNumber: '987654321',
-  },
-  {
-    title: 'Akupunktur',
-    description:
-      'Yngve Røe er autorisert fysioterapeut med kommunal driftstilskuddsavtale. I tillegg til lang erfaring med å behandle pasienter, har han en hovedfagsgrad',
-    doctorName: 'Dr. Hansen',
-    number: '123456789',
-    email: 'hansen@example.com',
-    clinicNumber: '987654321',
-  },
-]
+// const services = [
+//   {
+//     title: 'Akupunktur',
+//     description:
+//       'Yngve Røe er autorisert fysioterapeut med kommunal driftstilskuddsavtale. I tillegg til lang erfaring med å behandle pasienter, har han en hovedfagsgrad (Cand. San) og en doktorgrad (PhD) fra Universitetet i Oslo. Det legges vekt på at den behandlingen du får som pasient er kunnskapsbasert, det vil si at både dine egne erfaringer med smertene/plagene og oppdatert forskningskunnskap får betydning for den behandlingsplanen som settes opp. Behandlingen som gis er øvelser, ofte supplert med tøyninger. Andre behandlingstyper vil kun unntaksvis bli benyttet. Yngve Røe er autorisert fysioterapeut med kommunal driftstilskuddsavtale. I tillegg til lang erfaring med å behandle pasienter, har han en hovedfagsgrad (Cand. San) og en doktorgrad (PhD) fra Universitetet i Oslo. Det legges vekt på at den behandlingen du får som pasient er kunnskapsbasert, det vil si at både dine egne erfaringer med smertene/plagene og oppdatert forskningskunnskap får betydning for den behandlingsplanen som settes opp. Behandlingen som gis er øvelser, ofte supplert med tøyninger. Andre behandlingstyper vil kun unntaksvis bli benyttet.',
+//     doctorName: 'Yngve Røe',
+//     number: '123456789',
+//     email: 'hansen@example.com',
+//     clinicNumber: '987654321',
+//   },
+//   {
+//     title: 'Psykolog',
+//     description:
+//       'Yngve Røe er autorisert fysioterapeut med kommunal driftstilskuddsavtale. Yngve Røe er autorisert fysioterapeut med kommunal driftstilskuddsavtale. I tillegg til lang erfaring med å behandle pasienter, har han en hovedfagsgrad',
+//     doctorName: 'Dr. Hansen',
+//     number: '123456789',
+//     email: 'hansen@example.com',
+//     clinicNumber: '987654321',
+//   },
+//   {
+//     title: 'Akupunktur',
+//     description:
+//       'Yngve Røe er autorisert fysioterapeut med kommunal driftstilskuddsavtale. I tillegg til lang erfaring med å behandle pasienter, har han en hovedfagsgrad',
+//     doctorName: 'Dr. Hansen',
+//     number: '123456789',
+//     email: 'hansen@example.com',
+//     clinicNumber: '987654321',
+//   },
+//   {
+//     title: 'Akupunktur',
+//     description:
+//       'Yngve Røe er autorisert fysioterapeut med kommunal driftstilskuddsavtale. I tillegg til lang erfaring med å behandle pasienter, har han en hovedfagsgrad',
+//     doctorName: 'Dr. Hansen',
+//     number: '123456789',
+//     email: 'hansen@example.com',
+//     clinicNumber: '987654321',
+//   },
+//   {
+//     title: 'Akupunktur',
+//     description:
+//       'Yngve Røe er autorisert fysioterapeut med kommunal driftstilskuddsavtale. I tillegg til lang erfaring med å behandle pasienter, har han en hovedfagsgrad',
+//     doctorName: 'Dr. Hansen',
+//     number: '123456789',
+//     email: 'hansen@example.com',
+//     clinicNumber: '987654321',
+//   },
+//   {
+//     title: 'Akupunktur',
+//     description:
+//       'Yngve Røe er autorisert fysioterapeut med kommunal driftstilskuddsavtale. I tillegg til lang erfaring med å behandle pasienter, har han en hovedfagsgrad',
+//     doctorName: 'Dr. Hansen',
+//     number: '123456789',
+//     email: 'hansen@example.com',
+//     clinicNumber: '987654321',
+//   },
+//   {
+//     title: 'Akupunktur',
+//     description:
+//       'Yngve Røe er autorisert fysioterapeut med kommunal driftstilskuddsavtale. I tillegg til lang erfaring med å behandle pasienter, har han en hovedfagsgrad',
+//     doctorName: 'Dr. Hansen',
+//     number: '123456789',
+//     email: 'hansen@example.com',
+//     clinicNumber: '987654321',
+//   },
+//   {
+//     title: 'Akupunktur',
+//     description:
+//       'Yngve Røe er autorisert fysioterapeut med kommunal driftstilskuddsavtale. I tillegg til lang erfaring med å behandle pasienter, har han en hovedfagsgrad',
+//     doctorName: 'Dr. Hansen',
+//     number: '123456789',
+//     email: 'hansen@example.com',
+//     clinicNumber: '987654321',
+//   },
+// ]
 
-export default function Services() {
+export default function Services({ services }) {
   const [selectedService, setSelectedService] = useState<Service | null>(null)
 
-  const handleCardClick = (service: any) => {
+  const handleCardClick = (service: Service) => {
     setSelectedService(service)
   }
   const { language } = useLanguage()
@@ -106,7 +100,7 @@ export default function Services() {
       <div className=" mt-16 cards-container grid grid-cols-1 lg:grid-cols-2 gap-8 mx-auto w-1/2 pb-28">
         {services.map((service) => (
           <Card
-            key={service.title}
+            key={service.name}
             className="bg-white text-card-foreground shadow-lg rounded-lg border cursor-pointer"
             onClick={() => handleCardClick(service)}
             style={{
@@ -116,7 +110,7 @@ export default function Services() {
           >
             <CardContent className="flex justify-center items-center p-6">
               <CardTitle className="text-2xl font-base leading-none tracking-tight">
-                {service.title}
+                {service.name}
               </CardTitle>
             </CardContent>
           </Card>
@@ -126,12 +120,8 @@ export default function Services() {
         <ServiceDialog
           isOpen={!!selectedService}
           onDismiss={() => setSelectedService(null)}
-          dialogTitle={selectedService.title}
-          dialogDescription={selectedService.description}
-          doctorName={selectedService.doctorName}
-          number={selectedService.number}
-          email={selectedService.email}
-          clinicNumber={selectedService.clinicNumber}
+          dialogTitle={selectedService.name}
+          dialogDescription={selectedService.descriptionRaw}
         />
       )}
     </div>

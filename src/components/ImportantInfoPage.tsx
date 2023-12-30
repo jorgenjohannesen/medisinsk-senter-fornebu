@@ -1,13 +1,15 @@
 import React from 'react'
-import Contact from './Contact'
+
+import { Button } from '@/components/ui/button'
 import {
   Card,
-  CardHeader,
   CardContent,
-  CardTitle,
   CardDescription,
+  CardHeader,
+  CardTitle,
 } from '@/components/ui/card'
-import { Button } from '@/components/ui/button'
+
+import Contact from './Contact'
 
 const initialNotifications = [
   {
@@ -32,7 +34,7 @@ const initialNotifications = [
   },
 ]
 
-export default function ImportantInfoPage() {
+export default function ImportantInfoPage({ news }) {
   return (
     <div className=" bg-white flex flex-col">
       <div className="bg-secondary min-h-screen">
@@ -40,7 +42,7 @@ export default function ImportantInfoPage() {
           Viktig informasjon
         </h1>
         <div className=" flex flex-col items-center mb-12">
-          {initialNotifications.map((notification, index) => (
+          {news.map((notification, index) => (
             <Card
               key={index}
               className="m-4 w-1/2 bg-white bg-opacity-50 rounded-lg mx-2"
@@ -66,7 +68,7 @@ export default function ImportantInfoPage() {
           ))}
         </div>
       </div>
-      <Contact />
+      <Contact contactInformation={undefined} />
     </div>
   )
 }

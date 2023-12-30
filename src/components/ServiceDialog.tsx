@@ -1,12 +1,13 @@
-import * as React from 'react'
 import {
   Dialog,
-  DialogOverlay,
-  DialogContent,
   DialogClose,
-  DialogTitle,
+  DialogContent,
   DialogDescription,
+  DialogOverlay,
+  DialogTitle,
 } from '@radix-ui/react-dialog'
+import * as React from 'react'
+
 import { Button } from '@/components/ui/button'
 
 const ServiceDialog = ({
@@ -14,10 +15,6 @@ const ServiceDialog = ({
   onDismiss,
   dialogTitle,
   dialogDescription,
-  doctorName,
-  number,
-  email,
-  clinicNumber,
   buttonText = 'Send oss en henvendelse',
 }) => {
   return (
@@ -34,15 +31,11 @@ const ServiceDialog = ({
           <p className="text-xl mb-4">
             Har du flere spørsmål eller ønsker å bestille time? Ta kontakt med
           </p>
-          <p className="text-primary font-bold"> {doctorName}</p>
-          <p>Contact: {number}</p>
-          <p>Email: {email}</p>
         </div>
         <div>
           <p className="text-primary font-bold mt-4">
             Medisinsk Senter Fornebu
           </p>
-          <p>{clinicNumber}</p>
         </div>
         <Button
           variant={'outline'}

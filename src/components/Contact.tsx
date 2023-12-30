@@ -1,4 +1,5 @@
 import React from 'react'
+
 import {
   Card,
   CardContent,
@@ -8,7 +9,7 @@ import {
 } from '@/components/ui/card'
 import { useLanguage } from '~/context/LanguageContext'
 
-export default function Contact() {
+export default function Contact({ contactInformation }) {
   const { language } = useLanguage()
 
   const emergencyContacts = [
