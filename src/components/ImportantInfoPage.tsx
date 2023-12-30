@@ -1,3 +1,4 @@
+import { PortableText } from '@portabletext/react'
 import React from 'react'
 
 import { Button } from '@/components/ui/button'
@@ -8,37 +9,18 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card'
+import { useLanguage } from '~/context/LanguageContext'
 
 import Contact from './Contact'
 
-const initialNotifications = [
-  {
-    title: 'Se åpningstider i julen',
-    description:
-      'Klikk her for å se åpningstider i perioden 22.desember - 29. desember.',
-  },
-  {
-    title: 'Se åpningstider i julen',
-    description:
-      'Klikk her for å se åpningstider i perioden 22.desember - 29. desember.',
-  },
-  {
-    title: 'Se åpningstider i julen',
-    description:
-      'Klikk her for å se åpningstider i perioden 22.desember - 29. desember.',
-  },
-  {
-    title: 'Se åpningstider i julen',
-    description:
-      'Klikk her for å se åpningstider i perioden 22.desember - 29. desember.',
-  },
-]
-
 export default function ImportantInfoPage({ news }) {
+  const { language } = useLanguage()
+
   return (
     <div className=" bg-white flex flex-col">
       <div className="bg-secondary min-h-screen">
         <h1 className="text-3xl font-normal text-primary px-44 text-left self-start mt-16 mb-8">
+          {language === 'no' ? 'Viktig informasjon' : 'Important information'}
           Viktig informasjon
         </h1>
         <div className=" flex flex-col items-center mb-12">
@@ -52,8 +34,8 @@ export default function ImportantInfoPage({ news }) {
                 <img className="h-6 mr-4" src={'/bell-red.svg'} alt={'bell'} />
               </CardHeader>
               <CardContent>
-                <CardDescription className="text-primary">
-                  {notification.description}
+                <CardDescription className="text-primary prose">
+                  <PortableText value={notification.previewRaw} />
                 </CardDescription>
                 <Button
                   variant={'outline'}
@@ -61,7 +43,7 @@ export default function ImportantInfoPage({ news }) {
                   className="bg-white text-base text-primary hover:bg-white-600 w-1/4 mt-4 shadow-md bg-opacity-100"
                   size={'lg'}
                 >
-                  Les mer
+                  {language === 'no' ? 'Les mer' : 'Read more'}
                 </Button>
               </CardContent>
             </Card>

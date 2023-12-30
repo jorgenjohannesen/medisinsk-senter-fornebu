@@ -66,6 +66,7 @@ export default function IndexPage(
 
   return (
     <Navbar
+      contactInformation={props.contactInformation}
       onHomeClick={() => {
         setShowImportantInfo(false)
         scrollToRef(homeRef)
@@ -85,7 +86,7 @@ export default function IndexPage(
       ) : (
         <>
           <div ref={homeRef}>
-            <Home />
+            <Home notifications={props.news} />
           </div>
           <InformationCard
             contactInformation={props.contactInformation}

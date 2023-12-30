@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+
 import { Button } from '@/components/ui/button'
 import { useLanguage } from '~/context/LanguageContext'
 
@@ -9,6 +10,7 @@ export default function Navbar({
   onContactClick,
   onImportantInfoClick,
   children,
+  contactInformation,
 }) {
   const [activeButton, setActiveButton] = useState('home')
 
@@ -26,6 +28,8 @@ export default function Navbar({
     setActiveButton('home')
     onHomeClick()
   }
+
+  const contactInfo = contactInformation[0]
 
   const { language, toggleLanguage } = useLanguage()
 
@@ -115,15 +119,15 @@ export default function Navbar({
             <strong>
               {language === 'no' ? 'Åpningstider: ' : 'Opening hours: '}
             </strong>
-            Mandag - Fredag 08:00 - 15:30
+            {contactInfo.openingHours}
           </div>
           <div>
-            <strong>{language === 'no' ? 'Telefon: ' : 'Phone: '}</strong> +47
-            675 90 636
+            <strong>{language === 'no' ? 'Telefon: ' : 'Phone: '}</strong>{' '}
+            {contactInfo.phone}
           </div>
           <div>
             <strong> {language === 'no' ? 'Adresse: ' : 'Address: '}</strong>
-            Forneburingen 209, 1364 Fornebu
+            {contactInfo.address}
           </div>
         </div>
       </footer>

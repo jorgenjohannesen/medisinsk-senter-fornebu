@@ -1,3 +1,4 @@
+import { PortableText } from '@portabletext/react'
 import {
   Dialog,
   DialogClose,
@@ -24,26 +25,9 @@ const ServiceDialog = ({
         <DialogTitle className="text-4xl text-primary mb-4">
           {dialogTitle}
         </DialogTitle>
-        <DialogDescription className="mt-2 text-base mb-6 w-full">
-          {dialogDescription}
+        <DialogDescription className="mt-2 text-base mb-6 w-full prose">
+          <PortableText value={dialogDescription} />
         </DialogDescription>
-        <div>
-          <p className="text-xl mb-4">
-            Har du flere spørsmål eller ønsker å bestille time? Ta kontakt med
-          </p>
-        </div>
-        <div>
-          <p className="text-primary font-bold mt-4">
-            Medisinsk Senter Fornebu
-          </p>
-        </div>
-        <Button
-          variant={'outline'}
-          className="bg-primary text-base text-white hover:bg-primary-600 hover:text-white mt-8"
-          size={'lg'}
-        >
-          {buttonText}
-        </Button>
         <DialogClose
           className="absolute top-2 right-2 m-4 text-2xl"
           onClick={onDismiss}

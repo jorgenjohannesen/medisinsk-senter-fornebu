@@ -22,9 +22,7 @@ export default defineType({
       name: 'image',
       title: 'Bilde',
       type: 'image',
-      options: {
-        hotspot: true,
-      },
+      options: { hotspot: true },
     }),
     defineField({
       name: 'language',

@@ -4,10 +4,10 @@ import { Card, CardHeader, CardTitle } from '@/components/ui/card'
 import { useLanguage } from '~/context/LanguageContext'
 
 import BookingDialog from './BookingDialog'
-import NotificationSlideshow from './NotificationCard'
 import GeneralDialog from './GeneralDialog'
+import NotificationSlideshow from './NotificationCard'
 
-export default function Home() {
+export default function Home({ notifications }) {
   const [isBookingModalOpen, setBookingModalOpen] = useState(false)
   const [isPrescriptionRenewalModalOpen, setPrescriptionRenewalModalOpen] =
     useState(false)
@@ -73,10 +73,17 @@ export default function Home() {
             isOpen={isPrescriptionRenewalModalOpen}
             onDismiss={() => setPrescriptionRenewalModalOpen(false)}
             dialogTitle={'Forny resept'}
+            // dialog with correct language
             dialogDescription={
-              'Du blir nå videresendt til helsenorge.no. Der kan du fornye din resept NB: Det er kun våre fastlegepasienter som kan fornye respet gjennom helsenorge'
+              language === 'no'
+                ? 'Du blir nå videresendt til helsenorge.no. Der kan du fornye din resept'
+                : 'You will now be redirected to helsenorge.no. There you can renew your prescription'
             }
-            buttonText={'Forny resept på helsenorge.no'}
+            buttonText={
+              language === 'no'
+                ? 'Forny resept på helsenorge.no'
+                : 'Renew prescription on helsenorge.no'
+            }
             href={'https://helsenorge.no'}
           />
           <a
@@ -101,16 +108,26 @@ export default function Home() {
           <GeneralDialog
             isOpen={isEConsultationModalOpen}
             onDismiss={() => setEConsultationModalOpen(false)}
-            dialogTitle={'Start e-konsultasjon'}
-            dialogDescription={
-              'Du blir nå videresendt til helsenorge.no. Der kan du starte din e-konsultasjon'
+            dialogTitle={
+              language === 'no'
+                ? 'Start e-konsultasjon'
+                : 'Start e-consultation'
             }
-            buttonText={'Start e-konsultasjon på helsenorge.no'}
+            dialogDescription={
+              language === 'no'
+                ? 'Du blir nå videresendt til helsenorge.no. Der kan du starte din e-konsultasjon'
+                : 'You will now be redirected to helsenorge.no. There you can start your e-consultation'
+            }
+            buttonText={
+              language === 'no'
+                ? 'Start e-konsultasjon'
+                : 'Start e-consultation'
+            }
             href={'https://helsenorge.no'}
           />
         </div>
         <div className="flex items-center justify-center px-40">
-          <NotificationSlideshow />
+          <NotificationSlideshow notifications={notifications} />
         </div>
       </div>
     </div>

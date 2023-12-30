@@ -17,6 +17,39 @@ module.exports = {
       },
     },
     extend: {
+      typography: (theme) => ({
+        DEFAULT: {
+          css: {
+            h1: {
+              fontSize: theme('fontSize.3xl'),
+              fontWeight: theme('fontWeight.bold'),
+              color: theme('colors.gray.800'),
+              // any other styles
+            },
+            h2: {
+              fontSize: theme('fontSize.2xl'),
+              fontWeight: theme('fontWeight.bold'),
+              color: theme('colors.primary.DEFAULT'),
+              // any other styles
+            },
+            h3: {
+              fontSize: theme('fontSize.xl'),
+              fontWeight: theme('fontWeight.bold'),
+              color: theme('colors.primary.DEFAULT'),
+            },
+            h4: {
+              fontSize: theme('fontSize.lg'),
+              fontWeight: theme('fontWeight.bold'),
+              color: theme('colors.primary.DEFAULT'),
+            },
+            h5: {
+              fontSize: theme('fontSize.sm'),
+              fontWeight: theme('fontWeight.bold'),
+              color: theme('colors.primary.DEFAULT'),
+            },
+          },
+        },
+      }),
       colors: {
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',
@@ -81,5 +114,5 @@ module.exports = {
       },
     },
   },
-  plugins: [require('tailwindcss-animate')],
+  plugins: [require('tailwindcss-animate'), require('@tailwindcss/typography')],
 }
