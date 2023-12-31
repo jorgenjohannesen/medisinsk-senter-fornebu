@@ -1,7 +1,9 @@
+import { Employee } from '~/gql/graphql'
+
 import { graphql } from '../gql'
 
 export const AllPostsQuery = graphql(/* GraphQL */ `
-  query allPost {
+  query allPost($language: String!) {
     allPost {
       _id
       title
@@ -18,9 +20,10 @@ export const AllPostsQuery = graphql(/* GraphQL */ `
   }
 `)
 
+// All employees but with dynamic language
 export const AllEmployeesQuery = graphql(/* GraphQL */ `
-  query allEmployee {
-    allEmployee {
+  query allEmployee($language: String!) {
+    allEmployee(where: { language: { eq: $language } }) {
       _id
       name
       descriptionRaw
@@ -34,8 +37,8 @@ export const AllEmployeesQuery = graphql(/* GraphQL */ `
 `)
 
 export const AllNewsQuery = graphql(/* GraphQL */ `
-  query allNews {
-    allNews {
+  query allNews($language: String!) {
+    allNews(where: { language: { eq: $language } }) {
       _id
       title
       previewRaw
@@ -45,8 +48,8 @@ export const AllNewsQuery = graphql(/* GraphQL */ `
 `)
 
 export const ContactInformationQuery = graphql(/* GraphQL */ `
-  query contactInformation {
-    allContactInformation {
+  query contactInformation($language: String!) {
+    allContactInformation(where: { language: { eq: $language } }) {
       _id
       address
       phone
@@ -56,8 +59,8 @@ export const ContactInformationQuery = graphql(/* GraphQL */ `
 `)
 
 export const AllServicesQuery = graphql(/* GraphQL */ `
-  query allService {
-    allService {
+  query allService($language: String!) {
+    allService(where: { language: { eq: $language } }) {
       _id
       name
       descriptionRaw

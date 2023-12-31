@@ -21,7 +21,6 @@ export default function ImportantInfoPage({ news }) {
       <div className="bg-secondary min-h-screen">
         <h1 className="text-3xl font-normal text-primary px-44 text-left self-start mt-16 mb-8">
           {language === 'no' ? 'Viktig informasjon' : 'Important information'}
-          Viktig informasjon
         </h1>
         <div className=" flex flex-col items-center mb-12">
           {news.map((notification, index) => (
