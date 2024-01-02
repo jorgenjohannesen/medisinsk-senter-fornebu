@@ -10,11 +10,12 @@ import {
 } from '@/components/ui/card'
 import { useLanguage } from '~/context/LanguageContext'
 
-const InformationCard = ({ onEmployeesClick }) => {
+const InformationCard = ({ onEmployeesClick, contactInformation }) => {
   const handleButtonClick = (onClickFunction: any) => {
     onClickFunction()
   }
   const { language } = useLanguage()
+  const contactInfo = contactInformation[0]
 
   return (
     <div className="relative w-full lg:h-[507px] mx-auto">
@@ -49,7 +50,7 @@ const InformationCard = ({ onEmployeesClick }) => {
                 </span>
               </div>
               <div className="flex flex-col">
-                <p>Mandag - Fredag 08:00 - 15:30.</p>
+                <p>{contactInfo.openingHours}</p>
                 <p>
                   {language === 'no'
                     ? 'Kveldstimer etter avtale'
@@ -64,18 +65,18 @@ const InformationCard = ({ onEmployeesClick }) => {
                 </span>
               </div>
               <div className="flex flex-col">
-                <p>+47 675 90 636</p>
+                <p>{contactInfo.phone}</p>
                 <p>Mandag - Fredag 08:45 - 11:00 og 12:00 - 15:00</p>
               </div>
             </div>
             <div className="flex flex-row mb-4">
               <div className="flex flex-col mr-2">
                 <span className="border-b border-white pb-1 w-28">
-                  Adresse:
+                  {language === 'no' ? 'Adresse:' : 'Address:'}
                 </span>
               </div>
               <div className="flex flex-col">
-                <p>Forneburingen 209, 1364 Fornebu.</p>
+                <p>{contactInfo.address}</p>
                 <p>Vi holder til inne på kjøpesenteret Fornebu S, bygg C.</p>
               </div>
             </div>

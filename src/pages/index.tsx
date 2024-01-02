@@ -1,21 +1,46 @@
-import React, { useState, useRef } from 'react'
+import dotenv from 'dotenv'
+import { request } from 'graphql-request'
 import type { InferGetStaticPropsType } from 'next'
+import React, { useRef, useState } from 'react'
 
 import Contact from '~/components/Contact'
 import Employees from '~/components/Employees'
 import Home from '~/components/Home'
+import ImportantInfoPage from '~/components/ImportantInfoPage'
 import InformationCard from '~/components/InformationCard'
 import Navbar from '~/components/Navbar'
 import Services from '~/components/Services'
-import ImportantInfoPage from '~/components/ImportantInfoPage'
 import { readToken } from '~/lib/sanity.api'
 import { getClient } from '~/lib/sanity.client'
+import {
+  AllEmployeesQuery,
+  AllNewsQuery,
+  AllServicesQuery,
+  ContactInformationQuery,
+} from '~/lib/sanity.queries'
+import contactInformation from '~/schemas/contactInformation'
+
+dotenv.config()
+const GRAPHQL_ENDPOINT = process.env.GRAPHQL_ENDPOINT!
 
 export const getStaticProps = async ({ draftMode = false }) => {
   const client = getClient(draftMode ? { token: readToken } : undefined)
 
+  // Fetch dynamic data here
+  const employees = await request(GRAPHQL_ENDPOINT, AllEmployeesQuery)
+  const news = await request(GRAPHQL_ENDPOINT, AllNewsQuery)
+  const contactInformation = await request(
+    GRAPHQL_ENDPOINT,
+    ContactInformationQuery,
+  )
+  const services = await request(GRAPHQL_ENDPOINT, AllServicesQuery)
+
   return {
     props: {
+      employees: employees.allEmployee,
+      news: news.allNews,
+      contactInformation: contactInformation.allContactInformation,
+      services: services.allService,
       draftMode,
       token: draftMode ? readToken : '',
     },
@@ -41,6 +66,7 @@ export default function IndexPage(
 
   return (
     <Navbar
+      contactInformation={props.contactInformation}
       onHomeClick={() => {
         setShowImportantInfo(false)
         scrollToRef(homeRef)
@@ -56,21 +82,24 @@ export default function IndexPage(
       }}
     >
       {showImportantInfo ? (
-        <ImportantInfoPage />
+        <ImportantInfoPage news={props.news} />
       ) : (
         <>
           <div ref={homeRef}>
-            <Home />
+            <Home notifications={props.news} />
           </div>
-          <InformationCard onEmployeesClick={() => scrollToRef(employeesRef)} />
+          <InformationCard
+            contactInformation={props.contactInformation}
+            onEmployeesClick={() => scrollToRef(employeesRef)}
+          />
           <div ref={servicesRef}>
-            <Services />
+            <Services services={props.services} />
           </div>
           <div ref={employeesRef}>
-            <Employees />
+            <Employees employees={props.employees} />
           </div>
           <div ref={contactRef}>
-            <Contact />
+            <Contact contactInformation={props.contactInformation} />
           </div>
         </>
       )}

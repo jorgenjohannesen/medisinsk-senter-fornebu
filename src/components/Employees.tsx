@@ -1,3 +1,5 @@
+import { PortableText } from '@portabletext/react'
+import Image from 'next/image'
 import React, { useState } from 'react'
 
 import { Button } from '@/components/ui/button'
@@ -11,46 +13,7 @@ import {
 } from '@/components/ui/card'
 import { useLanguage } from '~/context/LanguageContext'
 
-const employees = [
-  {
-    name: 'Dr. Andrea Berz',
-    description:
-      'Spesialist i allmennmedisin, spesialist i flymedisin og universitetslektor v/ Universitetet i Oslo og har mange års erfaring innenfor bedriftshelsetjeneste/personallegeordning. Dr. Berz er med i svarpanelet på www.lommelegen.no som flylege. Hun er godkjent petroleumslege og sjømannslege.',
-    imageUrl: '/test-img.png',
-  },
-  {
-    name: 'Dr. Andrea Berz',
-    description:
-      'Spesialist i allmennmedisin, spesialist i flymedisin og universitetslektor v/ Universitetet i Oslo...',
-    imageUrl: '/test-img.png',
-  },
-  {
-    name: 'Dr. Andrea Berz',
-    description:
-      'Spesialist i allmennmedisin, spesialist i flymedisin og universitetslektor v/ Universitetet i Oslo...',
-    imageUrl: '/test-img.png',
-  },
-  {
-    name: 'Dr. Andrea Berz',
-    description:
-      'Spesialist i allmennmedisin, spesialist i flymedisin og universitetslektor v/ Universitetet i Oslo...',
-    imageUrl: '/test-img.png',
-  },
-  {
-    name: 'Dr. Andrea Berz',
-    description:
-      'Spesialist i allmennmedisin, spesialist i flymedisin og universitetslektor v/ Universitetet i Oslo...',
-    imageUrl: '/test-img.png',
-  },
-  {
-    name: 'Dr. Andrea Berz',
-    description:
-      'Spesialist i allmennmedisin, spesialist i flymedisin og universitetslektor v/ Universitetet i Oslo...',
-    imageUrl: '/test-img.png',
-  },
-]
-
-export default function Employees() {
+export default function Employees({ employees }) {
   const [hovered, setHovered] = useState(null)
   const { language } = useLanguage()
 
@@ -84,8 +47,10 @@ export default function Employees() {
                 }`}
               >
                 <CardContent className="p-0">
-                  <img
-                    src={employee.imageUrl}
+                  <Image
+                    src={employee.image?.asset.url}
+                    width={484}
+                    height={300}
                     alt={employee.name}
                     className={`object-cover transition-all duration-300 ease-in-out ${
                       hovered === index ? 'hovered-image-class' : ''
@@ -93,8 +58,8 @@ export default function Employees() {
                   />
                   {hovered === index && (
                     <div className="absolute inset-0 bg-primary bg-opacity-70 flex flex-col justify-between p-6">
-                      <CardDescription className="text-white text-base">
-                        {employee.description}
+                      <CardDescription className="text-white text-base prose">
+                        <PortableText value={employee.descriptionRaw} />
                       </CardDescription>
                       <Button
                         variant={'outline'}

@@ -54,3 +54,13 @@ export const ContactInformationQuery = graphql(/* GraphQL */ `
     }
   }
 `)
+
+export const AllServicesQuery = graphql(/* GraphQL */ `
+  query allService {
+    allService {
+      _id
+      name
+      descriptionRaw
+    }
+  }
+`)
