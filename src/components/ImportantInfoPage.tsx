@@ -73,8 +73,8 @@ export default function ImportantInfoPage({ news }) {
                     >
                       {isExpanded
                         ? language === 'no'
-                          ? 'Lukk'
-                          : 'Close'
+                          ? 'Vis mindre'
+                          : 'Show less'
                         : language === 'no'
                           ? 'Les mer'
                           : 'Read more'}
