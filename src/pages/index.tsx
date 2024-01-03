@@ -125,7 +125,19 @@ export default function IndexPage(
       ) : (
         <>
           <div ref={homeRef}>
-            <Home notifications={news} />
+            <Home
+              notifications={news}
+              onHomeClick={() => {
+                setShowImportantInfo(false)
+                scrollToRef(homeRef)
+              }}
+              onImportantInfoClick={(shouldScrollToTop: any) => {
+                setShowImportantInfo(true)
+                if (shouldScrollToTop) {
+                  window.scrollTo({ top: 0, behavior: 'auto' })
+                }
+              }}
+            />
           </div>
           <InformationCard
             contactInformation={contactInformation}
