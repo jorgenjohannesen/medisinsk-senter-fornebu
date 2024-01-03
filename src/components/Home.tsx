@@ -7,7 +7,11 @@ import BookingDialog from './BookingDialog'
 import GeneralDialog from './GeneralDialog'
 import NotificationSlideshow from './NotificationCard'
 
-export default function Home({ notifications }) {
+export default function Home({
+  notifications,
+  onHomeClick,
+  onImportantInfoClick,
+}) {
   const [isBookingModalOpen, setBookingModalOpen] = useState(false)
   const [isPrescriptionRenewalModalOpen, setPrescriptionRenewalModalOpen] =
     useState(false)
@@ -127,7 +131,11 @@ export default function Home({ notifications }) {
           />
         </div>
         <div className="flex items-center justify-center px-40">
-          <NotificationSlideshow notifications={notifications} />
+          <NotificationSlideshow
+            notifications={notifications}
+            onImportantInfoClick={onImportantInfoClick}
+            onHomeClick={onHomeClick}
+          />
         </div>
       </div>
     </div>
