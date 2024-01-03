@@ -34,7 +34,7 @@ const iframeOptions = {
 export default defineConfig({
   basePath: '/studio',
   name: 'project-name',
-  title: 'Project Name',
+  title: 'Medisinsk Senter Fornebu',
   projectId,
   dataset,
   //edit schemas in './src/schemas'
@@ -47,7 +47,6 @@ export default defineConfig({
         { id: 'en', title: 'English' },
       ],
       schemaTypes: ['employee', 'news', 'contactInformation', 'service'],
-      languageField: 'Språk',
     }),
     deskTool({
       // `defaultDocumentNode` is responsible for adding a “Preview” tab to the document pane

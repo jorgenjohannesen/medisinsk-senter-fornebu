@@ -13,11 +13,11 @@ import { TypedDocumentNode as DocumentNode } from '@graphql-typed-document-node/
  * Therefore it is highly recommended to use the babel or swc plugin for production.
  */
 const documents = {
-    "\n  query allPost {\n    allPost {\n      _id\n      title\n      slug {\n        current\n      }\n      excerpt\n      mainImage {\n        asset {\n          url\n        }\n      }\n    }\n  }\n": types.AllPostDocument,
-    "\n  query allEmployee {\n    allEmployee {\n      _id\n      name\n      descriptionRaw\n      image {\n        asset {\n          url\n        }\n      }\n    }\n  }\n": types.AllEmployeeDocument,
-    "\n  query allNews {\n    allNews {\n      _id\n      title\n      previewRaw\n      bodyRaw\n    }\n  }\n": types.AllNewsDocument,
-    "\n  query contactInformation {\n    allContactInformation {\n      _id\n      address\n      phone\n      openingHours\n    }\n  }\n": types.ContactInformationDocument,
-    "\n  query allService {\n    allService {\n      _id\n      name\n      descriptionRaw\n    }\n  }\n": types.AllServiceDocument,
+    "\n  query allPost($language: String!) {\n    allPost {\n      _id\n      title\n      slug {\n        current\n      }\n      excerpt\n      mainImage {\n        asset {\n          url\n        }\n      }\n    }\n  }\n": types.AllPostDocument,
+    "\n  query allEmployee($language: String!) {\n    allEmployee(where: { language: { eq: $language } }) {\n      _id\n      name\n      descriptionRaw\n      image {\n        asset {\n          url\n        }\n      }\n    }\n  }\n": types.AllEmployeeDocument,
+    "\n  query allNews($language: String!) {\n    allNews(where: { language: { eq: $language } }) {\n      _id\n      title\n      previewRaw\n      bodyRaw\n    }\n  }\n": types.AllNewsDocument,
+    "\n  query contactInformation($language: String!) {\n    allContactInformation(where: { language: { eq: $language } }) {\n      _id\n      address\n      phone\n      openingHours\n    }\n  }\n": types.ContactInformationDocument,
+    "\n  query allService($language: String!) {\n    allService(where: { language: { eq: $language } }) {\n      _id\n      name\n      descriptionRaw\n    }\n  }\n": types.AllServiceDocument,
 };
 
 /**
@@ -37,23 +37,23 @@ export function graphql(source: string): unknown;
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
-export function graphql(source: "\n  query allPost {\n    allPost {\n      _id\n      title\n      slug {\n        current\n      }\n      excerpt\n      mainImage {\n        asset {\n          url\n        }\n      }\n    }\n  }\n"): (typeof documents)["\n  query allPost {\n    allPost {\n      _id\n      title\n      slug {\n        current\n      }\n      excerpt\n      mainImage {\n        asset {\n          url\n        }\n      }\n    }\n  }\n"];
+export function graphql(source: "\n  query allPost($language: String!) {\n    allPost {\n      _id\n      title\n      slug {\n        current\n      }\n      excerpt\n      mainImage {\n        asset {\n          url\n        }\n      }\n    }\n  }\n"): (typeof documents)["\n  query allPost($language: String!) {\n    allPost {\n      _id\n      title\n      slug {\n        current\n      }\n      excerpt\n      mainImage {\n        asset {\n          url\n        }\n      }\n    }\n  }\n"];
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
-export function graphql(source: "\n  query allEmployee {\n    allEmployee {\n      _id\n      name\n      descriptionRaw\n      image {\n        asset {\n          url\n        }\n      }\n    }\n  }\n"): (typeof documents)["\n  query allEmployee {\n    allEmployee {\n      _id\n      name\n      descriptionRaw\n      image {\n        asset {\n          url\n        }\n      }\n    }\n  }\n"];
+export function graphql(source: "\n  query allEmployee($language: String!) {\n    allEmployee(where: { language: { eq: $language } }) {\n      _id\n      name\n      descriptionRaw\n      image {\n        asset {\n          url\n        }\n      }\n    }\n  }\n"): (typeof documents)["\n  query allEmployee($language: String!) {\n    allEmployee(where: { language: { eq: $language } }) {\n      _id\n      name\n      descriptionRaw\n      image {\n        asset {\n          url\n        }\n      }\n    }\n  }\n"];
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
-export function graphql(source: "\n  query allNews {\n    allNews {\n      _id\n      title\n      previewRaw\n      bodyRaw\n    }\n  }\n"): (typeof documents)["\n  query allNews {\n    allNews {\n      _id\n      title\n      previewRaw\n      bodyRaw\n    }\n  }\n"];
+export function graphql(source: "\n  query allNews($language: String!) {\n    allNews(where: { language: { eq: $language } }) {\n      _id\n      title\n      previewRaw\n      bodyRaw\n    }\n  }\n"): (typeof documents)["\n  query allNews($language: String!) {\n    allNews(where: { language: { eq: $language } }) {\n      _id\n      title\n      previewRaw\n      bodyRaw\n    }\n  }\n"];
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
-export function graphql(source: "\n  query contactInformation {\n    allContactInformation {\n      _id\n      address\n      phone\n      openingHours\n    }\n  }\n"): (typeof documents)["\n  query contactInformation {\n    allContactInformation {\n      _id\n      address\n      phone\n      openingHours\n    }\n  }\n"];
+export function graphql(source: "\n  query contactInformation($language: String!) {\n    allContactInformation(where: { language: { eq: $language } }) {\n      _id\n      address\n      phone\n      openingHours\n    }\n  }\n"): (typeof documents)["\n  query contactInformation($language: String!) {\n    allContactInformation(where: { language: { eq: $language } }) {\n      _id\n      address\n      phone\n      openingHours\n    }\n  }\n"];
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
-export function graphql(source: "\n  query allService {\n    allService {\n      _id\n      name\n      descriptionRaw\n    }\n  }\n"): (typeof documents)["\n  query allService {\n    allService {\n      _id\n      name\n      descriptionRaw\n    }\n  }\n"];
+export function graphql(source: "\n  query allService($language: String!) {\n    allService(where: { language: { eq: $language } }) {\n      _id\n      name\n      descriptionRaw\n    }\n  }\n"): (typeof documents)["\n  query allService($language: String!) {\n    allService(where: { language: { eq: $language } }) {\n      _id\n      name\n      descriptionRaw\n    }\n  }\n"];
 
 export function graphql(source: string) {
   return (documents as any)[source] ?? {};

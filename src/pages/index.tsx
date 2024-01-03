@@ -10,6 +10,7 @@ import ImportantInfoPage from '~/components/ImportantInfoPage'
 import InformationCard from '~/components/InformationCard'
 import Navbar from '~/components/Navbar'
 import Services from '~/components/Services'
+import { useLanguage } from '~/context/LanguageContext'
 import { readToken } from '~/lib/sanity.api'
 import { getClient } from '~/lib/sanity.client'
 import {
@@ -18,7 +19,6 @@ import {
   AllServicesQuery,
   ContactInformationQuery,
 } from '~/lib/sanity.queries'
-import contactInformation from '~/schemas/contactInformation'
 
 dotenv.config()
 const GRAPHQL_ENDPOINT = process.env.GRAPHQL_ENDPOINT!
@@ -27,20 +27,45 @@ export const getStaticProps = async ({ draftMode = false }) => {
   const client = getClient(draftMode ? { token: readToken } : undefined)
 
   // Fetch dynamic data here
-  const employees = await request(GRAPHQL_ENDPOINT, AllEmployeesQuery)
-  const news = await request(GRAPHQL_ENDPOINT, AllNewsQuery)
-  const contactInformation = await request(
+  const employeesNO = await request(GRAPHQL_ENDPOINT, AllEmployeesQuery, {
+    language: 'no',
+  })
+  const employeesEN = await request(GRAPHQL_ENDPOINT, AllEmployeesQuery, {
+    language: 'en',
+  })
+  const newsNO = await request(GRAPHQL_ENDPOINT, AllNewsQuery, {
+    language: 'no',
+  })
+  const newsEN = await request(GRAPHQL_ENDPOINT, AllNewsQuery, {
+    language: 'en',
+  })
+  const contactInformationNO = await request(
     GRAPHQL_ENDPOINT,
     ContactInformationQuery,
+    { language: 'no' },
   )
-  const services = await request(GRAPHQL_ENDPOINT, AllServicesQuery)
+  const contactInformationEN = await request(
+    GRAPHQL_ENDPOINT,
+    ContactInformationQuery,
+    { language: 'en' },
+  )
+  const servicesNO = await request(GRAPHQL_ENDPOINT, AllServicesQuery, {
+    language: 'no',
+  })
+  const servicesEN = await request(GRAPHQL_ENDPOINT, AllServicesQuery, {
+    language: 'en',
+  })
 
   return {
     props: {
-      employees: employees.allEmployee,
-      news: news.allNews,
-      contactInformation: contactInformation.allContactInformation,
-      services: services.allService,
+      employeesNO: employeesNO.allEmployee,
+      employeesEN: employeesEN.allEmployee,
+      newsNO: newsNO.allNews,
+      newsEN: newsEN.allNews,
+      contactInformationNO: contactInformationNO.allContactInformation,
+      contactInformationEN: contactInformationEN.allContactInformation,
+      servicesNO: servicesNO.allService,
+      servicesEN: servicesEN.allService,
       draftMode,
       token: draftMode ? readToken : '',
     },
@@ -52,6 +77,20 @@ export default function IndexPage(
   props: InferGetStaticPropsType<typeof getStaticProps>,
 ) {
   const [showImportantInfo, setShowImportantInfo] = useState(false)
+
+  const { language } = useLanguage()
+
+  const employees =
+    props.employeesEN && language === 'en'
+      ? props.employeesEN
+      : props.employeesNO
+  const news = props.newsEN && language === 'en' ? props.newsEN : props.newsNO
+  const contactInformation =
+    props.contactInformationEN && language === 'en'
+      ? props.contactInformationEN
+      : props.contactInformationNO
+  const services =
+    props.servicesEN && language === 'en' ? props.servicesEN : props.servicesNO
 
   const homeRef = useRef(null)
   const servicesRef = useRef(null)
@@ -66,7 +105,7 @@ export default function IndexPage(
 
   return (
     <Navbar
-      contactInformation={props.contactInformation}
+      contactInformation={contactInformation}
       onHomeClick={() => {
         setShowImportantInfo(false)
         scrollToRef(homeRef)
@@ -82,12 +121,12 @@ export default function IndexPage(
       }}
     >
       {showImportantInfo ? (
-        <ImportantInfoPage news={props.news} />
+        <ImportantInfoPage news={news} />
       ) : (
         <>
           <div ref={homeRef}>
             <Home
-              notifications={props.news}
+              notifications={news}
               onHomeClick={() => {
                 setShowImportantInfo(false)
                 scrollToRef(homeRef)
@@ -101,17 +140,17 @@ export default function IndexPage(
             />
           </div>
           <InformationCard
-            contactInformation={props.contactInformation}
+            contactInformation={contactInformation}
             onEmployeesClick={() => scrollToRef(employeesRef)}
           />
           <div ref={servicesRef}>
-            <Services services={props.services} />
+            <Services services={services} />
           </div>
           <div ref={employeesRef}>
-            <Employees employees={props.employees} />
+            <Employees employees={employees} />
           </div>
           <div ref={contactRef}>
-            <Contact contactInformation={props.contactInformation} />
+            <Contact contactInformation={contactInformation} />
           </div>
         </>
       )}
