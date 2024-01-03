@@ -24,14 +24,6 @@ export default function ImportantInfoPage({ news }) {
     }))
   }
 
-  const shouldShowButton = (bodyRaw) => {
-    return bodyRaw && bodyRaw.length > 1
-  }
-
-  const getDisplayText = (previewRaw, bodyRaw, isExpanded) => {
-    return isExpanded ? bodyRaw : previewRaw
-  }
-
   return (
     <div className="bg-white flex flex-col">
       <div className="bg-secondary min-h-screen">
@@ -46,8 +38,10 @@ export default function ImportantInfoPage({ news }) {
                 key={notification._id}
                 className="m-4 w-1/2 bg-white bg-opacity-50 rounded-lg mx-2"
               >
-                <CardHeader className="flex flex-row justify-between items-center p-2 mt-2 ml-2 text-primary">
-                  <CardTitle>{notification.title}</CardTitle>
+                <CardHeader className="flex flex-row justify-between items-center p-4 mt-2 ml-2 text-primary">
+                  <CardTitle className="text-md text-2xl">
+                    {notification.title}
+                  </CardTitle>
                   <img
                     className="h-6 mr-4"
                     src={'/bell-red.svg'}
@@ -55,31 +49,28 @@ export default function ImportantInfoPage({ news }) {
                   />
                 </CardHeader>
                 <CardContent>
-                  <CardDescription className="text-primary prose">
-                    <PortableText
-                      value={getDisplayText(
-                        notification.previewRaw,
-                        notification.bodyRaw,
-                        isExpanded,
-                      )}
-                    />
+                  <CardDescription className="text-primary prose text-base mb-4">
+                    <PortableText value={notification.previewRaw} />
                   </CardDescription>
-                  {shouldShowButton(notification.bodyRaw) && (
-                    <Button
-                      variant={'outline'}
-                      onClick={() => toggleExpansion(index)}
-                      className="bg-white text-base text-primary hover:bg-white-600 w-1/4 mt-4 shadow-md bg-opacity-100"
-                      size={'lg'}
-                    >
-                      {isExpanded
-                        ? language === 'no'
-                          ? 'Vis mindre'
-                          : 'Show less'
-                        : language === 'no'
-                          ? 'Les mer'
-                          : 'Read more'}
-                    </Button>
+                  {isExpanded && (
+                    <CardDescription className="text-primary prose">
+                      <PortableText value={notification.bodyRaw} />
+                    </CardDescription>
                   )}
+                  <Button
+                    variant={'outline'}
+                    onClick={() => toggleExpansion(index)}
+                    className="bg-white text-base text-primary hover:bg-white-600 w-1/4 mt-4 shadow-md bg-opacity-100"
+                    size={'lg'}
+                  >
+                    {isExpanded
+                      ? language === 'no'
+                        ? 'Lukk'
+                        : 'Close'
+                      : language === 'no'
+                        ? 'Les mer'
+                        : 'Read more'}
+                  </Button>
                 </CardContent>
               </Card>
             )
