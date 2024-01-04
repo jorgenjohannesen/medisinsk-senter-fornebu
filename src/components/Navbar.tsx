@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-
 import { Button } from '@/components/ui/button'
 import { useLanguage } from '~/context/LanguageContext'
 
@@ -13,6 +12,7 @@ export default function Navbar({
   contactInformation,
 }) {
   const [activeButton, setActiveButton] = useState('home')
+  const { language, toggleLanguage } = useLanguage()
 
   const handleButtonClick = (buttonName: string, onClickFunction: any) => {
     setActiveButton(buttonName)
@@ -31,106 +31,175 @@ export default function Navbar({
 
   const contactInfo = contactInformation[0]
 
-  const { language, toggleLanguage } = useLanguage()
-
   return (
-    <div>
-      <header className="relative z-10 bg-white border-b border-[#ced2d9] m-0 p-0">
-        <div className="flex justify-between items-center h-28 py-0 px-[var(--space-1)] m-0">
-          <div
-            className="flex items-center ml-8 cursor-pointer"
-            onClick={handleLogoClick}
-          >
-            <img className="h-20 mr-4" src="/logo.svg" alt="logo" />
-            <div className="flex flex-col">
-              <div>Medisinsk</div>
-              <div>Senter</div>
-              <div>Fornebu</div>
+    <>
+      <style>
+        {`
+          @media (max-width: 1000px) {
+            .custom-nav {
+              display: none;
+            }
+            .right-nav {
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              gap: 12px;
+            }
+            .custom-hamburger {
+              display: block;
+              order: 3;
+              margin-left: 8px;
+            }
+            .important-info-text {
+              display: none;
+            }
+            .important-info-button {
+              padding: 0.5rem 1rem;
+              order: 2;
+            }
+            .bell-icon {
+              height: 1.5rem;
+            }
+            .language-flag {
+              order: 1;
+              margin-right: 8px;
+            }
+          }
+          @media (min-width: 1001px) {
+            .custom-nav {
+              display: flex;
+            }
+            .right-nav {
+              display: flex;
+              align-items: center;
+              justify-content: center;
+            }
+            .custom-hamburger {
+              display: none;
+            }
+            .important-info-button {
+              position: fixed; 
+              right: 30px;
+              top: 32px;
+              width: 12rem;
+            }
+            .bell-icon {
+              height: 1.5rem;
+            }
+            .language-flag {
+              margin-right: 212px;
+            }
+          }
+        `}
+      </style>
+      <div>
+        <header className="relative z-10 bg-white border-b border-[#ced2d9] m-0 p-0">
+          <div className="flex justify-between items-center h-28 py-0 px-[var(--space-1)] m-0">
+            <div
+              className="flex items-center ml-8 cursor-pointer"
+              onClick={handleLogoClick}
+            >
+              <img className="h-20 mr-4" src="/logo.svg" alt="logo" />
+              <div className="flex flex-col">
+                <div>Medisinsk</div>
+                <div>Senter</div>
+                <div>Fornebu</div>
+              </div>
+            </div>
+            <div className="custom-nav space-x-9 text-xl">
+              <Button
+                variant={'link'}
+                onClick={() => handleButtonClick('home', onHomeClick)}
+                className={`border-b-2 pb-1 text-xl ${
+                  activeButton === 'home'
+                    ? 'border-current'
+                    : 'border-transparent'
+                }`}
+              >
+                {language === 'no' ? 'Hjem' : 'Home'}
+              </Button>
+              <Button
+                variant={'link'}
+                onClick={() => handleButtonClick('services', onServicesClick)}
+                className={`border-b-2 pb-1 text-xl ${
+                  activeButton === 'services'
+                    ? 'border-current'
+                    : 'border-transparent'
+                }`}
+              >
+                {language === 'no' ? 'Tjenester' : 'Services'}
+              </Button>
+              <Button
+                variant={'link'}
+                onClick={() => handleButtonClick('employees', onEmployeesClick)}
+                className={`border-b-2 pb-1 text-xl ${
+                  activeButton === 'employees'
+                    ? 'border-current'
+                    : 'border-transparent'
+                }`}
+              >
+                {language === 'no' ? 'Ansatte' : 'Employees'}
+              </Button>
+              <Button
+                variant={'link'}
+                onClick={() => handleButtonClick('contact', onContactClick)}
+                className={`border-b-2 pb-1 text-xl ${
+                  activeButton === 'contact'
+                    ? 'border-current'
+                    : 'border-transparent'
+                }`}
+              >
+                {language === 'no' ? 'Kontakt' : 'Contact'}
+              </Button>
+            </div>
+            <div className="right-nav mr-8">
+              <img
+                className="language-flag h-6 w-6 object-fill rounded-sm"
+                src={language === 'no' ? '/flag_no.png' : '/flag_en.png'}
+                alt="Norwegian flag"
+                onClick={toggleLanguage}
+              />
+              <Button
+                variant={'default'}
+                onClick={() =>
+                  handleButtonClick('important', onImportantInfoClick)
+                }
+                className="important-info-button z-20 bg-red text-white hover:bg-red-600 hover:text-white"
+                size={'lg'}
+              >
+                <img className="bell-icon" src="/bell.svg" alt="bell" />
+                <span className="important-info-text ml-2">
+                  {language === 'no'
+                    ? 'Viktig informasjon'
+                    : 'Important information'}
+                </span>
+              </Button>
+              <div className="custom-hamburger hidden">
+                <img className="h-8" src="/hamburger.svg" alt="menu" />
+              </div>
             </div>
           </div>
-          <div className="flex flex-row space-x-9 text-xl">
-            <Button
-              variant={'link'}
-              onClick={() => handleButtonClick('home', onHomeClick)}
-              className={`border-b-2 pb-1 text-xl ${
-                activeButton === 'home'
-                  ? 'border-current'
-                  : 'border-transparent'
-              }`}
-            >
-              {language === 'no' ? 'Hjem' : 'Home'}
-            </Button>
-            <Button
-              variant={'link'}
-              onClick={() => handleButtonClick('services', onServicesClick)}
-              className={`border-b-2 pb-1 text-xl ${
-                activeButton === 'services'
-                  ? 'border-current'
-                  : 'border-transparent'
-              }`}
-            >
-              {language === 'no' ? 'Tjenester' : 'Services'}
-            </Button>
-            <Button
-              variant={'link'}
-              onClick={() => handleButtonClick('employees', onEmployeesClick)}
-              className={`border-b-2 pb-1 text-xl ${
-                activeButton === 'employees'
-                  ? 'border-current'
-                  : 'border-transparent'
-              }`}
-            >
-              {language === 'no' ? 'Ansatte' : 'Employees'}
-            </Button>
-            <Button
-              variant={'link'}
-              onClick={() => handleButtonClick('contact', onContactClick)}
-              className={`border-b-2 pb-1 text-xl ${
-                activeButton === 'contact'
-                  ? 'border-current'
-                  : 'border-transparent'
-              }`}
-            >
-              {language === 'no' ? 'Kontakt' : 'Contact'}
-            </Button>
+        </header>
+        <main>{children}</main>
+        <footer className="footer bg-secondary h-28">
+          <div className="flex justify-around items-center h-full w-full px-4">
+            <div>
+              <strong>
+                {language === 'no' ? 'Åpningstider: ' : 'Opening hours: '}
+              </strong>
+              {contactInfo.openingHours}
+            </div>
+            <div>
+              <strong>{language === 'no' ? 'Telefon: ' : 'Phone: '}</strong>
+              {contactInfo.phone}
+            </div>
+            <div>
+              <strong> {language === 'no' ? 'Adresse: ' : 'Address: '}</strong>
+              {contactInfo.address}
+            </div>
           </div>
-          <div className="mr-8"> {} </div>
-          <img
-            className="h-6 w-6 object-fill mr-60 rounded-sm"
-            src={language === 'no' ? '/flag_no.png' : '/flag_en.png'}
-            alt="Norwegian flag"
-            onClick={toggleLanguage}
-          />
-        </div>
-      </header>
-      <Button
-        variant={'default'}
-        onClick={() => handleButtonClick('important', onImportantInfoClick)}
-        className="fixed right-8 top-8 z-20 bg-red text-white hover:bg-red-600 hover:text-white w-48"
-        size={'lg'}
-      >
-        <img className="h-6 mr-2" src="/bell.svg" alt="bell" />
-        {language === 'no' ? 'Viktig informasjon' : 'Important information'}
-      </Button>
-      <main>{children}</main>
-      <footer className="footer bg-secondary h-28">
-        <div className="flex justify-around items-center h-full w-full px-4">
-          <div>
-            <strong>
-              {language === 'no' ? 'Åpningstider: ' : 'Opening hours: '}
-            </strong>
-            {contactInfo.openingHours}
-          </div>
-          <div>
-            <strong>{language === 'no' ? 'Telefon: ' : 'Phone: '}</strong>{' '}
-            {contactInfo.phone}
-          </div>
-          <div>
-            <strong> {language === 'no' ? 'Adresse: ' : 'Address: '}</strong>
-            {contactInfo.address}
-          </div>
-        </div>
-      </footer>
-    </div>
+        </footer>
+      </div>
+    </>
   )
 }
