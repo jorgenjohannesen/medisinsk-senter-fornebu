@@ -47,7 +47,7 @@ export default function Navbar({
             }
             .custom-hamburger {
               display: block;
-              order: 3;
+              order: 2;
               margin-left: 8px;
             }
             .important-info-text {
@@ -55,14 +55,13 @@ export default function Navbar({
             }
             .important-info-button {
               padding: 0.5rem 1rem;
-              order: 2;
+              order: 1;
             }
             .bell-icon {
               height: 1.5rem;
             }
             .language-flag {
-              order: 1;
-              margin-right: 8px;
+              display: none;
             }
           }
           @media (min-width: 1001px) {

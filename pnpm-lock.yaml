@@ -1,5 +1,9 @@
 lockfileVersion: '6.0'
 
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
 dependencies:
   '@apollo/client':
     specifier: ^3.8.8
@@ -100,6 +104,9 @@ dependencies:
   tailwindcss-animate:
     specifier: ^1.0.7
     version: 1.0.7(tailwindcss@3.3.6)
+  vaul:
+    specifier: ^0.8.0
+    version: 0.8.0(@types/react@18.2.37)(react-dom@18.2.0)(react@18.2.0)
 
 devDependencies:
   '@graphql-codegen/cli':
@@ -9492,6 +9499,20 @@ packages:
     engines: {node: '>=12'}
     dev: true
 
+  /vaul@0.8.0(@types/react@18.2.37)(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-9nUU2jIObJvJZxeQU1oVr/syKo5XqbRoOMoTEt0hHlWify4QZFlqTh6QSN/yxoKzNrMeEQzxbc3XC/vkPLOIqw==}
+    peerDependencies:
+      react: ^16.8 || ^17.0 || ^18.0
+      react-dom: ^16.8 || ^17.0 || ^18.0
+    dependencies:
+      '@radix-ui/react-dialog': 1.0.5(@types/react@18.2.37)(react-dom@18.2.0)(react@18.2.0)
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
+    transitivePeerDependencies:
+      - '@types/react'
+      - '@types/react-dom'
+    dev: false
+
   /vite@4.5.0(@types/node@20.10.0):
     resolution: {integrity: sha512-ulr8rNLA6rkyFAlVWw2q5YJ91v098AFQ2R0PRFwPzREXOUJQPtFUG0t+/ZikhaOCDqFoDhN6/v8Sq0o4araFAw==}
     engines: {node: ^14.18.0 || >=16.0.0}
@@ -9814,7 +9835,3 @@ packages:
       compress-commons: 4.1.2
       readable-stream: 3.6.2
     dev: false
-
-settings:
-  autoInstallPeers: true
-  excludeLinksFromLockfile: false
