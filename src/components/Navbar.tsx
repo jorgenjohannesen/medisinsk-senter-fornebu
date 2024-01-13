@@ -1,6 +1,11 @@
 import React, { useState } from 'react'
 import { Button } from '@/components/ui/button'
 import { useLanguage } from '~/context/LanguageContext'
+import HamburgerMenu from './HamburgerMenu'
+import {
+  DropdownMenu,
+  DropdownMenuTrigger,
+} from '@/components/ui/dropdown-menu'
 
 export default function Navbar({
   onHomeClick,
@@ -13,6 +18,14 @@ export default function Navbar({
 }) {
   const [activeButton, setActiveButton] = useState('home')
   const { language, toggleLanguage } = useLanguage()
+  const [isHamburgerMenuOpen, setHamburgerMenuOpen] = useState(false)
+  const handleHamburgerClick = () => {
+    setHamburgerMenuOpen(!isHamburgerMenuOpen)
+  }
+
+  const closeHamburgerMenu = () => {
+    setHamburgerMenuOpen(false)
+  }
 
   const handleButtonClick = (buttonName: string, onClickFunction: any) => {
     setActiveButton(buttonName)
@@ -173,9 +186,31 @@ export default function Navbar({
                     : 'Important information'}
                 </span>
               </Button>
-              <div className="custom-hamburger hidden">
-                <img className="h-8" src="/hamburger.svg" alt="menu" />
-              </div>
+
+              <DropdownMenu
+                open={isHamburgerMenuOpen}
+                onOpenChange={setHamburgerMenuOpen}
+              >
+                <DropdownMenuTrigger asChild>
+                  <div
+                    className="custom-hamburger cursor-pointer"
+                    onClick={handleHamburgerClick}
+                  >
+                    <img className="h-8" src="/hamburger.svg" alt="menu" />
+                  </div>
+                </DropdownMenuTrigger>
+
+                <HamburgerMenu
+                  onHomeClick={onHomeClick}
+                  onServicesClick={onServicesClick}
+                  onEmployeesClick={onEmployeesClick}
+                  onContactClick={onContactClick}
+                  onImportantInfoClick={onImportantInfoClick}
+                  toggleLanguage={toggleLanguage}
+                  language={language}
+                  onClose={closeHamburgerMenu}
+                />
+              </DropdownMenu>
             </div>
           </div>
         </header>
