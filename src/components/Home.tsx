@@ -21,7 +21,7 @@ export default function Home({
   return (
     <div className="h-screen bg-secondary flex flex-col">
       <div className="mt-32">
-        <div className="text-5xl mb-20 font-medium text-primary self-start w-full px-40">
+        <div className="text-5xl mb-20 font-medium text-primary self-start w-full lg:px-40 px-20">
           <div>
             {language === 'no' ? 'Velkommen til' : 'Welcome to'}{' '}
             <span className="text-red">Medisinsk senter Fornebu</span>
@@ -32,7 +32,7 @@ export default function Home({
               : 'How can we help you?'}
           </div>
         </div>
-        <div className="flex gap-12 w-full px-40 mb-12">
+        <div className="flex flex-col gap-12 w-full lg:px-40 md:px-36 px-16 mb-12 lg:flex-row">
           <a
             className="text-center flex-1 cursor-pointer"
             onClick={() => setBookingModalOpen(true)}

@@ -18,25 +18,25 @@ const InformationCard = ({ onEmployeesClick, contactInformation }) => {
   const contactInfo = contactInformation[0]
 
   return (
-    <div className="relative w-full lg:h-[507px] mx-auto">
+    <div className="relative w-full lg:h-[507px] mx-auto py-16">
       <div className="absolute top-0 left-0 w-full h-1/2 bg-secondary"></div>
       <div className="absolute bottom-0 left-0 w-full h-1/2 bg-white"></div>
-      <Card className="relative w-3/4 mx-auto bg-primary flex flex-row items-center lg:h-[507px]">
-        <div className="w-1/2">
+      <Card className="relative w-3/4 mx-auto bg-primary flex flex-col lg:flex-row items-center lg:h-[507px]">
+        <div className="w-full lg:w-1/2 lg:mt-0 p-6 lg:p-0">
           <img
-            className="w-full h-96 object-cover rounded-md ml-16"
+            className="lg:h-96 object-cover rounded-md mx-auto lg:ml-16 w-full lg:w-auto"
             src="/test-img.png"
             alt="Person in office"
           />
         </div>
-        <div className="text-white pl-24">
+        <div className="text-white pl-4 lg:pl-24 pt-4 lg:pt-0">
           <CardHeader>
             <CardTitle className="text-3xl">
               {language === 'no'
                 ? 'Hos oss vil du bli tatt godt vare på'
                 : 'We will take good care of you'}
             </CardTitle>
-            <CardDescription className="text-white w-3/4 text-base pt-4">
+            <CardDescription className="text-white w-full lg:w-3/4 text-base pt-4">
               {language === 'no'
                 ? 'Her på Medisinsk Senter Fornebu er vi en gjeng med dyktige ansatte som gjerne vil hjelpe deg.'
                 : 'Here at Medisinsk Senter Fornebu we are a bunch of skilled employees who would love to help you.'}
