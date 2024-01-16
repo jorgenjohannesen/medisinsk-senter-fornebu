@@ -100,7 +100,7 @@ export default function Services({ services }) {
             : 'In addition to our general practitioner consultation, we can also help with a number of other services'}{' '}
         </h1>
       </div>
-      <div className=" mt-16 cards-container grid grid-cols-1 lg:grid-cols-2 gap-8 mx-auto lg:w-1/2 w-full px-4 lg:px-0 pb-28">
+      <div className=" mt-16 cards-container grid grid-cols-1 lg:grid-cols-2 gap-8 mx-auto lg:w-1/2 w-full md:px-4 lg:px-0 pb-28">
         {services.map((service) => (
           <Card
             key={service.name}

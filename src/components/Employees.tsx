@@ -28,7 +28,7 @@ export default function Employees({ employees }) {
           : 'Meet our employees'}
       </div>
       <div className="flex flex-col items-center">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 mt-24 mb-32">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 md:mt-24 mt-12 md:mb-32 mb-16">
           {employees.map((employee, index: any) => (
             <div
               key={employee.name}
@@ -41,7 +41,7 @@ export default function Employees({ employees }) {
               >
                 {employee.name}
               </div>
-              <div className="lg:p-0 px-6 py-10">
+              <div className="lg:p-0 px-4 py-10">
                 <Card
                   className={`lg:w-[484px] lg:h-[300px] relative overflow-hidden ${
                     hovered === index ? 'show-overlay' : ''
