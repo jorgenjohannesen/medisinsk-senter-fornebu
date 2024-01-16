@@ -1,21 +1,38 @@
-import { PortableText } from '@portabletext/react'
+import React, { useEffect, useState } from 'react'
 import Image from 'next/image'
-import React, { useState } from 'react'
+import { PortableText } from '@portabletext/react'
+import { useMediaQuery } from 'react-responsive'
 
 import { Button } from '@/components/ui/button'
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from '@/components/ui/card'
+import { Card, CardContent, CardDescription } from '@/components/ui/card'
+
 import { useLanguage } from '~/context/LanguageContext'
+import GeneralDialog from './GeneralDialog'
+import { AllEmployeeQuery } from '~/gql/graphql'
 
 export default function Employees({ employees }) {
+  type Employee = AllEmployeeQuery['allEmployee'][number]
+
   const [hovered, setHovered] = useState(null)
+  const [dialogOpen, setDialogOpen] = useState(false)
+  const [selectedEmployee, setSelectedEmployee] = useState<Employee | null>(
+    null,
+  )
+  const isSmallScreen = useMediaQuery({ query: '(max-width: 768px)' })
   const { language } = useLanguage()
+
+  const handleCardClick = (employee) => {
+    if (isSmallScreen) {
+      setSelectedEmployee(employee)
+      setDialogOpen(true)
+    }
+  }
+
+  useEffect(() => {
+    if (isSmallScreen) {
+      setHovered(null)
+    }
+  }, [isSmallScreen])
 
   return (
     <div className="flex flex-col justify-center min-h-screen bg-secondary">
@@ -29,11 +46,13 @@ export default function Employees({ employees }) {
       </div>
       <div className="flex flex-col items-center">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 md:mt-24 mt-12 md:mb-32 mb-16">
-          {employees.map((employee, index: any) => (
+          {employees.map((employee) => (
             <div
               key={employee.name}
-              onMouseEnter={() => setHovered(index)}
-              onMouseLeave={() => setHovered(null)}
+              onMouseEnter={() => !isSmallScreen && setHovered(employee)}
+              onMouseLeave={() => !isSmallScreen && setHovered(null)}
+              onClick={() => handleCardClick(employee)}
+              className="cursor-pointer"
             >
               <div
                 className="text-left lg:px-0 px-6 mb-2 text-primary text-2xl"
@@ -44,7 +63,7 @@ export default function Employees({ employees }) {
               <div className="lg:p-0 px-4 py-10">
                 <Card
                   className={`lg:w-[484px] lg:h-[300px] relative overflow-hidden ${
-                    hovered === index ? 'show-overlay' : ''
+                    hovered === employee ? 'show-overlay' : ''
                   }`}
                 >
                   <CardContent className="p-0">
@@ -54,10 +73,10 @@ export default function Employees({ employees }) {
                       height={300}
                       alt={employee.name}
                       className={`w-[484px] h-[300px] object-cover transition-all duration-300 ease-in-out ${
-                        hovered === index ? 'hovered-image-class' : ''
+                        hovered === employee ? 'hovered-image-class' : ''
                       }`}
                     />
-                    {hovered === index && (
+                    {hovered === employee && (
                       <div className="absolute inset-0 bg-primary bg-opacity-70 flex flex-col justify-between p-6">
                         <CardDescription className="text-white text-base">
                           <PortableText value={employee.descriptionRaw} />
@@ -70,7 +89,7 @@ export default function Employees({ employees }) {
                         >
                           {language === 'no'
                             ? 'Bytt fastlege'
-                            : 'Change your general practioner'}
+                            : 'Change your general practitioner'}
                         </Button>
                       </div>
                     )}
@@ -81,6 +100,23 @@ export default function Employees({ employees }) {
           ))}
         </div>
       </div>
+
+      {selectedEmployee && (
+        <GeneralDialog
+          isOpen={dialogOpen}
+          onDismiss={() => setDialogOpen(false)}
+          dialogTitle={selectedEmployee.name}
+          dialogDescription={
+            <PortableText value={selectedEmployee.descriptionRaw} />
+          }
+          buttonText={
+            language === 'no'
+              ? 'Bytt fastlege'
+              : 'Change your general practitioner'
+          }
+          href="#"
+        />
+      )}
     </div>
   )
 }

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Button } from '@/components/ui/button'
 import { useLanguage } from '~/context/LanguageContext'
 import HamburgerMenu from './HamburgerMenu'
@@ -19,6 +19,7 @@ export default function Navbar({
   const [activeButton, setActiveButton] = useState('home')
   const { language, toggleLanguage } = useLanguage()
   const [isHamburgerMenuOpen, setHamburgerMenuOpen] = useState(false)
+  const contactInfo = contactInformation[0]
   const handleHamburgerClick = () => {
     setHamburgerMenuOpen(!isHamburgerMenuOpen)
   }
@@ -42,7 +43,19 @@ export default function Navbar({
     onHomeClick()
   }
 
-  const contactInfo = contactInformation[0]
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 1000 && isHamburgerMenuOpen) {
+        setHamburgerMenuOpen(false)
+      }
+    }
+
+    window.addEventListener('resize', handleResize)
+
+    return () => {
+      window.removeEventListener('resize', handleResize)
+    }
+  }, [isHamburgerMenuOpen])
 
   return (
     <>
@@ -76,7 +89,7 @@ export default function Navbar({
               display: none;
             }
           }
-          @media (min-width: 1001px) {
+          @media (min-width: 1000px) {
             .custom-nav {
               display: flex;
             }
@@ -222,7 +235,7 @@ export default function Navbar({
           </div>
         </header>
         <main>{children}</main>
-        <footer className="footer bg-secondary md:h-28 ">
+        <footer className="footer bg-secondary md:h-28">
           <div className="flex flex-col md:flex-row md:justify-around md:gap-y-0 gap-y-4 items-center h-full w-full px-4 md:p-0 p-6">
             <div className="flex flex-col md:flex-row gap-x-1 md:w-max w-64">
               <strong>
