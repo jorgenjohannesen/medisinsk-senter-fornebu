@@ -6,6 +6,7 @@ import { useLanguage } from '~/context/LanguageContext'
 import BookingDialog from './BookingDialog'
 import GeneralDialog from './GeneralDialog'
 import NotificationSlideshow from './NotificationCard'
+import InformationCard from './InformationCard'
 
 export default function Home({
   notifications,
@@ -19,9 +20,9 @@ export default function Home({
   const { language } = useLanguage()
 
   return (
-    <div className="h-screen bg-secondary flex flex-col">
-      <div className="mt-32">
-        <div className="text-5xl mb-20 font-medium text-primary self-start w-full lg:px-40 px-20">
+    <div className="bg-secondary flex flex-col p-y-16">
+      <div className="lg:mt-32 mt-16">
+        <div className="md:text-5xl text-3xl mb-20 font-medium text-primary self-start w-full lg:px-40 md:px-20 px-10">
           <div>
             {language === 'no' ? 'Velkommen til' : 'Welcome to'}{' '}
             <span className="text-red">Medisinsk senter Fornebu</span>
@@ -32,7 +33,7 @@ export default function Home({
               : 'How can we help you?'}
           </div>
         </div>
-        <div className="flex flex-col gap-12 w-full lg:px-40 md:px-36 px-16 mb-12 lg:flex-row">
+        <div className="flex flex-col gap-12 w-full lg:px-40 md:px-36 px-6 mb-12 lg:flex-row">
           <a
             className="text-center flex-1 cursor-pointer"
             onClick={() => setBookingModalOpen(true)}
@@ -77,11 +78,10 @@ export default function Home({
             isOpen={isPrescriptionRenewalModalOpen}
             onDismiss={() => setPrescriptionRenewalModalOpen(false)}
             dialogTitle={'Forny resept'}
-            // dialog with correct language
             dialogDescription={
               language === 'no'
-                ? 'Du blir nå videresendt til helsenorge.no. Der kan du fornye din resept'
-                : 'You will now be redirected to helsenorge.no. There you can renew your prescription'
+                ? 'Trykk på knappen under for å bli sendt til helsenorge.no, der kan du fornye din resept'
+                : 'Press the button below to be redirected to helsenorge.no, here you can renew your prescription'
             }
             buttonText={
               language === 'no'
@@ -119,8 +119,8 @@ export default function Home({
             }
             dialogDescription={
               language === 'no'
-                ? 'Du blir nå videresendt til helsenorge.no. Der kan du starte din e-konsultasjon'
-                : 'You will now be redirected to helsenorge.no. There you can start your e-consultation'
+                ? 'Trykk på knappen under for å bli sendt til helsenorge.no, der kan du starte din e-konsultasjon'
+                : 'Press the button below to be redirected to helsenorge.no, there you can start your e-consultation'
             }
             buttonText={
               language === 'no'
@@ -130,7 +130,7 @@ export default function Home({
             href={'https://helsenorge.no'}
           />
         </div>
-        <div className="flex items-center justify-center px-40">
+        <div className="flex items-center justify-center lg:px-40 md:px-36 px-0 w-full">
           <NotificationSlideshow
             notifications={notifications}
             onImportantInfoClick={onImportantInfoClick}

@@ -16,7 +16,7 @@ const HamburgerMenu = ({
   onClose,
 }) => {
   return (
-    <DropdownMenuContent className="p-4 bg-white w-64 mr-4 mt-5">
+    <DropdownMenuContent className="p-4 bg-white w-54 mt-5">
       <div className="flex justify-end top-2 right-8 p-2">
         <img
           className="h-4 ml-2 w-6 cursor-pointer"
@@ -30,7 +30,6 @@ const HamburgerMenu = ({
           <Button
             variant={'default'}
             className="z-20 w-46 bg-red text-white hover:bg-red-600 hover:text-white"
-            size={'lg'}
           >
             <img className="bell-icon" src="/bell.svg" alt="bell" />
             <span className="ml-2">

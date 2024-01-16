@@ -18,7 +18,7 @@ module.exports = {
     },
     extend: {
       screens: {
-        lg: '1150px', // new larger breakpoint for lg
+        lg: '1200px', // new larger breakpoint for lg
       },
       typography: (theme) => ({
         DEFAULT: {

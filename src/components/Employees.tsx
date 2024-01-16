@@ -20,7 +20,7 @@ export default function Employees({ employees }) {
   return (
     <div className="flex flex-col justify-center min-h-screen bg-secondary">
       <div
-        className="text-3xl mt-16 text-primary px-44 text-left self-start"
+        className="text-3xl mt-16 text-primary lg:px-44 md:px-20 px-6 text-left self-start"
         style={{ fontWeight: 400 }}
       >
         {language === 'no'
@@ -36,45 +36,47 @@ export default function Employees({ employees }) {
               onMouseLeave={() => setHovered(null)}
             >
               <div
-                className="text-left mb-2 text-primary text-2xl"
+                className="text-left lg:px-0 px-6 mb-2 text-primary text-2xl"
                 style={{ fontWeight: 400 }}
               >
                 {employee.name}
               </div>
-              <Card
-                className={`w-[484px] h-[300px] relative overflow-hidden ${
-                  hovered === index ? 'show-overlay' : ''
-                }`}
-              >
-                <CardContent className="p-0">
-                  <Image
-                    src={employee.image?.asset.url}
-                    width={484}
-                    height={300}
-                    alt={employee.name}
-                    className={`object-cover transition-all duration-300 ease-in-out ${
-                      hovered === index ? 'hovered-image-class' : ''
-                    }`}
-                  />
-                  {hovered === index && (
-                    <div className="absolute inset-0 bg-primary bg-opacity-70 flex flex-col justify-between p-6">
-                      <CardDescription className="text-white text-base prose">
-                        <PortableText value={employee.descriptionRaw} />
-                      </CardDescription>
-                      <Button
-                        variant={'outline'}
-                        onClick={undefined}
-                        className="bg-white text-base text-primary w-28"
-                        size={'lg'}
-                      >
-                        {language === 'no'
-                          ? 'Bytt fastlege'
-                          : 'Change your general practioner'}
-                      </Button>
-                    </div>
-                  )}
-                </CardContent>
-              </Card>
+              <div className="lg:p-0 px-6 py-10">
+                <Card
+                  className={`lg:w-[484px] lg:h-[300px] relative overflow-hidden ${
+                    hovered === index ? 'show-overlay' : ''
+                  }`}
+                >
+                  <CardContent className="p-0">
+                    <Image
+                      src={employee.image?.asset.url}
+                      width={484}
+                      height={300}
+                      alt={employee.name}
+                      className={`w-[484px] h-[300px] object-cover transition-all duration-300 ease-in-out ${
+                        hovered === index ? 'hovered-image-class' : ''
+                      }`}
+                    />
+                    {hovered === index && (
+                      <div className="absolute inset-0 bg-primary bg-opacity-70 flex flex-col justify-between p-6">
+                        <CardDescription className="text-white text-base">
+                          <PortableText value={employee.descriptionRaw} />
+                        </CardDescription>
+                        <Button
+                          variant={'outline'}
+                          onClick={undefined}
+                          className="bg-white text-base text-primary w-28"
+                          size={'lg'}
+                        >
+                          {language === 'no'
+                            ? 'Bytt fastlege'
+                            : 'Change your general practioner'}
+                        </Button>
+                      </div>
+                    )}
+                  </CardContent>
+                </Card>
+              </div>
             </div>
           ))}
         </div>

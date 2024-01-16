@@ -67,7 +67,6 @@ export default function Navbar({
               display: none;
             }
             .important-info-button {
-              padding: 0.5rem 1rem;
               order: 1;
             }
             .bell-icon {
@@ -108,14 +107,18 @@ export default function Navbar({
         <header className="relative z-10 bg-white border-b border-[#ced2d9] m-0 p-0">
           <div className="flex justify-between items-center h-28 py-0 px-[var(--space-1)] m-0">
             <div
-              className="flex items-center ml-8 cursor-pointer"
+              className="flex items-center lg:ml-8 ml-4 cursor-pointer"
               onClick={handleLogoClick}
             >
-              <img className="h-20 mr-4" src="/logo.svg" alt="logo" />
-              <div className="flex flex-col">
-                <div>Medisinsk</div>
-                <div>Senter</div>
-                <div>Fornebu</div>
+              <img
+                className="md:h-20 h-12 lg:mr-8 mr-4"
+                src="/logo.svg"
+                alt="logo"
+              />
+              <div className="flex flex-col md:text-base text-xs">
+                <div>MEDISINSK</div>
+                <div>SENTER</div>
+                <div>FORNEBU</div>
               </div>
             </div>
             <div className="custom-nav space-x-9 text-xl">
@@ -164,7 +167,7 @@ export default function Navbar({
                 {language === 'no' ? 'Kontakt' : 'Contact'}
               </Button>
             </div>
-            <div className="right-nav mr-8">
+            <div className="right-nav lg:mr-8 mr-4">
               <img
                 className="language-flag h-6 w-6 object-fill rounded-sm"
                 src={language === 'no' ? '/flag_no.png' : '/flag_en.png'}
@@ -176,10 +179,14 @@ export default function Navbar({
                 onClick={() =>
                   handleButtonClick('important', onImportantInfoClick)
                 }
-                className="important-info-button z-20 bg-red text-white hover:bg-red-600 hover:text-white"
+                className="important-info-button md:h-[47px] h-[37px] px-2 md:py-2 md:px-4 z-20 bg-red text-white hover:bg-red-600 hover:text-white"
                 size={'lg'}
               >
-                <img className="bell-icon" src="/bell.svg" alt="bell" />
+                <img
+                  className="md:h-[24px] h-[20px]"
+                  src="/bell.svg"
+                  alt="bell"
+                />
                 <span className="important-info-text ml-2">
                   {language === 'no'
                     ? 'Viktig informasjon'
@@ -215,19 +222,19 @@ export default function Navbar({
           </div>
         </header>
         <main>{children}</main>
-        <footer className="footer bg-secondary h-28">
-          <div className="flex justify-around items-center h-full w-full px-4">
-            <div>
+        <footer className="footer bg-secondary md:h-28 ">
+          <div className="flex flex-col md:flex-row md:justify-around md:gap-y-0 gap-y-4 items-center h-full w-full px-4 md:p-0 p-6">
+            <div className="flex flex-col md:flex-row gap-x-1 md:w-max w-64">
               <strong>
                 {language === 'no' ? 'Åpningstider: ' : 'Opening hours: '}
               </strong>
               {contactInfo.openingHours}
             </div>
-            <div>
+            <div className="flex flex-col md:flex-row gap-x-1 md:w-max w-64">
               <strong>{language === 'no' ? 'Telefon: ' : 'Phone: '}</strong>
               {contactInfo.phone}
             </div>
-            <div>
+            <div className="flex flex-col md:flex-row gap-x-1 md:w-max w-64">
               <strong> {language === 'no' ? 'Adresse: ' : 'Address: '}</strong>
               {contactInfo.address}
             </div>

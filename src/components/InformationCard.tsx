@@ -18,10 +18,10 @@ const InformationCard = ({ onEmployeesClick, contactInformation }) => {
   const contactInfo = contactInformation[0]
 
   return (
-    <div className="relative w-full lg:h-[507px] mx-auto py-16">
+    <div className="relative w-full mx-auto py-16">
       <div className="absolute top-0 left-0 w-full h-1/2 bg-secondary"></div>
       <div className="absolute bottom-0 left-0 w-full h-1/2 bg-white"></div>
-      <Card className="relative w-3/4 mx-auto bg-primary flex flex-col lg:flex-row items-center lg:h-[507px]">
+      <Card className="relative w-5/6 mx-auto bg-primary flex flex-col lg:flex-row items-center lg:h-[507px]">
         <div className="w-full lg:w-1/2 lg:mt-0 p-6 lg:p-0">
           <img
             className="lg:h-96 object-cover rounded-md mx-auto lg:ml-16 w-full lg:w-auto"
@@ -29,9 +29,9 @@ const InformationCard = ({ onEmployeesClick, contactInformation }) => {
             alt="Person in office"
           />
         </div>
-        <div className="text-white pl-4 lg:pl-24 pt-4 lg:pt-0">
+        <div className="text-white lg:pl-24  pt-2 md:pt-4 lg:pt-0">
           <CardHeader>
-            <CardTitle className="text-3xl">
+            <CardTitle className="md:text-3xl text-2xl">
               {language === 'no'
                 ? 'Hos oss vil du bli tatt godt vare på'
                 : 'We will take good care of you'}
@@ -43,13 +43,13 @@ const InformationCard = ({ onEmployeesClick, contactInformation }) => {
             </CardDescription>
           </CardHeader>
           <CardContent>
-            <div className="flex flex-row mb-4">
+            <div className="flex md:flex-row flex-col mb-4">
               <div className="flex flex-col mr-2">
                 <span className="border-b border-white pb-1 w-28">
                   {language === 'no' ? 'Åpningstider:' : 'Opening hours:'}
                 </span>
               </div>
-              <div className="flex flex-col">
+              <div className="flex md:flex-row flex-col mt-4 md:mt-0">
                 <p>{contactInfo.openingHours}</p>
                 <p>
                   {language === 'no'
@@ -58,24 +58,24 @@ const InformationCard = ({ onEmployeesClick, contactInformation }) => {
                 </p>
               </div>
             </div>
-            <div className="flex flex-row mb-4">
+            <div className="flex md:flex-row flex-col mb-4">
               <div className="flex flex-col mr-2">
                 <span className="border-b border-white pb-1 w-28">
                   {language === 'no' ? 'Telefon:' : 'Phone:'}
                 </span>
               </div>
-              <div className="flex flex-col">
+              <div className="flex flex-col mt-4 md:mt-0">
                 <p>{contactInfo.phone}</p>
                 <p>Mandag - Fredag 08:45 - 11:00 og 12:00 - 15:00</p>
               </div>
             </div>
-            <div className="flex flex-row mb-4">
+            <div className="flex md:flex-row flex-col mb-4">
               <div className="flex flex-col mr-2">
                 <span className="border-b border-white pb-1 w-28">
                   {language === 'no' ? 'Adresse:' : 'Address:'}
                 </span>
               </div>
-              <div className="flex flex-col">
+              <div className="flex flex-col mt-4 md:mt-0">
                 <p>{contactInfo.address}</p>
                 <p>Vi holder til inne på kjøpesenteret Fornebu S, bygg C.</p>
               </div>
@@ -83,7 +83,7 @@ const InformationCard = ({ onEmployeesClick, contactInformation }) => {
             <Button
               variant={'outline'}
               onClick={() => handleButtonClick(onEmployeesClick)}
-              className="bg-primary text-base text-black hover:bg-primary-600 bg-white mt-4"
+              className="bg-primary text-base text-black hover:bg-primary-600 bg-white mt-4 p-4"
             >
               {language === 'no'
                 ? 'Bli kjent med våre ansatte'
