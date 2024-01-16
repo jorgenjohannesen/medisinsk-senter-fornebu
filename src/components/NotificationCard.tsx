@@ -13,6 +13,7 @@ export default function NotificationSlideshow({
   const timePerSlide = 3 // Each slide is visible for 3 seconds
   const totalDuration = totalNotifications * timePerSlide * 2 // Duration for all slides to show twice
   const [activeButton, setActiveButton] = useState('home')
+  const [divisor, setDivisor] = useState(window.innerWidth >= 768 ? 2 : 1)
 
   const handleButtonClick = (buttonName: string, onClickFunction: any) => {
     setActiveButton(buttonName)
@@ -24,20 +25,29 @@ export default function NotificationSlideshow({
     }
   }
 
+  useEffect(() => {
+    const handleResize = () => {
+      setDivisor(window.innerWidth >= 768 ? 2 : 1)
+    }
+
+    window.addEventListener('resize', handleResize)
+    return () => window.removeEventListener('resize', handleResize)
+  }, [])
+
   return (
     <div className="w-full overflow-hidden rounded-lg md:mb-20" ref={slideRef}>
       <div
         className="flex"
         style={{
           animation: `slide ${totalDuration}s linear infinite`,
-          width: `${totalNotifications * 100}%`, // Adjust width based on number of slides
+          width: `${totalNotifications * 100}%`,
         }}
       >
         {notifications.concat(notifications).map((notification, index) => (
           <div
             key={index}
             className="flex-none"
-            style={{ width: `${100 / (2 * totalNotifications)}%` }} // Adjust each slide's width
+            style={{ width: `${100 / (divisor * totalNotifications)}%` }}
           >
             <Card
               onClick={() =>

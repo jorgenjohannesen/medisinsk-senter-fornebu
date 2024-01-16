@@ -48,7 +48,7 @@ export default function Contact({ contactInformation }) {
           ? 'Trenger du øyeblikkelig hjelp'
           : 'Do you need immediate help'}
       </h1>
-      <div className="flex flex-col lg:w-1/2 lg:w-3/4 w-5/6 py-16 gap-8 mb-12">
+      <div className="flex flex-col lg:w-1/2 md:w-3/4 w-11/12 py-16 gap-8 mb-12">
         {emergencyContacts.map((contact, index) => (
           <Card
             key={index}

@@ -6,7 +6,6 @@ import { useLanguage } from '~/context/LanguageContext'
 import BookingDialog from './BookingDialog'
 import GeneralDialog from './GeneralDialog'
 import NotificationSlideshow from './NotificationCard'
-import InformationCard from './InformationCard'
 
 export default function Home({
   notifications,
@@ -21,19 +20,19 @@ export default function Home({
 
   return (
     <div className="bg-secondary flex flex-col p-y-16">
-      <div className="lg:mt-32 mt-16">
-        <div className="md:text-5xl text-3xl mb-20 font-medium text-primary self-start w-full lg:px-40 md:px-20 px-10">
+      <div className="md:mt-32 mt-10">
+        <div className="lg:text-5xl md:text-4xl text-2xl md:mb-20 mb-8 text-primary self-start w-full md:px-40 px-6">
           <div>
             {language === 'no' ? 'Velkommen til' : 'Welcome to'}{' '}
-            <span className="text-red">Medisinsk senter Fornebu</span>
+            <span>Medisinsk senter Fornebu</span>
           </div>
-          <div className="mt-6">
+          <div className="md:mt-6 mt-4">
             {language === 'no'
               ? 'Hvordan kan vi hjelpe deg?'
               : 'How can we help you?'}
           </div>
         </div>
-        <div className="flex flex-col gap-12 w-full lg:px-40 md:px-36 px-6 mb-12 lg:flex-row">
+        <div className="flex flex-col gap-12 w-full lg:px-40 md:px-36 px-4 mb-12 lg:flex-row">
           <a
             className="text-center flex-1 cursor-pointer"
             onClick={() => setBookingModalOpen(true)}
@@ -42,11 +41,11 @@ export default function Home({
               <CardHeader>
                 <div className="flex flex-row items-center">
                   <img
-                    className="h-12 mr-8"
+                    className="md:h-12 h-8 mr-8"
                     src="/calender-outline.svg"
                     alt="calender"
                   />
-                  <CardTitle>
+                  <CardTitle className="text-lg md:text-2xl">
                     {language === 'no' ? 'Bestill time' : 'Book an appointment'}
                   </CardTitle>
                 </div>
@@ -64,11 +63,11 @@ export default function Home({
             <Card className="bg-white border-none">
               <CardHeader className="flex flex-row items-center">
                 <img
-                  className="h-12 mr-8"
+                  className="md:h-12 h-8 mr-8"
                   src="/document-pill.svg"
                   alt="document"
                 />
-                <CardTitle>
+                <CardTitle className="text-lg md:text-2xl">
                   {language === 'no' ? 'Bestill resept' : 'Renew prescription'}
                 </CardTitle>
               </CardHeader>
@@ -97,11 +96,11 @@ export default function Home({
             <Card className="bg-white border-none">
               <CardHeader className="flex flex-row items-center">
                 <img
-                  className="h-12 mr-8"
+                  className="md:h-12 h-8 mr-8"
                   src="/customer-service.svg"
                   alt="document"
                 />
-                <CardTitle>
+                <CardTitle className="md:text-2xl text-lg">
                   {language === 'no'
                     ? 'Start e-konsultasjon'
                     : 'Start e-consultation'}

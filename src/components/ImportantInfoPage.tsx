@@ -36,7 +36,7 @@ export default function ImportantInfoPage({ news }) {
             return (
               <Card
                 key={notification._id}
-                className="m-4 lg:w-1/2 w-3/4 bg-white bg-opacity-50 rounded-lg mx-2"
+                className="m-4 lg:w-1/2 w-11/12 bg-white bg-opacity-50 rounded-lg mx-2"
               >
                 <CardHeader className="flex flex-row justify-between items-center p-4 mt-2 ml-2 text-primary">
                   <CardTitle className="text-md text-2xl">

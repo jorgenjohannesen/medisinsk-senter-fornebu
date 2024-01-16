@@ -90,7 +90,7 @@ export default function Services({ services }) {
   const { language } = useLanguage()
   return (
     <div className="services-layout bg-white flex flex-col p-4">
-      <div className="header mb-10 pt-20 lg:px-44 md:px-20 px-4 text-primary">
+      <div className="header mb-10 md:pt-20 pt-6 lg:px-44 md:px-20 px-4 text-primary">
         <h1
           className="lg:text-3xl md:text-3xl text-2xl w-full lg:w-3/4"
           style={{ fontWeight: 400 }}
