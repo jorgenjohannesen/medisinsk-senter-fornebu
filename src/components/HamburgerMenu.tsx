@@ -16,7 +16,7 @@ const HamburgerMenu = ({
   onClose,
 }) => {
   return (
-    <DropdownMenuContent className="p-4 bg-white w-54 mt-5">
+    <DropdownMenuContent className="p-4 bg-white w-54 mt-5 nav:hidden">
       <div className="flex justify-end top-2 right-8 p-2">
         <img
           className="h-4 ml-2 w-6 cursor-pointer"

@@ -46,12 +46,10 @@ export default function Navbar({
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth >= 1000 && isHamburgerMenuOpen) {
-        setHamburgerMenuOpen(false)
+        closeHamburgerMenu()
       }
     }
-
     window.addEventListener('resize', handleResize)
-
     return () => {
       window.removeEventListener('resize', handleResize)
     }
@@ -219,7 +217,6 @@ export default function Navbar({
                     <img className="h-8" src="/hamburger.svg" alt="menu" />
                   </div>
                 </DropdownMenuTrigger>
-
                 <HamburgerMenu
                   onHomeClick={onHomeClick}
                   onServicesClick={onServicesClick}
