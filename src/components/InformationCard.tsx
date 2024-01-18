@@ -17,6 +17,10 @@ const InformationCard = ({ onEmployeesClick, contactInformation }) => {
   const { language } = useLanguage()
   const contactInfo = contactInformation[0]
 
+  const openPDF = () => {
+    window.open('/prices.pdf', '_blank')
+  }
+
   return (
     <div className="relative w-full mx-auto py-16">
       <div className="absolute top-0 left-0 w-full h-1/2 bg-secondary"></div>
@@ -92,6 +96,7 @@ const InformationCard = ({ onEmployeesClick, contactInformation }) => {
               <Button
                 variant={'outline'}
                 className="bg-primary text-base text-black hover:bg-primary-600 bg-white mt-4 p-4"
+                onClick={openPDF}
               >
                 {language === 'no' ? 'Se våre priser' : 'See our prices'}
               </Button>
