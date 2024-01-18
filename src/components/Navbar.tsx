@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react'
+
 import { Button } from '@/components/ui/button'
-import { useLanguage } from '~/context/LanguageContext'
-import HamburgerMenu from './HamburgerMenu'
 import {
   DropdownMenu,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
+import { useLanguage } from '~/context/LanguageContext'
+
+import HamburgerMenu from './HamburgerMenu'
 
 export default function Navbar({
   onHomeClick,

@@ -1,7 +1,9 @@
 import React, { useState } from 'react'
+
 import { Card, CardContent, CardTitle } from '@/components/ui/card'
 import { useLanguage } from '~/context/LanguageContext'
 import { Service } from '~/gql/graphql'
+
 import ServiceDialog from './ServiceDialog'
 
 // const services = [

@@ -1,6 +1,8 @@
 import { useState } from 'react'
+
 import { Card, CardHeader, CardTitle } from '@/components/ui/card'
 import { useLanguage } from '~/context/LanguageContext'
+
 import BookingDialog from './BookingDialog'
 import GeneralDialog from './GeneralDialog'
 import NotificationSlideshow from './NotificationCard'

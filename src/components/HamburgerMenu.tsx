@@ -1,9 +1,10 @@
 import React from 'react'
+
+import { Button } from '@/components/ui/button'
 import {
   DropdownMenuContent,
   DropdownMenuItem,
 } from '@/components/ui/dropdown-menu'
-import { Button } from '@/components/ui/button'
 
 const HamburgerMenu = ({
   onHomeClick,

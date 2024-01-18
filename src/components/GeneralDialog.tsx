@@ -1,12 +1,13 @@
-import * as React from 'react'
 import {
   Dialog,
-  DialogOverlay,
-  DialogContent,
   DialogClose,
-  DialogTitle,
+  DialogContent,
   DialogDescription,
+  DialogOverlay,
+  DialogTitle,
 } from '@radix-ui/react-dialog'
+import * as React from 'react'
+
 import { Button } from '@/components/ui/button'
 
 const GeneralDialog = ({
