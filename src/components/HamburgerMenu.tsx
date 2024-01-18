@@ -10,6 +10,7 @@ const HamburgerMenu = ({
   onServicesClick,
   onEmployeesClick,
   onContactClick,
+  onPriceClick,
   onImportantInfoClick,
   toggleLanguage,
   language,
@@ -44,25 +45,31 @@ const HamburgerMenu = ({
             onSelect={onHomeClick}
             className="cursor-pointer text-base text-primary"
           >
-            Hjem
+            {language === 'no' ? 'Hjem' : 'Home'}
           </DropdownMenuItem>
           <DropdownMenuItem
             onSelect={onServicesClick}
             className="cursor-pointer text-base text-primary text-primary"
           >
-            Tjenester
+            {language === 'no' ? 'Tjenester' : 'Services'}
           </DropdownMenuItem>
           <DropdownMenuItem
             onSelect={onEmployeesClick}
             className="cursor-pointer text-base text-primary"
           >
-            Ansatte
+            {language === 'no' ? 'Ansatte' : 'Employees'}
           </DropdownMenuItem>
           <DropdownMenuItem
             onSelect={onContactClick}
+            className="cursor-pointer text-base text-primary"
+          >
+            {language === 'no' ? 'Kontakt' : 'Contact'}
+          </DropdownMenuItem>
+          <DropdownMenuItem
+            onSelect={onPriceClick}
             className="cursor-pointer mb-36 text-base text-primary"
           >
-            Kontakt
+            {language === 'no' ? 'Priser' : 'Prices'}
           </DropdownMenuItem>
         </div>
       </div>

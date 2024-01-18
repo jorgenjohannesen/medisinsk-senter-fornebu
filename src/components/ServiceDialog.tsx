@@ -9,14 +9,11 @@ import {
 } from '@radix-ui/react-dialog'
 import * as React from 'react'
 
-import { Button } from '@/components/ui/button'
-
 const ServiceDialog = ({
   isOpen,
   onDismiss,
   dialogTitle,
   dialogDescription,
-  buttonText = 'Send oss en henvendelse',
 }) => {
   return (
     <Dialog open={isOpen} onOpenChange={onDismiss}>

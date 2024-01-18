@@ -1,9 +1,7 @@
 import React, { useState } from 'react'
-
 import { Card, CardContent, CardTitle } from '@/components/ui/card'
 import { useLanguage } from '~/context/LanguageContext'
 import { Service } from '~/gql/graphql'
-
 import ServiceDialog from './ServiceDialog'
 
 // const services = [
@@ -100,11 +98,11 @@ export default function Services({ services }) {
             : 'In addition to our general practitioner consultation, we can also help with a number of other services'}{' '}
         </h1>
       </div>
-      <div className=" mt-16 cards-container grid grid-cols-1 lg:grid-cols-2 gap-8 mx-auto lg:w-1/2 w-full md:px-4 lg:px-0 pb-28">
+      <div className=" mt-16 cards-container grid grid-cols-1 lg:grid-cols-2 gap-8 mx-auto lg:w-1/2 w-full md:px-24 lg:px-0 pb-28">
         {services.map((service) => (
           <Card
             key={service.name}
-            className="bg-white text-card-foreground shadow-lg rounded-lg border border border-primary cursor-pointer"
+            className="bg-white text-card-foreground shadow-lg rounded-lg border border-primary cursor-pointer"
             onClick={() => handleCardClick(service)}
             style={{
               boxShadow:

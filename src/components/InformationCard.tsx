@@ -1,5 +1,4 @@
 import React from 'react'
-
 import { Button } from '@/components/ui/button'
 import {
   Card,
@@ -80,16 +79,22 @@ const InformationCard = ({ onEmployeesClick, contactInformation }) => {
                 <p>Vi holder til inne på kjøpesenteret Fornebu S, bygg C.</p>
               </div>
             </div>
-            <Button
-              variant={'outline'}
-              onClick={() => handleButtonClick(onEmployeesClick)}
-              className="bg-primary text-base text-black hover:bg-primary-600 bg-white mt-4 p-4"
-            >
-              {language === 'no'
-                ? 'Bli kjent med våre ansatte'
-                : 'Our employees'}
-              <img className="h-4 ml-2 w-6" src="/arrow-dark.svg" alt="arrow" />
-            </Button>
+            <div className="md:flex-row flex-col md:w-max flex gap-x-4 px-4">
+              <Button
+                variant={'outline'}
+                className="bg-primary text-base text-black hover:bg-primary-600 bg-white mt-4 p-4"
+              >
+                {language === 'no'
+                  ? 'Send oss en henvendelse'
+                  : 'Send us a request'}
+              </Button>
+              <Button
+                variant={'outline'}
+                className="bg-primary text-base text-black hover:bg-primary-600 bg-white mt-4 p-4"
+              >
+                {language === 'no' ? 'Se våre priser' : 'See our prices'}
+              </Button>
+            </div>
           </CardContent>
         </div>
       </Card>

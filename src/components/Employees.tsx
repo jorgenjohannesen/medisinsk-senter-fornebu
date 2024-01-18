@@ -2,10 +2,8 @@ import React, { useEffect, useState } from 'react'
 import Image from 'next/image'
 import { PortableText } from '@portabletext/react'
 import { useMediaQuery } from 'react-responsive'
-
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription } from '@/components/ui/card'
-
 import { useLanguage } from '~/context/LanguageContext'
 import GeneralDialog from './GeneralDialog'
 import { AllEmployeeQuery } from '~/gql/graphql'

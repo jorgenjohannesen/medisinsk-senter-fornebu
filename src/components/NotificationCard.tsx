@@ -1,6 +1,5 @@
 import { PortableText } from '@portabletext/react'
 import React, { useEffect, useRef, useState } from 'react'
-
 import { Card, CardHeader, CardTitle } from '@/components/ui/card'
 
 export default function NotificationSlideshow({

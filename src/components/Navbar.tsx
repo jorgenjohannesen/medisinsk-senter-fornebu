@@ -12,6 +12,7 @@ export default function Navbar({
   onServicesClick,
   onEmployeesClick,
   onContactClick,
+  onPriceClick,
   onImportantInfoClick,
   children,
   contactInformation,
@@ -59,7 +60,7 @@ export default function Navbar({
     <>
       <style>
         {`
-          @media (max-width: 1000px) {
+          @media (max-width: 1100px) {
             .custom-nav {
               display: none;
             }
@@ -87,7 +88,7 @@ export default function Navbar({
               display: none;
             }
           }
-          @media (min-width: 1000px) {
+          @media (min-width: 1100px) {
             .custom-nav {
               display: flex;
             }
@@ -177,6 +178,17 @@ export default function Navbar({
               >
                 {language === 'no' ? 'Kontakt' : 'Contact'}
               </Button>
+              <Button
+                variant={'link'}
+                onClick={() => handleButtonClick('price', onPriceClick)}
+                className={`border-b-2 pb-1 text-xl ${
+                  activeButton === 'price'
+                    ? 'border-current'
+                    : 'border-transparent'
+                }`}
+              >
+                {language === 'no' ? 'Priser' : 'Prices'}
+              </Button>
             </div>
             <div className="right-nav lg:mr-8 mr-4">
               <img
@@ -222,6 +234,7 @@ export default function Navbar({
                   onServicesClick={onServicesClick}
                   onEmployeesClick={onEmployeesClick}
                   onContactClick={onContactClick}
+                  onPriceClick={onPriceClick}
                   onImportantInfoClick={onImportantInfoClick}
                   toggleLanguage={toggleLanguage}
                   language={language}

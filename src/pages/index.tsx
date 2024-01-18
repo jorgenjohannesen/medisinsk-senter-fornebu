@@ -96,6 +96,7 @@ export default function IndexPage(
   const servicesRef = useRef(null)
   const employeesRef = useRef(null)
   const contactRef = useRef(null)
+  const priceRef = useRef(null)
 
   const scrollToRef = (ref) => {
     if (ref.current) {
@@ -113,6 +114,7 @@ export default function IndexPage(
       onServicesClick={() => scrollToRef(servicesRef)}
       onEmployeesClick={() => scrollToRef(employeesRef)}
       onContactClick={() => scrollToRef(contactRef)}
+      onPriceClick={() => scrollToRef(priceRef)}
       onImportantInfoClick={(shouldScrollToTop: any) => {
         setShowImportantInfo(true)
         if (shouldScrollToTop) {
@@ -139,10 +141,12 @@ export default function IndexPage(
               }}
             />
           </div>
-          <InformationCard
-            contactInformation={contactInformation}
-            onEmployeesClick={() => scrollToRef(employeesRef)}
-          />
+          <div ref={priceRef}>
+            <InformationCard
+              contactInformation={contactInformation}
+              onEmployeesClick={() => scrollToRef(employeesRef)}
+            />
+          </div>
           <div ref={servicesRef}>
             <Services services={services} />
           </div>
