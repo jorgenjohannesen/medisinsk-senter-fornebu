@@ -84,12 +84,14 @@ export default function Employees({ employees }) {
                         <Button
                           variant={'outline'}
                           onClick={undefined}
-                          className="bg-white text-base text-primary w-28"
+                          className={`bg-white text-base text-primary ${
+                            language === 'no' ? 'w-28' : 'w-36'
+                          }`}
                           size={'lg'}
                         >
                           {language === 'no'
                             ? 'Bytt fastlege'
-                            : 'Change your general practitioner'}
+                            : 'Change your GP'}
                         </Button>
                       </div>
                     )}
