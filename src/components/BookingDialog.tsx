@@ -17,14 +17,14 @@ const BookingDialog = ({ isOpen, onDismiss }) => {
   return (
     <Dialog open={isOpen} onOpenChange={onDismiss}>
       <DialogOverlay className="fixed inset-0 bg-black opacity-30 z-50" />
-      <DialogContent className="fixed bg-white top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded-md shadow-lg p-16 z-50 w-2/3 lg:w-7/12">
-        <DialogTitle className="text-4xl text-primary">
+      <DialogContent className="fixed bg-white top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded-md shadow-lg md:p-16 p-8 z-50 lg:2/3 w-5/6 lg:w-7/12 max-h-[85vh] overflow-y-auto">
+        <DialogTitle className="md:text-4xl text-2xl text-primary">
           {language === 'no' ? 'Bestill time' : 'Book an appointment'}
         </DialogTitle>
         <DialogDescription className="mt-2 text-base mb-6 w-3/4">
           {language === 'no'
-            ? 'Du blir nå videresendt til helsenorge.no. Der kan du se og booke alle våre tilgjengelige timer.'
-            : 'You will now be redirected to helsenorge.no. There you can see and book all our available hours.'}
+            ? 'Trykk på knappen under for å bli sendt til helsenorge.no, her kan du se og booke alle våre tilgjengelige timer.'
+            : 'Press the button below to be redirected to helsenorge.no, here you can see and book all our available hours'}
         </DialogDescription>
         <a
           href="https://helsenorge.no"
@@ -34,15 +34,19 @@ const BookingDialog = ({ isOpen, onDismiss }) => {
           <Button
             variant={'outline'}
             onClick={undefined}
-            className="bg-primary text-base text-white hover:bg-primary-600 hover:text-white w-72"
+            className="bg-primary md:text-base text-sm text-white hover:bg-primary-600 hover:text-white md:w-72 w-48"
           >
             {language === 'no'
               ? 'Bestill time på helsenorge.no'
               : 'Book appointment on helsenorge.no'}
-            <img className="h-4 ml-2 w-6" src="/arrow.svg" alt="arrow" />
+            <img
+              className="h-4 ml-2 w-6 md:block hidden"
+              src="/arrow.svg"
+              alt="arrow"
+            />
           </Button>
         </a>
-        <DialogTitle className="text-4xl text-primary mt-9">
+        <DialogTitle className="md:text-4xl text-2xl text-primary mt-9">
           {language === 'no' ? 'Haster det?' : 'Need immediate help?'}
         </DialogTitle>
         <DialogDescription className="mt-4 text-base w-3/4">

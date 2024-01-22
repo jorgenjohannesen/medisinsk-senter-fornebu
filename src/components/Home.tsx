@@ -19,33 +19,33 @@ export default function Home({
   const { language } = useLanguage()
 
   return (
-    <div className="h-screen bg-secondary flex flex-col">
-      <div className="mt-32">
-        <div className="text-5xl mb-20 font-medium text-primary self-start w-full px-40">
+    <div className="bg-secondary flex flex-col p-y-16">
+      <div className="md:mt-32 mt-10">
+        <div className="lg:text-5xl md:text-4xl text-2xl md:mb-20 mb-8 text-primary self-start w-full md:px-40 px-6">
           <div>
             {language === 'no' ? 'Velkommen til' : 'Welcome to'}{' '}
-            <span className="text-red">Medisinsk senter Fornebu</span>
+            <span>Medisinsk senter Fornebu</span>
           </div>
-          <div className="mt-6">
+          <div className="md:mt-6 mt-4">
             {language === 'no'
               ? 'Hvordan kan vi hjelpe deg?'
               : 'How can we help you?'}
           </div>
         </div>
-        <div className="flex gap-12 w-full px-40 mb-12">
+        <div className="flex flex-col gap-12 w-full lg:px-40 md:px-36 px-4 mb-12 lg:flex-row">
           <a
             className="text-center flex-1 cursor-pointer"
             onClick={() => setBookingModalOpen(true)}
           >
-            <Card className="bg-white">
+            <Card className="bg-white border border-primary">
               <CardHeader>
                 <div className="flex flex-row items-center">
                   <img
-                    className="h-12 mr-8"
+                    className="md:h-12 h-8 mr-8"
                     src="/calender-outline.svg"
                     alt="calender"
                   />
-                  <CardTitle>
+                  <CardTitle className="text-lg md:text-2xl">
                     {language === 'no' ? 'Bestill time' : 'Book an appointment'}
                   </CardTitle>
                 </div>
@@ -60,14 +60,14 @@ export default function Home({
             className="text-center flex-1 cursor-pointer"
             onClick={() => setPrescriptionRenewalModalOpen(true)}
           >
-            <Card className="bg-white border-none">
+            <Card className="bg-white border border-primary">
               <CardHeader className="flex flex-row items-center">
                 <img
-                  className="h-12 mr-8"
+                  className="md:h-12 h-8 mr-8"
                   src="/document-pill.svg"
                   alt="document"
                 />
-                <CardTitle>
+                <CardTitle className="text-lg md:text-2xl">
                   {language === 'no' ? 'Bestill resept' : 'Renew prescription'}
                 </CardTitle>
               </CardHeader>
@@ -77,11 +77,10 @@ export default function Home({
             isOpen={isPrescriptionRenewalModalOpen}
             onDismiss={() => setPrescriptionRenewalModalOpen(false)}
             dialogTitle={'Forny resept'}
-            // dialog with correct language
             dialogDescription={
               language === 'no'
-                ? 'Du blir nå videresendt til helsenorge.no. Der kan du fornye din resept'
-                : 'You will now be redirected to helsenorge.no. There you can renew your prescription'
+                ? 'Trykk på knappen under for å bli sendt til helsenorge.no, der kan du fornye din resept'
+                : 'Press the button below to be redirected to helsenorge.no, here you can renew your prescription'
             }
             buttonText={
               language === 'no'
@@ -94,14 +93,14 @@ export default function Home({
             className="text-center flex-1 cursor-pointer"
             onClick={() => setEConsultationModalOpen(true)}
           >
-            <Card className="bg-white border-none">
+            <Card className="bg-white border border-primary">
               <CardHeader className="flex flex-row items-center">
                 <img
-                  className="h-12 mr-8"
+                  className="md:h-12 h-8 mr-8"
                   src="/customer-service.svg"
                   alt="document"
                 />
-                <CardTitle>
+                <CardTitle className="md:text-2xl text-lg">
                   {language === 'no'
                     ? 'Start e-konsultasjon'
                     : 'Start e-consultation'}
@@ -119,8 +118,8 @@ export default function Home({
             }
             dialogDescription={
               language === 'no'
-                ? 'Du blir nå videresendt til helsenorge.no. Der kan du starte din e-konsultasjon'
-                : 'You will now be redirected to helsenorge.no. There you can start your e-consultation'
+                ? 'Trykk på knappen under for å bli sendt til helsenorge.no, der kan du starte din e-konsultasjon'
+                : 'Press the button below to be redirected to helsenorge.no, there you can start your e-consultation'
             }
             buttonText={
               language === 'no'
@@ -130,7 +129,7 @@ export default function Home({
             href={'https://helsenorge.no'}
           />
         </div>
-        <div className="flex items-center justify-center px-40">
+        <div className="flex items-center justify-center lg:px-40 md:px-12 px-0 w-full">
           <NotificationSlideshow
             notifications={notifications}
             onImportantInfoClick={onImportantInfoClick}

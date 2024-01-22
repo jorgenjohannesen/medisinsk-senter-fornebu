@@ -89,19 +89,22 @@ export default function Services({ services }) {
   }
   const { language } = useLanguage()
   return (
-    <div className="services-layout h-5/6 bg-white flex flex-col p-4">
-      <div className="header mb-10 pt-20 px-44 text-primary">
-        <h1 className="text-3xl w-3/4" style={{ fontWeight: 400 }}>
+    <div className="services-layout bg-white flex flex-col p-4">
+      <div className="header mb-10 md:pt-20 pt-6 lg:px-44 md:px-20 px-4 text-primary">
+        <h1
+          className="lg:text-3xl md:text-3xl text-2xl w-full lg:w-3/4"
+          style={{ fontWeight: 400 }}
+        >
           {language === 'no'
             ? 'I tillegg til vår fastlegekonsultasjon kan vi også hjelpe med en rekke andre tjenester'
             : 'In addition to our general practitioner consultation, we can also help with a number of other services'}{' '}
         </h1>
       </div>
-      <div className=" mt-16 cards-container grid grid-cols-1 lg:grid-cols-2 gap-8 mx-auto w-1/2 pb-28">
+      <div className=" mt-16 cards-container grid grid-cols-1 lg:grid-cols-2 gap-8 mx-auto lg:w-1/2 w-full md:px-24 lg:px-0 pb-28">
         {services.map((service) => (
           <Card
             key={service.name}
-            className="bg-white text-card-foreground shadow-lg rounded-lg border cursor-pointer"
+            className="bg-white text-card-foreground shadow-lg rounded-lg border border-primary cursor-pointer"
             onClick={() => handleCardClick(service)}
             style={{
               boxShadow:

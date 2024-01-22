@@ -42,31 +42,35 @@ export default function Contact({ contactInformation }) {
   ]
 
   return (
-    <div className="h-screen bg-white flex flex-col items-center justify-center">
-      <h1 className="text-3xl font-normal text-primary px-44 text-left self-start mt-28">
+    <div className="lg:h-screen bg-white flex flex-col items-center justify-center">
+      <h1 className="text-3xl font-normal text-primary lg:px-44 md:px-20 px-6 text-left self-start mt-16 md:mt-28">
         {language === 'no'
           ? 'Trenger du øyeblikkelig hjelp'
           : 'Do you need immediate help'}
       </h1>
-      <div className="flex flex-col w-1/2 py-16 gap-8 mb-12">
+      <div className="flex flex-col md:w-1/2 md:w-[600px] lg:w-1/2 w-11/12 py-16 gap-8 mb-12">
         {emergencyContacts.map((contact, index) => (
           <Card
             key={index}
-            className="mb-4 w-full bg-primary rounded-lg shadow-md overflow-hidden h-44 flex"
+            className="mb-4 w-full bg-primary rounded-lg shadow-md overflow-hidden lg:h-44 flex"
           >
-            <CardContent className="flex justify-start p-8 items-center">
-              <div className="flex-none flex items-center justify-center p-2 bg-white w-64 rounded-lg h-28">
+            <CardContent className="flex flex-col md:flex-row items-center justify-between md:p-8 p-4">
+              <div className="flex-grow p-4">
+                <CardTitle className="lg:text-3xl text-2xl text-white mb-4 md:mb-2">
+                  {contact.title}
+                </CardTitle>
+                <CardDescription className="text-white text-base lg:mb-0 mb-4">
+                  {contact.description}
+                </CardDescription>
+              </div>
+              <div
+                className="flex-none flex items-center justify-center p-2 bg-white rounded-lg h-20 md:h-28"
+                style={{ width: '256px' }}
+              >
+                {' '}
                 <CardHeader className="text-primary font-bold text-3xl">
                   {contact.number}
                 </CardHeader>
-              </div>
-              <div className="flex-grow p-6">
-                <CardTitle className="text-3xl text-white mb-6">
-                  {contact.title}
-                </CardTitle>
-                <CardDescription className="text-white text-base">
-                  {contact.description}
-                </CardDescription>
               </div>
             </CardContent>
           </Card>

@@ -17,6 +17,10 @@ module.exports = {
       },
     },
     extend: {
+      screens: {
+        lg: '1200px', // new larger breakpoint for lg
+        nav: '1100px',
+      },
       typography: (theme) => ({
         DEFAULT: {
           css: {
@@ -69,8 +73,8 @@ module.exports = {
           foreground: 'hsl(var(--destructive-foreground))',
         },
         white: {
-          DEFAULT: '#FDFAF5',
-          foreground: '#FDFAF5',
+          DEFAULT: '#F4F4F4',
+          foreground: '#F4F4F4',
         },
         red: {
           DEFAULT: '#CF0606',

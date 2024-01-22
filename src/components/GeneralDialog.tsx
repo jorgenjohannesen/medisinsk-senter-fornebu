@@ -1,12 +1,13 @@
-import * as React from 'react'
 import {
   Dialog,
-  DialogOverlay,
-  DialogContent,
   DialogClose,
-  DialogTitle,
+  DialogContent,
   DialogDescription,
+  DialogOverlay,
+  DialogTitle,
 } from '@radix-ui/react-dialog'
+import * as React from 'react'
+
 import { Button } from '@/components/ui/button'
 
 const GeneralDialog = ({
@@ -20,22 +21,26 @@ const GeneralDialog = ({
   return (
     <Dialog open={isOpen} onOpenChange={onDismiss}>
       <DialogOverlay className="fixed inset-0 bg-black opacity-30 z-50" />
-      <DialogContent className="fixed bg-white top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded-md shadow-lg p-16 z-50 w-2/3 lg:w-7/12">
-        <DialogTitle className="text-4xl text-primary">
+      <DialogContent className="fixed flex flex-col bg-white top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded-md shadow-lg md:p-16 p-8 z-50 lg:2/3 w-5/6 lg:w-7/12 max-h-[85vh] overflow-y-auto">
+        <DialogTitle className="md:text-4xl text-2xl text-primary">
           {dialogTitle}
         </DialogTitle>
-        <DialogDescription className="mt-2 text-base mb-6 w-3/4">
+        <DialogDescription className="mt-2 text-base mb-6 w-3/4 flex flex-col">
           {dialogDescription}
         </DialogDescription>
         <a href={href} target="_blank" rel="noopener noreferrer">
           <Button
             variant={'outline'}
             onClick={undefined}
-            className="bg-primary text-base text-white hover:bg-primary-600 hover:text-white"
+            className="bg-primary md:text-base text-sm text-white hover:bg-primary-600 hover:text-white md:w-72 w-52"
             size={'lg'}
           >
             {buttonText}
-            <img className="h-4 ml-2 w-6" src="/arrow.svg" alt="arrow" />
+            <img
+              className="h-4 ml-2 w-6 md:block hidden"
+              src="/arrow.svg"
+              alt="arrow"
+            />
           </Button>
         </a>
         <DialogClose

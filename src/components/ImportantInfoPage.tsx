@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
 import { PortableText } from '@portabletext/react'
+import React, { useState } from 'react'
 
 import { Button } from '@/components/ui/button'
 import {
@@ -27,7 +27,7 @@ export default function ImportantInfoPage({ news }) {
   return (
     <div className="bg-white flex flex-col">
       <div className="bg-secondary min-h-screen">
-        <h1 className="text-3xl font-normal text-primary px-44 text-left self-start mt-16 mb-8">
+        <h1 className="text-3xl font-normal text-primary lg:px-44 md:px-20 px-10 text-left self-start mt-16 mb-8">
           {language === 'no' ? 'Viktig informasjon' : 'Important information'}
         </h1>
         <div className="flex flex-col items-center mb-12">
@@ -36,7 +36,7 @@ export default function ImportantInfoPage({ news }) {
             return (
               <Card
                 key={notification._id}
-                className="m-4 w-1/2 bg-white bg-opacity-50 rounded-lg mx-2"
+                className="m-4 lg:w-1/2 w-11/12 bg-white bg-opacity-50 rounded-lg mx-2"
               >
                 <CardHeader className="flex flex-row justify-between items-center p-4 mt-2 ml-2 text-primary">
                   <CardTitle className="text-md text-2xl">
