@@ -42,13 +42,13 @@ export default function Contact({ contactInformation }) {
   ]
 
   return (
-    <div className="lg:h-screen bg-white flex flex-col items-center justify-center">
-      <h1 className="text-3xl font-normal text-primary lg:px-44 md:px-20 px-6 text-left self-start mt-16 md:mt-28">
+    <div className=" bg-white flex flex-col items-center justify-center lg:pb-4">
+      <h1 className="text-3xl font-normal text-primary lg:px-44 md:px-20 px-6 text-left self-start mt-16 lg:pt-4">
         {language === 'no'
           ? 'Trenger du øyeblikkelig hjelp'
           : 'Do you need immediate help'}
       </h1>
-      <div className="flex flex-col md:w-1/2 md:w-[600px] lg:w-1/2 w-11/12 py-16 gap-8 mb-12">
+      <div className="flex flex-col md:w-1/2 md:w-[600px] lg:w-1/2 w-11/12 py-16 gap-8">
         {emergencyContacts.map((contact, index) => (
           <Card
             key={index}
