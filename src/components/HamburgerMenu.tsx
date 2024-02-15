@@ -13,7 +13,6 @@ const HamburgerMenu = ({
   onContactClick,
   onPriceClick,
   onImportantInfoClick,
-  toggleLanguage,
   language,
   onClose,
 }) => {
@@ -42,7 +41,7 @@ const HamburgerMenu = ({
               </span>
             </Button>
           </DropdownMenuItem>
-          <div className="flex flex-col gap-y-4 mr-12">
+          <div className="flex flex-col gap-y-4 mr-12 pb-8">
             <DropdownMenuItem
               onSelect={onHomeClick}
               className="cursor-pointer text-base text-primary"
@@ -76,13 +75,6 @@ const HamburgerMenu = ({
           </div>
         </div>
       </div>
-      <DropdownMenuItem onSelect={toggleLanguage} className="self-end mt-4">
-        <img
-          className="h-6 w-6 object-fill rounded-sm"
-          src={language === 'no' ? '/flag_no.png' : '/flag_en.png'}
-          alt="Norwegian flag"
-        />
-      </DropdownMenuItem>
     </DropdownMenuContent>
   )
 }
