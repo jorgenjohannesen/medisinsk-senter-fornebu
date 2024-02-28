@@ -86,9 +86,6 @@ export default function Navbar({
             .bell-icon {
               height: 1.5rem;
             }
-            .language-flag {
-              display: none;
-            }
           }
           @media (min-width: 1100px) {
             .custom-nav {
@@ -194,7 +191,7 @@ export default function Navbar({
             </div>
             <div className="right-nav lg:mr-8 mr-4">
               <img
-                className="language-flag h-6 w-6 object-fill rounded-sm"
+                className="language-flag h-8 w-8 object-fill rounded-sm"
                 src={language === 'no' ? '/flag_no.png' : '/flag_en.png'}
                 alt="Norwegian flag"
                 onClick={toggleLanguage}
@@ -204,7 +201,7 @@ export default function Navbar({
                 onClick={() =>
                   handleButtonClick('important', onImportantInfoClick)
                 }
-                className="important-info-button md:h-[47px] h-[37px] px-2 md:py-2 md:px-4 z-20 bg-red text-white hover:bg-red-600 hover:text-white"
+                className="important-info-button md:h-[47px] h-[34px] px-2 md:py-2 md:px-4 z-20 bg-red text-white hover:bg-red-600 hover:text-white"
                 size={'lg'}
               >
                 <img
@@ -238,7 +235,6 @@ export default function Navbar({
                   onContactClick={onContactClick}
                   onPriceClick={onPriceClick}
                   onImportantInfoClick={onImportantInfoClick}
-                  toggleLanguage={toggleLanguage}
                   language={language}
                   onClose={closeHamburgerMenu}
                 />

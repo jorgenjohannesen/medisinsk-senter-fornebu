@@ -37,7 +37,7 @@ export default function Employees({ employees }) {
   return (
     <div className="flex flex-col justify-center min-h-screen bg-secondary">
       <div
-        className="text-3xl mt-16 text-primary lg:px-44 md:px-20 px-6 text-left self-start"
+        className="lg:text-3xl md:text-3xl text-2xl mt-16 text-primary lg:px-44 md:px-20 px-6 text-left self-start"
         style={{ fontWeight: 400 }}
       >
         {language === 'no'

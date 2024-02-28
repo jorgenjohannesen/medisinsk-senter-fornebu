@@ -1,5 +1,8 @@
 import { PortableText } from '@portabletext/react'
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useState } from 'react'
+import Slider from 'react-slick'
+import 'slick-carousel/slick/slick.css'
+import 'slick-carousel/slick/slick-theme.css'
 
 import { Card, CardHeader, CardTitle } from '@/components/ui/card'
 
@@ -8,11 +11,6 @@ export default function NotificationSlideshow({
   onImportantInfoClick,
   onHomeClick,
 }) {
-  const slideRef = useRef(null)
-  const totalNotifications = notifications.length
-  const timePerSlide = 3 // Each slide is visible for 3 seconds
-  const totalDuration = totalNotifications * timePerSlide * 2 // Duration for all slides to show twice
-  const [activeButton, setActiveButton] = useState('home')
   const [divisor, setDivisor] = useState(2)
 
   useEffect(() => {
@@ -25,8 +23,31 @@ export default function NotificationSlideshow({
     return () => window.removeEventListener('resize', handleResize)
   }, [])
 
+  const settings = {
+    dots: true,
+    infinite: true,
+    arrows: false,
+    autoplay: true,
+    autoplaySpeed: 2000,
+    slidesToShow: divisor,
+    slidesToScroll: 1,
+    responsive: [
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 1,
+        },
+      },
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 2,
+        },
+      },
+    ],
+  }
+
   const handleButtonClick = (buttonName: string, onClickFunction: any) => {
-    setActiveButton(buttonName)
     if (buttonName !== 'important') {
       onHomeClick()
     }
@@ -36,20 +57,10 @@ export default function NotificationSlideshow({
   }
 
   return (
-    <div className="w-full overflow-hidden rounded-lg md:mb-20" ref={slideRef}>
-      <div
-        className="flex"
-        style={{
-          animation: `slide ${totalDuration}s linear infinite`,
-          width: `${totalNotifications * 100}%`,
-        }}
-      >
-        {notifications.concat(notifications).map((notification, index) => (
-          <div
-            key={index}
-            className="flex-none"
-            style={{ width: `${100 / (divisor * totalNotifications)}%` }}
-          >
+    <div className="w-full rounded-lg md:mb-20">
+      <Slider {...settings}>
+        {notifications.map((notification, index) => (
+          <div key={index} className="pb-4">
             <Card
               onClick={() =>
                 handleButtonClick('important', onImportantInfoClick)
@@ -68,7 +79,7 @@ export default function NotificationSlideshow({
             </Card>
           </div>
         ))}
-      </div>
+      </Slider>
     </div>
   )
 }
