@@ -129,7 +129,7 @@ export default function Home({
             href={'https://helsenorge.no'}
           />
         </div>
-        <div className="flex items-center justify-center lg:px-40 md:px-12 px-0 w-full">
+        <div className="flex items-center justify-center lg:px-40 px-0 w-full pb-8 lg:pb-0">
           <NotificationSlideshow
             notifications={notifications}
             onImportantInfoClick={onImportantInfoClick}

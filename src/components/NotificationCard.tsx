@@ -12,36 +12,47 @@ export default function NotificationSlideshow({
   onHomeClick,
 }) {
   const [divisor, setDivisor] = useState(2)
+  const [isSmallScreen, setIsSmallScreen] = useState(false)
 
   useEffect(() => {
-    setDivisor(window.innerWidth >= 768 ? 2 : 1)
-    const handleResize = () => {
-      setDivisor(window.innerWidth >= 768 ? 2 : 1)
+    const updateScreenSize = () => {
+      const screenWidth = window.innerWidth
+      setDivisor(screenWidth >= 768 ? 2 : 1)
+      setIsSmallScreen(screenWidth < 768)
     }
+    updateScreenSize()
 
-    window.addEventListener('resize', handleResize)
-    return () => window.removeEventListener('resize', handleResize)
+    window.addEventListener('resize', updateScreenSize)
+    return () => window.removeEventListener('resize', updateScreenSize)
   }, [])
 
   const settings = {
-    dots: true,
+    dots: !isSmallScreen,
     infinite: true,
     arrows: false,
     autoplay: true,
-    autoplaySpeed: 2000,
+    autoplaySpeed: 2300,
     slidesToShow: divisor,
     slidesToScroll: 1,
+    swipe: isSmallScreen,
+    draggable: isSmallScreen,
     responsive: [
       {
         breakpoint: 768,
         settings: {
           slidesToShow: 1,
+          swipe: true,
+          draggable: true,
+          centerMode: true, // Enable center mode
+          centerPadding: '20px', // Adjust this value based on your design
         },
       },
       {
         breakpoint: 1024,
         settings: {
           slidesToShow: 2,
+          swipe: false,
+          draggable: false,
         },
       },
     ],

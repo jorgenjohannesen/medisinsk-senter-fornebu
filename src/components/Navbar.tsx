@@ -136,55 +136,35 @@ export default function Navbar({
               <Button
                 variant={'link'}
                 onClick={() => handleButtonClick('home', onHomeClick)}
-                className={`border-b-2 pb-1 text-xl ${
-                  activeButton === 'home'
-                    ? 'border-current'
-                    : 'border-transparent'
-                }`}
+                className={'text-xl'}
               >
                 {language === 'no' ? 'Hjem' : 'Home'}
               </Button>
               <Button
                 variant={'link'}
                 onClick={() => handleButtonClick('services', onServicesClick)}
-                className={`border-b-2 pb-1 text-xl ${
-                  activeButton === 'services'
-                    ? 'border-current'
-                    : 'border-transparent'
-                }`}
+                className={`text-xl`}
               >
                 {language === 'no' ? 'Tjenester' : 'Services'}
               </Button>
               <Button
                 variant={'link'}
                 onClick={() => handleButtonClick('employees', onEmployeesClick)}
-                className={`border-b-2 pb-1 text-xl ${
-                  activeButton === 'employees'
-                    ? 'border-current'
-                    : 'border-transparent'
-                }`}
+                className={`text-xl`}
               >
                 {language === 'no' ? 'Ansatte' : 'Employees'}
               </Button>
               <Button
                 variant={'link'}
                 onClick={() => handleButtonClick('contact', onContactClick)}
-                className={`border-b-2 pb-1 text-xl ${
-                  activeButton === 'contact'
-                    ? 'border-current'
-                    : 'border-transparent'
-                }`}
+                className={`text-xl`}
               >
                 {language === 'no' ? 'Kontakt' : 'Contact'}
               </Button>
               <Button
                 variant={'link'}
                 onClick={() => handleButtonClick('price', onPriceClick)}
-                className={`border-b-2 pb-1 text-xl ${
-                  activeButton === 'price'
-                    ? 'border-current'
-                    : 'border-transparent'
-                }`}
+                className={`text-xl`}
               >
                 {language === 'no' ? 'Priser' : 'Prices'}
               </Button>
