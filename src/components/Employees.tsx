@@ -45,7 +45,7 @@ export default function Employees({ employees }) {
           : 'Meet our employees'}
       </div>
       <div className="flex flex-col items-center">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 md:mt-24 mt-12 md:mb-32 mb-16">
+        <div className="grid grid-cols-1 lg:grid-cols-2 md:gap-24 gap-4 md:mt-24 mt-12 md:mb-32 mb-16">
           {employees.map((employee) => (
             <div
               key={employee.name}
