@@ -68,7 +68,7 @@ export default function NotificationSlideshow({
   }
 
   return (
-    <div className="w-full rounded-lg md:mb-20">
+    <div className="w-full rounded-md md:mb-20">
       <Slider {...settings}>
         {notifications.map((notification, index) => (
           <div key={index} className="pb-4">
@@ -76,7 +76,7 @@ export default function NotificationSlideshow({
               onClick={() =>
                 handleButtonClick('important', onImportantInfoClick)
               }
-              className="bg-white bg-opacity-50 rounded-lg mx-2 h-[132px] cursor-pointer"
+              className="bg-white bg-opacity-50 rounded-md mx-2 h-[132px] cursor-pointer"
             >
               <CardHeader className="flex flex-row justify-between items-center p-2 mt-2 ml-2">
                 <CardTitle className="text-lg md:text-2xl">

@@ -25,7 +25,7 @@ const InformationCard = ({ onEmployeesClick, contactInformation }) => {
     <div className="relative w-full mx-auto py-16">
       <div className="absolute top-0 left-0 w-full h-1/2 bg-secondary"></div>
       <div className="absolute bottom-0 left-0 w-full h-1/2 bg-white"></div>
-      <Card className="relative md:w-5/6 w-11/12 mx-auto bg-primary flex flex-col lg:flex-row items-center lg:h-[539px]">
+      <Card className="relative md:w-5/6 w-11/12 mx-auto bg-primary flex flex-col lg:flex-row items-center lg:h-[539px] rounded-md">
         <div className="w-full lg:w-1/2 lg:mt-0 p-6 lg:p-0">
           <img
             className="lg:h-96 object-cover rounded-md mx-auto lg:ml-16 w-full lg:w-auto"
@@ -87,7 +87,7 @@ const InformationCard = ({ onEmployeesClick, contactInformation }) => {
             <div className="md:flex-row flex-col md:w-max flex gap-x-4 px-4">
               <Button
                 variant={'outline'}
-                className="bg-primary text-base text-black hover:bg-primary-600 bg-white mt-4 p-4"
+                className="bg-primary rounded-sm text-base text-black hover:bg-primary-600 bg-white mt-4 p-4"
               >
                 {language === 'no'
                   ? 'Send oss en henvendelse'
@@ -95,7 +95,7 @@ const InformationCard = ({ onEmployeesClick, contactInformation }) => {
               </Button>
               <Button
                 variant={'outline'}
-                className="bg-primary text-base text-black hover:bg-primary-600 bg-white mt-4 p-4"
+                className="bg-primary text-base rounded-sm text-black hover:bg-primary-600 bg-white mt-4 p-4"
                 onClick={openPDF}
               >
                 {language === 'no' ? 'Se våre priser' : 'See our prices'}

@@ -52,7 +52,7 @@ export default function Contact({ contactInformation }) {
         {emergencyContacts.map((contact, index) => (
           <Card
             key={index}
-            className="mb-4 w-full bg-primary rounded-lg shadow-md overflow-hidden lg:h-44 flex"
+            className="mb-4 w-full bg-primary rounded-lg shadow-md overflow-hidden lg:h-44 flex rounded-md"
           >
             <CardContent className="flex flex-col md:flex-row items-center justify-between md:p-8 p-4">
               <div className="flex-grow p-4">

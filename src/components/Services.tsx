@@ -27,12 +27,8 @@ export default function Services({ services }) {
         {services.map((service) => (
           <Card
             key={service.name}
-            className="bg-white text-card-foreground shadow-lg rounded-lg border border-primary cursor-pointer"
+            className="bg-white text-card-foreground shadow-lg rounded-md border border-primary cursor-pointer shadow-custom"
             onClick={() => handleCardClick(service)}
-            style={{
-              boxShadow:
-                '0 -4px 10px -2px rgba(0, 0, 0, 0.1), 0 4px 10px -2px rgba(0, 0, 0, 0.1)',
-            }}
           >
             <CardContent className="flex justify-center items-center p-6">
               <CardTitle className="text-2xl font-base leading-none tracking-tight">

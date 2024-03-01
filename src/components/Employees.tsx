@@ -62,7 +62,7 @@ export default function Employees({ employees }) {
               </div>
               <div className="lg:p-0 px-4 py-10">
                 <Card
-                  className={`lg:w-[484px] lg:h-[300px] relative overflow-hidden ${
+                  className={`lg:w-[484px] lg:h-[300px] relative overflow-hidden rounded-md  ${
                     hovered === employee ? 'show-overlay' : ''
                   }`}
                 >

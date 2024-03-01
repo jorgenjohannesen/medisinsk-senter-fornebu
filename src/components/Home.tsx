@@ -37,7 +37,7 @@ export default function Home({
             className="text-center flex-1 cursor-pointer"
             onClick={() => setBookingModalOpen(true)}
           >
-            <Card className="bg-white border border-primary">
+            <Card className="bg-white border border-primary shadow-custom rounded-md">
               <CardHeader>
                 <div className="flex flex-row items-center">
                   <img
@@ -60,7 +60,7 @@ export default function Home({
             className="text-center flex-1 cursor-pointer"
             onClick={() => setPrescriptionRenewalModalOpen(true)}
           >
-            <Card className="bg-white border border-primary">
+            <Card className="bg-white border border-primary shadow-custom rounded-md">
               <CardHeader className="flex flex-row items-center">
                 <img
                   className="md:h-12 h-8 mr-8"
@@ -93,7 +93,7 @@ export default function Home({
             className="text-center flex-1 cursor-pointer"
             onClick={() => setEConsultationModalOpen(true)}
           >
-            <Card className="bg-white border border-primary">
+            <Card className="bg-white border border-primary shadow-custom rounded-md">
               <CardHeader className="flex flex-row items-center">
                 <img
                   className="md:h-12 h-8 mr-8"
