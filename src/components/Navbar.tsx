@@ -8,6 +8,7 @@ import {
 import { useLanguage } from '~/context/LanguageContext'
 
 import HamburgerMenu from './HamburgerMenu'
+import LanguagePicker from './LanguagePicker'
 
 export default function Navbar({
   onHomeClick,
@@ -132,7 +133,7 @@ export default function Navbar({
                 <div>FORNEBU</div>
               </div>
             </div>
-            <div className="custom-nav space-x-9 text-xl">
+            <div className="custom-nav space-x-9 text-xl border">
               <Button
                 variant={'link'}
                 onClick={() => handleButtonClick('home', onHomeClick)}
@@ -189,13 +190,11 @@ export default function Navbar({
                 {language === 'no' ? 'Priser' : 'Prices'}
               </Button>
             </div>
-            <div className="right-nav lg:mr-8 mr-4">
-              <img
-                className="language-flag h-8 w-8 object-fill rounded-sm"
-                src={language === 'no' ? '/flag_no.png' : '/flag_en.png'}
-                alt="Norwegian flag"
-                onClick={toggleLanguage}
-              />
+
+            <div className="xl:flex xl:mr-20">
+              <LanguagePicker />
+            </div>
+            <div className="right-nav lg:mr-180 mr-4">
               <Button
                 variant={'default'}
                 onClick={() =>
@@ -215,7 +214,6 @@ export default function Navbar({
                     : 'Important information'}
                 </span>
               </Button>
-
               <DropdownMenu
                 open={isHamburgerMenuOpen}
                 onOpenChange={setHamburgerMenuOpen}
