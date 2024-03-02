@@ -16,22 +16,22 @@ export default function Services({ services }) {
   return (
     <div className="services-layout bg-white flex flex-col">
       <div
-        className="lg:text-3xl md:text-3xl text-2xl header mb-10 md:pt-2 pt-6 text-primary lg:px-44 md:px-20 px-6 text-left self-start md:w-3/4 w-full"
+        className="lg:text-3xl md:text-3xl text-2xl header md:mb-10 mb-0 md:pt-2 pt-0 text-primary lg:px-44 md:px-20 px-6 text-left self-start md:w-3/4 w-full"
         style={{ fontWeight: 400 }}
       >
         {language === 'no'
           ? 'I tillegg til vår fastlegekonsultasjon kan vi også hjelpe med en rekke andre tjenester'
           : 'In addition to our general practitioner consultation, we can also help with a number of other services'}{' '}
       </div>
-      <div className="p-4 mt-16 cards-container grid grid-cols-1 lg:grid-cols-2 gap-8 mx-auto lg:w-1/2 w-full md:px-24 lg:px-0 pb-28">
+      <div className="p-4 md:mt-16 mt-4 cards-container grid grid-cols-1 lg:grid-cols-2 md:gap-8 gap-4 mx-auto lg:w-1/2 w-full md:px-24 lg:px-0 md:pb-28 pb-16">
         {services.map((service) => (
           <Card
             key={service.name}
-            className="bg-white text-card-foreground shadow-lg rounded-md border border-primary cursor-pointer shadow-custom"
+            className="bg-white text-card-foreground rounded-md border border-primary cursor-pointer shadow-lg md:h-[68px] h-[56px] flex justify-center"
             onClick={() => handleCardClick(service)}
           >
             <CardContent className="flex justify-center items-center p-6">
-              <CardTitle className="text-2xl font-base leading-none tracking-tight">
+              <CardTitle className="md:text-2xl text-base font-base leading-none tracking-tight">
                 {service.name}
               </CardTitle>
             </CardContent>

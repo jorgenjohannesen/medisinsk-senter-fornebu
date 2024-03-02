@@ -76,8 +76,29 @@ export default function Navbar({
               display: block;
               order: 2;
             }
+            .important-info-button {
+              order: 1;
+            }
+            .bell-icon {
+              height: 1.5rem;
+            }
+          }
+          @media (max-width: 768px) {
+            .custom-nav {
+              display: none;
+            }
+            .right-nav {
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              gap: 12px;
+            }
             .important-info-text {
               display: none;
+            }
+            .custom-hamburger {
+              display: block;
+              order: 2;
             }
             .important-info-button {
               order: 1;
@@ -111,6 +132,7 @@ export default function Navbar({
               margin-right: 212px;
             }
           }
+
         `}
       </style>
       <div>
@@ -121,7 +143,7 @@ export default function Navbar({
               onClick={handleLogoClick}
             >
               <img
-                className="md:h-20 h-[37.12px] lg:mr-8 mr-2"
+                className="md:h-[67.62px] h-[37.12px] w-[37.12px] md:w-[67.62px] lg:mr-4 mr-2"
                 src="/logo.svg"
                 alt="logo"
               />
@@ -170,7 +192,7 @@ export default function Navbar({
             </div>
             <div className="right-nav lg:mr-8 mr-4">
               <img
-                className="language-flag object-fill rounded-sm md:h-[47px] h-[28px] w-[28px] md:w-[193px]"
+                className="language-flag object-fill rounded-sm md:h-[30px] h-[28px] w-[28px] md:w-[30px]"
                 src={language === 'no' ? '/flag_no.png' : '/flag_en.png'}
                 alt="Norwegian flag"
                 onClick={toggleLanguage}
@@ -205,7 +227,7 @@ export default function Navbar({
                     onClick={handleHamburgerClick}
                   >
                     <img
-                      className="md:h-[47px] h-[23px] md:w-[193px]"
+                      className="md:h-[30px] h-[23px] md:w-[40px]"
                       src="/hamburger.svg"
                       alt="menu"
                     />

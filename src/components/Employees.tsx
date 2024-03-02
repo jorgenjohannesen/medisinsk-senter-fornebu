@@ -37,7 +37,7 @@ export default function Employees({ employees }) {
   return (
     <div className="flex flex-col justify-center min-h-screen bg-secondary">
       <div
-        className="lg:text-3xl md:text-3xl text-2xl mt-16 text-primary lg:px-44 md:px-20 px-6 text-left self-start"
+        className="lg:text-3xl md:text-3xl text-2xl md:mt-16 mt-6 text-primary lg:px-44 md:px-20 px-4 text-left self-start"
         style={{ fontWeight: 400 }}
       >
         {language === 'no'
@@ -45,7 +45,7 @@ export default function Employees({ employees }) {
           : 'Meet our employees'}
       </div>
       <div className="flex flex-col items-center">
-        <div className="grid grid-cols-1 lg:grid-cols-2 md:gap-24 gap-4 md:mt-24 mt-12 md:mb-32 mb-16">
+        <div className="grid grid-cols-1 lg:grid-cols-2 md:gap-24 gap-4 md:mt-24 mt-12 md:mb-32 mb-8">
           {employees.map((employee) => (
             <div
               key={employee.name}
@@ -55,12 +55,12 @@ export default function Employees({ employees }) {
               className="cursor-pointer"
             >
               <div
-                className="text-left lg:px-0 px-6 mb-2 text-primary text-2xl"
+                className="text-left lg:px-0 px-4 mb-2 text-primary md:text-2xl text-base"
                 style={{ fontWeight: 400 }}
               >
                 {employee.name}
               </div>
-              <div className="lg:p-0 px-4 py-10">
+              <div className="lg:p-0 px-4 py-2">
                 <Card
                   className={`lg:w-[484px] lg:h-[300px] relative overflow-hidden rounded-md  ${
                     hovered === employee ? 'show-overlay' : ''
@@ -72,7 +72,7 @@ export default function Employees({ employees }) {
                       width={484}
                       height={300}
                       alt={employee.name}
-                      className={`w-[484px] h-[300px] object-cover transition-all duration-300 ease-in-out ${
+                      className={`md:w-[484px] md:h-[300px] min-h-[221.11px] object-cover transition-all duration-300 ease-in-out ${
                         hovered === employee ? 'hovered-image-class' : ''
                       }`}
                     />

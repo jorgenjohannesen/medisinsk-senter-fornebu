@@ -21,27 +21,27 @@ export default function Home({
   return (
     <div className="bg-secondary flex flex-col p-y-16">
       <div className="md:mt-32 mt-10">
-        <div className="lg:text-5xl md:text-4xl text-2xl md:mb-20 mb-8 text-primary self-start w-full md:px-40 px-6">
+        <div className="lg:text-5xl md:text-4xl text-2xl md:mb-20 mb-4 text-primary self-start w-full md:px-40 px-4">
           <div>
             {language === 'no' ? 'Velkommen til' : 'Welcome to'}{' '}
             <span>Medisinsk senter Fornebu</span>
           </div>
-          <div className="md:mt-6 mt-4">
+          <div className="md:mt-6 mt-0">
             {language === 'no'
               ? 'Hvordan kan vi hjelpe deg?'
               : 'How can we help you?'}
           </div>
         </div>
-        <div className="flex flex-col gap-12 w-full lg:px-40 md:px-36 px-4 mb-12 lg:flex-row">
+        <div className="flex flex-col gap-4 w-full lg:px-40 md:px-36 px-4 mb-4 lg:flex-row">
           <a
             className="text-center flex-1 cursor-pointer"
             onClick={() => setBookingModalOpen(true)}
           >
-            <Card className="bg-white border border-primary shadow-custom rounded-md">
+            <Card className="bg-white border border-primary shadow-custom rounded-md md:h-[112px] h-[76px] items-center flex">
               <CardHeader>
                 <div className="flex flex-row items-center">
                   <img
-                    className="md:h-12 h-8 mr-8"
+                    className="md:h-12 h-10 mr-8"
                     src="/calender-outline.svg"
                     alt="calender"
                   />
@@ -60,10 +60,10 @@ export default function Home({
             className="text-center flex-1 cursor-pointer"
             onClick={() => setPrescriptionRenewalModalOpen(true)}
           >
-            <Card className="bg-white border border-primary shadow-custom rounded-md">
+            <Card className="bg-white border border-primary shadow-custom rounded-md md:h-[112px] h-[76px] items-center flex">
               <CardHeader className="flex flex-row items-center">
                 <img
-                  className="md:h-12 h-8 mr-8"
+                  className="md:h-12 h-10 mr-8"
                   src="/document-pill.svg"
                   alt="document"
                 />
@@ -93,10 +93,10 @@ export default function Home({
             className="text-center flex-1 cursor-pointer"
             onClick={() => setEConsultationModalOpen(true)}
           >
-            <Card className="bg-white border border-primary shadow-custom rounded-md">
+            <Card className="bg-white border border-primary shadow-custom rounded-md md:h-[112px] h-[76px] items-center flex">
               <CardHeader className="flex flex-row items-center">
                 <img
-                  className="md:h-12 h-8 mr-8"
+                  className="md:h-12 h-10 mr-8"
                   src="/customer-service.svg"
                   alt="document"
                 />
@@ -129,7 +129,7 @@ export default function Home({
             href={'https://helsenorge.no'}
           />
         </div>
-        <div className="flex items-center justify-center lg:px-40 px-0 w-full pb-8 lg:pb-0">
+        <div className="flex items-center justify-center lg:px-40 px-0 w-full">
           <NotificationSlideshow
             notifications={notifications}
             onImportantInfoClick={onImportantInfoClick}

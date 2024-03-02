@@ -28,7 +28,7 @@ const InformationCard = ({ onEmployeesClick, contactInformation }) => {
       <Card className="relative md:w-5/6 w-11/12 mx-auto bg-primary flex flex-col lg:flex-row items-center lg:h-[539px] rounded-md">
         <div className="w-full lg:w-1/2 lg:mt-0 p-6 lg:p-0">
           <img
-            className="lg:h-96 object-cover rounded-md mx-auto lg:ml-16 w-full lg:w-auto"
+            className="lg:h-96 min-h-[213px] md:h-auto object-cover rounded-md mx-auto lg:ml-16 w-full md:w-auto"
             src="/test-img.png"
             alt="Person in office"
           />

@@ -43,19 +43,19 @@ export default function Contact({ contactInformation }) {
 
   return (
     <div className=" bg-white flex flex-col items-center justify-center lg:pb-4">
-      <h1 className="lg:text-3xl md:text-3xl text-2xl font-normal text-primary lg:px-44 md:px-20 px-6 text-left self-start mt-16 lg:pt-4">
+      <h1 className="lg:text-3xl md:text-3xl text-2xl font-normal text-primary lg:px-44 md:px-20 px-6 text-left self-start md:mt-16 mt-8 lg:pt-4">
         {language === 'no'
           ? 'Trenger du øyeblikkelig hjelp'
           : 'Do you need immediate help'}
       </h1>
-      <div className="flex flex-col md:w-1/2 md:w-[600px] lg:w-1/2 w-11/12 py-16 gap-8">
+      <div className="flex flex-col md:w-1/2 md:w-[600px] lg:w-1/2 w-11/12 md:py-16 py-6 md:gap-8 gap-2">
         {emergencyContacts.map((contact, index) => (
           <Card
             key={index}
             className="mb-4 w-full bg-primary rounded-lg shadow-md overflow-hidden lg:h-44 flex rounded-md"
           >
             <CardContent className="flex flex-col md:flex-row items-center justify-between md:p-8 p-4">
-              <div className="flex-grow p-4">
+              <div className="flex-grow md:p-4 p-0">
                 <CardTitle className="lg:text-3xl text-2xl text-white mb-4 md:mb-2">
                   {contact.title}
                 </CardTitle>
