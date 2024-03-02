@@ -76,29 +76,10 @@ export default function Navbar({
               display: block;
               order: 2;
             }
-            .important-info-button {
-              order: 1;
-            }
-            .bell-icon {
-              height: 1.5rem;
-            }
           }
           @media (max-width: 768px) {
-            .custom-nav {
-              display: none;
-            }
-            .right-nav {
-              display: flex;
-              align-items: center;
-              justify-content: center;
-              gap: 12px;
-            }
             .important-info-text {
               display: none;
-            }
-            .custom-hamburger {
-              display: block;
-              order: 2;
             }
             .important-info-button {
               order: 1;
@@ -147,7 +128,7 @@ export default function Navbar({
                 src="/logo.svg"
                 alt="logo"
               />
-              <div className="flex flex-col md:text-base text-[8.8px]">
+              <div className="flex flex-col font-normal md:text-base text-[8.8px]">
                 <div>MEDISINSK</div>
                 <div>SENTER</div>
                 <div>FORNEBU</div>
@@ -157,35 +138,35 @@ export default function Navbar({
               <Button
                 variant={'link'}
                 onClick={() => handleButtonClick('home', onHomeClick)}
-                className={'text-xl'}
+                className={'text-xl font-normal'}
               >
                 {language === 'no' ? 'Hjem' : 'Home'}
               </Button>
               <Button
                 variant={'link'}
                 onClick={() => handleButtonClick('services', onServicesClick)}
-                className={`text-xl`}
+                className={`text-xl font-normal`}
               >
                 {language === 'no' ? 'Tjenester' : 'Services'}
               </Button>
               <Button
                 variant={'link'}
                 onClick={() => handleButtonClick('employees', onEmployeesClick)}
-                className={`text-xl`}
+                className={`text-xl font-normal`}
               >
                 {language === 'no' ? 'Ansatte' : 'Employees'}
               </Button>
               <Button
                 variant={'link'}
                 onClick={() => handleButtonClick('contact', onContactClick)}
-                className={`text-xl`}
+                className={`text-xl font-normal`}
               >
                 {language === 'no' ? 'Kontakt' : 'Contact'}
               </Button>
               <Button
                 variant={'link'}
                 onClick={() => handleButtonClick('price', onPriceClick)}
-                className={`text-xl`}
+                className={`text-xl font-normal`}
               >
                 {language === 'no' ? 'Priser' : 'Prices'}
               </Button>

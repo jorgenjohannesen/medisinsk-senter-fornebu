@@ -20,8 +20,8 @@ export default function Home({
 
   return (
     <div className="bg-secondary flex flex-col p-y-16">
-      <div className="md:mt-32 mt-10">
-        <div className="lg:text-5xl md:text-4xl text-2xl md:mb-20 mb-4 text-primary self-start w-full md:px-40 px-4">
+      <div className="md:mt-32 mt-6">
+        <div className="font-medium lg:text-5xl md:text-4xl text-2xl lg:mb-20 md:mb-10 mb-4 text-primary self-start w-full md:px-40 px-4">
           <div>
             {language === 'no' ? 'Velkommen til' : 'Welcome to'}{' '}
             <span>Medisinsk senter Fornebu</span>
@@ -32,7 +32,7 @@ export default function Home({
               : 'How can we help you?'}
           </div>
         </div>
-        <div className="flex flex-col gap-4 w-full lg:px-40 md:px-36 px-4 mb-4 lg:flex-row">
+        <div className="flex flex-col gap-4 w-full lg:px-40 md:px-36 px-4 mb-10 lg:flex-row">
           <a
             className="text-center flex-1 cursor-pointer"
             onClick={() => setBookingModalOpen(true)}
@@ -45,7 +45,7 @@ export default function Home({
                     src="/calender-outline.svg"
                     alt="calender"
                   />
-                  <CardTitle className="text-lg md:text-2xl">
+                  <CardTitle className="text-base md:text-2xl font-normal">
                     {language === 'no' ? 'Bestill time' : 'Book an appointment'}
                   </CardTitle>
                 </div>
@@ -67,7 +67,7 @@ export default function Home({
                   src="/document-pill.svg"
                   alt="document"
                 />
-                <CardTitle className="text-lg md:text-2xl">
+                <CardTitle className="text-base md:text-2xl font-normal">
                   {language === 'no' ? 'Bestill resept' : 'Renew prescription'}
                 </CardTitle>
               </CardHeader>
@@ -100,7 +100,7 @@ export default function Home({
                   src="/customer-service.svg"
                   alt="document"
                 />
-                <CardTitle className="md:text-2xl text-lg">
+                <CardTitle className="md:text-2xl text-base font-normal">
                   {language === 'no'
                     ? 'Start e-konsultasjon'
                     : 'Start e-consultation'}

@@ -36,16 +36,13 @@ export default function Employees({ employees }) {
 
   return (
     <div className="flex flex-col justify-center min-h-screen bg-secondary">
-      <div
-        className="lg:text-3xl md:text-3xl text-2xl md:mt-16 mt-6 text-primary lg:px-44 md:px-20 px-4 text-left self-start"
-        style={{ fontWeight: 400 }}
-      >
+      <div className="lg:text-3xl md:text-3xl text-2xl md:mt-16 mt-6 text-primary lg:px-44 md:px-20 px-4 text-left self-start font-medium">
         {language === 'no'
           ? 'Bli kjent med våre ansatte'
           : 'Meet our employees'}
       </div>
       <div className="flex flex-col items-center">
-        <div className="grid grid-cols-1 lg:grid-cols-2 md:gap-24 gap-4 md:mt-24 mt-12 md:mb-32 mb-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 md:gap-24 gap-4 md:mt-16 mt-4 md:mb-32 mb-8">
           {employees.map((employee) => (
             <div
               key={employee.name}
@@ -54,10 +51,7 @@ export default function Employees({ employees }) {
               onClick={() => handleCardClick(employee)}
               className="cursor-pointer"
             >
-              <div
-                className="text-left lg:px-0 px-4 mb-2 text-primary md:text-2xl text-base"
-                style={{ fontWeight: 400 }}
-              >
+              <div className="text-left lg:px-0 px-4 mb-2 text-primary md:text-2xl text-base font-medium">
                 {employee.name}
               </div>
               <div className="lg:p-0 px-4 py-2">

@@ -22,10 +22,10 @@ const GeneralDialog = ({
     <Dialog open={isOpen} onOpenChange={onDismiss}>
       <DialogOverlay className="fixed inset-0 bg-black opacity-30 z-50" />
       <DialogContent className="fixed flex flex-col bg-white top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded-md shadow-lg md:p-16 p-8 z-50 lg:2/3 w-5/6 lg:w-7/12 max-h-[85vh] overflow-y-auto">
-        <DialogTitle className="md:text-4xl text-2xl text-primary">
+        <DialogTitle className="md:text-3xl text-2xl text-primary font-medium">
           {dialogTitle}
         </DialogTitle>
-        <DialogDescription className="mt-2 text-base mb-6 w-3/4 flex flex-col">
+        <DialogDescription className="mt-2 text-base mb-6 w-full flex flex-col break-words">
           {dialogDescription}
         </DialogDescription>
         <a href={href} target="_blank" rel="noopener noreferrer">

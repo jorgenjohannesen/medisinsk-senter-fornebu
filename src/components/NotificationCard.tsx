@@ -43,8 +43,8 @@ export default function NotificationSlideshow({
           slidesToShow: 1,
           swipe: true,
           draggable: true,
-          centerMode: true, // Enable center mode
-          centerPadding: '20px', // Adjust this value based on your design
+          centerMode: true,
+          centerPadding: '20px',
         },
       },
       {
@@ -78,13 +78,13 @@ export default function NotificationSlideshow({
               }
               className="bg-white bg-opacity-50 rounded-md mx-2 h-[132px] cursor-pointer"
             >
-              <CardHeader className="flex flex-row justify-between items-center p-2 mt-2 ml-2">
-                <CardTitle className="text-lg md:text-2xl">
+              <CardHeader className="flex flex-row justify-between items-center p-2 mt-2 ml-2 font-medium">
+                <CardTitle className="text-lg md:text-2xl text-primary">
                   {notification.title}
                 </CardTitle>
                 <img className="h-6 mr-4" src={'/bell-red.svg'} alt={'bell'} />
               </CardHeader>
-              <div className="p-4 text-md lg:text-lg prose max-h-[70px] overflow-hidden">
+              <div className="p-4 text-base lg:text-lg prose max-h-[70px] overflow-hidden text-primary font-medium">
                 <PortableText value={notification.previewRaw} />
               </div>
             </Card>

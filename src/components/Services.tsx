@@ -15,10 +15,7 @@ export default function Services({ services }) {
   const { language } = useLanguage()
   return (
     <div className="services-layout bg-white flex flex-col">
-      <div
-        className="lg:text-3xl md:text-3xl text-2xl header md:mb-10 mb-0 md:pt-2 pt-0 text-primary lg:px-44 md:px-20 px-6 text-left self-start md:w-3/4 w-full"
-        style={{ fontWeight: 400 }}
-      >
+      <div className="font-medium md:text-3xl text-2xl md:pt-2 pt-0 text-primary lg:px-44 md:px-20 px-4 text-left self-start md:w-3/4 w-full">
         {language === 'no'
           ? 'I tillegg til vår fastlegekonsultasjon kan vi også hjelpe med en rekke andre tjenester'
           : 'In addition to our general practitioner consultation, we can also help with a number of other services'}{' '}
@@ -31,7 +28,7 @@ export default function Services({ services }) {
             onClick={() => handleCardClick(service)}
           >
             <CardContent className="flex justify-center items-center p-6">
-              <CardTitle className="md:text-2xl text-base font-base leading-none tracking-tight">
+              <CardTitle className="md:text-2xl text-base font-normal leading-none tracking-tight">
                 {service.name}
               </CardTitle>
             </CardContent>

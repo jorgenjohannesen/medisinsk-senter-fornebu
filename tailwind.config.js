@@ -52,6 +52,13 @@ module.exports = {
           },
         },
       }),
+      fontFamily: {
+        sans: ['Poppins', 'ui-sans-serif', 'system-ui'],
+      },
+      fontWeight: {
+        medium: 500,
+        normal: 400,
+      },
       colors: {
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',

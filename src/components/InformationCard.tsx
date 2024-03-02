@@ -33,20 +33,20 @@ const InformationCard = ({ onEmployeesClick, contactInformation }) => {
             alt="Person in office"
           />
         </div>
-        <div className="text-white lg:pl-24  pt-2 md:pt-4 lg:pt-0">
+        <div className="text-white lg:pl-24 pt-2 md:pt-4 lg:pt-0">
           <CardHeader>
             <CardTitle className="md:text-3xl text-2xl">
               {language === 'no'
                 ? 'Hos oss vil du bli tatt godt vare på'
                 : 'We will take good care of you'}
             </CardTitle>
-            <CardDescription className="text-white w-full lg:w-3/4 text-base pt-4">
+            <CardDescription className="text-white w-full lg:w-3/4 pt-4 md:text-base text-sm">
               {language === 'no'
                 ? 'Her på Medisinsk Senter Fornebu er vi en gjeng med dyktige ansatte som gjerne vil hjelpe deg.'
                 : 'Here at Medisinsk Senter Fornebu we are a bunch of skilled employees who would love to help you.'}
             </CardDescription>
           </CardHeader>
-          <CardContent>
+          <CardContent className="md:text-base text-sm">
             <div className="flex md:flex-row flex-col mb-4">
               <div className="flex flex-col mr-2">
                 <span className="border-b border-white pb-1 w-28">

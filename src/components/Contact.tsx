@@ -43,7 +43,7 @@ export default function Contact({ contactInformation }) {
 
   return (
     <div className=" bg-white flex flex-col items-center justify-center lg:pb-4">
-      <h1 className="lg:text-3xl md:text-3xl text-2xl font-normal text-primary lg:px-44 md:px-20 px-6 text-left self-start md:mt-16 mt-8 lg:pt-4">
+      <h1 className="lg:text-3xl md:text-3xl text-2xl font-medium text-primary lg:px-44 md:px-20 px-4 text-left self-start md:mt-16 mt-8 lg:pt-4">
         {language === 'no'
           ? 'Trenger du øyeblikkelig hjelp'
           : 'Do you need immediate help'}
@@ -59,16 +59,16 @@ export default function Contact({ contactInformation }) {
                 <CardTitle className="lg:text-3xl text-2xl text-white mb-4 md:mb-2">
                   {contact.title}
                 </CardTitle>
-                <CardDescription className="text-white text-base lg:mb-0 mb-4">
+                <CardDescription className="text-white text-sm md:text-base lg:mb-0 mb-4">
                   {contact.description}
                 </CardDescription>
               </div>
               <div
-                className="flex-none flex items-center justify-center p-2 bg-white rounded-lg h-20 md:h-28"
+                className="flex-none flex items-center justify-center p-2 bg-white rounded-lg  h-[44px] md:h-28"
                 style={{ width: '256px' }}
               >
                 {' '}
-                <CardHeader className="text-primary font-bold text-3xl">
+                <CardHeader className="text-primary font-medium md:text-3xl text-lg">
                   {contact.number}
                 </CardHeader>
               </div>
