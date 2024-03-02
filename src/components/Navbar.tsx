@@ -75,7 +75,6 @@ export default function Navbar({
             .custom-hamburger {
               display: block;
               order: 2;
-              margin-left: 8px;
             }
             .important-info-text {
               display: none;
@@ -122,11 +121,11 @@ export default function Navbar({
               onClick={handleLogoClick}
             >
               <img
-                className="md:h-20 h-12 lg:mr-8 mr-4"
+                className="md:h-20 h-[37.12px] lg:mr-8 mr-2"
                 src="/logo.svg"
                 alt="logo"
               />
-              <div className="flex flex-col md:text-base text-xs">
+              <div className="flex flex-col md:text-base text-[8.8px]">
                 <div>MEDISINSK</div>
                 <div>SENTER</div>
                 <div>FORNEBU</div>
@@ -171,7 +170,7 @@ export default function Navbar({
             </div>
             <div className="right-nav lg:mr-8 mr-4">
               <img
-                className="language-flag h-8 w-8 object-fill rounded-sm"
+                className="language-flag object-fill rounded-sm md:h-[47px] h-[28px] w-[28px] md:w-[193px]"
                 src={language === 'no' ? '/flag_no.png' : '/flag_en.png'}
                 alt="Norwegian flag"
                 onClick={toggleLanguage}
@@ -181,11 +180,11 @@ export default function Navbar({
                 onClick={() =>
                   handleButtonClick('important', onImportantInfoClick)
                 }
-                className="important-info-button md:h-[47px] h-[34px] px-2 md:py-2 md:px-4 z-20 bg-red text-white hover:bg-red-600 hover:text-white"
+                className="important-info-button rounded-sm md:h-[47px] h-[30px] w-[30px] md:w-[193px] px-2 md:py-2 md:px-4 z-20 bg-red text-white hover:bg-red-600 hover:text-white"
                 size={'lg'}
               >
                 <img
-                  className="md:h-[24px] h-[20px]"
+                  className="md:h-[24px] h-[16px] w-[16px] md:w-[20px]"
                   src="/bell.svg"
                   alt="bell"
                 />
@@ -205,7 +204,11 @@ export default function Navbar({
                     className="custom-hamburger cursor-pointer"
                     onClick={handleHamburgerClick}
                   >
-                    <img className="h-8" src="/hamburger.svg" alt="menu" />
+                    <img
+                      className="md:h-[47px] h-[23px] md:w-[193px]"
+                      src="/hamburger.svg"
+                      alt="menu"
+                    />
                   </div>
                 </DropdownMenuTrigger>
                 <HamburgerMenu
