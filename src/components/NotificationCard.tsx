@@ -84,7 +84,7 @@ export default function NotificationSlideshow({
                 </CardTitle>
                 <img className="h-6 mr-4" src={'/bell-red.svg'} alt={'bell'} />
               </CardHeader>
-              <div className="p-4 text-base lg:text-lg prose max-h-[70px] overflow-hidden text-primary font-medium">
+              <div className="p-4 text-sm lg:text-lg prose max-h-[70px] overflow-hidden text-primary font-medium">
                 <PortableText value={notification.previewRaw} />
               </div>
             </Card>
