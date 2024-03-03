@@ -133,7 +133,7 @@ export default function Navbar({
                 <div>FORNEBU</div>
               </div>
             </div>
-            <div className="custom-nav space-x-9 text-xl border">
+            <div className="custom-nav space-x-9 text-xl">
               <Button
                 variant={'link'}
                 onClick={() => handleButtonClick('home', onHomeClick)}
