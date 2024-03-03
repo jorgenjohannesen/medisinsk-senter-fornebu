@@ -117,8 +117,8 @@ export default function Navbar({
         `}
       </style>
       <div>
-        <header className="relative z-10 bg-white border-b border-[#ced2d9] m-0 p-0">
-          <div className="flex justify-between items-center h-28 py-0 px-[var(--space-1)] m-0">
+        <header className="relative z-10 bg-white border-b border-[#ced2d9] m-0 p-0 h-[70px] md:h-auto">
+          <div className="flex justify-between items-center h-[70px] md:h-28 py-0 px-[var(--space-1)] m-0">
             <div
               className="flex items-center lg:ml-8 ml-4 cursor-pointer"
               onClick={handleLogoClick}
