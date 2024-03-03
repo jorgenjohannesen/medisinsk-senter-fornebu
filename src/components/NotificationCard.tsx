@@ -12,36 +12,47 @@ export default function NotificationSlideshow({
   onHomeClick,
 }) {
   const [divisor, setDivisor] = useState(2)
+  const [isSmallScreen, setIsSmallScreen] = useState(false)
 
   useEffect(() => {
-    setDivisor(window.innerWidth >= 768 ? 2 : 1)
-    const handleResize = () => {
-      setDivisor(window.innerWidth >= 768 ? 2 : 1)
+    const updateScreenSize = () => {
+      const screenWidth = window.innerWidth
+      setDivisor(screenWidth >= 768 ? 2 : 1)
+      setIsSmallScreen(screenWidth < 768)
     }
+    updateScreenSize()
 
-    window.addEventListener('resize', handleResize)
-    return () => window.removeEventListener('resize', handleResize)
+    window.addEventListener('resize', updateScreenSize)
+    return () => window.removeEventListener('resize', updateScreenSize)
   }, [])
 
   const settings = {
-    dots: true,
+    dots: !isSmallScreen,
     infinite: true,
     arrows: false,
     autoplay: true,
-    autoplaySpeed: 2000,
+    autoplaySpeed: 2300,
     slidesToShow: divisor,
     slidesToScroll: 1,
+    swipe: isSmallScreen,
+    draggable: isSmallScreen,
     responsive: [
       {
         breakpoint: 768,
         settings: {
           slidesToShow: 1,
+          swipe: true,
+          draggable: true,
+          centerMode: true,
+          centerPadding: '20px',
         },
       },
       {
         breakpoint: 1024,
         settings: {
           slidesToShow: 2,
+          swipe: false,
+          draggable: false,
         },
       },
     ],
@@ -57,7 +68,7 @@ export default function NotificationSlideshow({
   }
 
   return (
-    <div className="w-full rounded-lg md:mb-20">
+    <div className="w-full rounded-md md:mb-20">
       <Slider {...settings}>
         {notifications.map((notification, index) => (
           <div key={index} className="pb-4">
@@ -65,15 +76,15 @@ export default function NotificationSlideshow({
               onClick={() =>
                 handleButtonClick('important', onImportantInfoClick)
               }
-              className="bg-white bg-opacity-50 rounded-lg mx-2 h-[132px] cursor-pointer"
+              className="bg-white bg-opacity-50 rounded-md mx-2 h-[132px] cursor-pointer"
             >
-              <CardHeader className="flex flex-row justify-between items-center p-2 mt-2 ml-2">
-                <CardTitle className="text-lg md:text-2xl">
+              <CardHeader className="flex flex-row justify-between items-center p-2 mt-2 ml-2 font-medium">
+                <CardTitle className="text-lg md:text-2xl text-primary">
                   {notification.title}
                 </CardTitle>
                 <img className="h-6 mr-4" src={'/bell-red.svg'} alt={'bell'} />
               </CardHeader>
-              <div className="p-4 text-md lg:text-lg prose max-h-[70px] overflow-hidden">
+              <div className="p-4 text-sm lg:text-lg prose max-h-[70px] overflow-hidden text-primary font-medium">
                 <PortableText value={notification.previewRaw} />
               </div>
             </Card>

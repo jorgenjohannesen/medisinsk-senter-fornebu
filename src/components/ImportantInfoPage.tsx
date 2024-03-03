@@ -57,20 +57,21 @@ export default function ImportantInfoPage({ news }) {
                       <PortableText value={notification.bodyRaw} />
                     </CardDescription>
                   )}
-                  <Button
-                    variant={'outline'}
-                    onClick={() => toggleExpansion(index)}
-                    className="bg-white text-base text-primary hover:bg-white-600 w-1/4 mt-4 shadow-md bg-opacity-100"
-                    size={'lg'}
-                  >
-                    {isExpanded
-                      ? language === 'no'
-                        ? 'Lukk'
-                        : 'Close'
-                      : language === 'no'
-                        ? 'Les mer'
-                        : 'Read more'}
-                  </Button>
+                  <div className="flex justify-center">
+                    <Button
+                      variant={'outline'}
+                      onClick={() => toggleExpansion(index)}
+                      className="bg-white rounded-sm text-base text-primary w-[247px] hover:bg-white-600 mt-4 shadow-md bg-opacity-100"
+                    >
+                      {isExpanded
+                        ? language === 'no'
+                          ? 'Lukk'
+                          : 'Close'
+                        : language === 'no'
+                          ? 'Les mer'
+                          : 'Read more'}
+                    </Button>
+                  </div>
                 </CardContent>
               </Card>
             )

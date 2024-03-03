@@ -28,13 +28,11 @@ module.exports = {
               fontSize: theme('fontSize.3xl'),
               fontWeight: theme('fontWeight.bold'),
               color: theme('colors.gray.800'),
-              // any other styles
             },
             h2: {
               fontSize: theme('fontSize.2xl'),
               fontWeight: theme('fontWeight.bold'),
               color: theme('colors.primary.DEFAULT'),
-              // any other styles
             },
             h3: {
               fontSize: theme('fontSize.xl'),
@@ -54,6 +52,13 @@ module.exports = {
           },
         },
       }),
+      fontFamily: {
+        sans: ['Poppins', 'ui-sans-serif', 'system-ui'],
+      },
+      fontWeight: {
+        medium: 500,
+        normal: 400,
+      },
       colors: {
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',
@@ -99,8 +104,11 @@ module.exports = {
       },
       borderRadius: {
         lg: 'var(--radius)',
-        md: 'calc(var(--radius) - 2px)',
+        md: '16px',
         sm: 'calc(var(--radius) - 4px)',
+      },
+      boxShadow: {
+        custom: '0 0 10px rgba(0, 0, 0, 0.15)',
       },
       keyframes: {
         'accordion-down': {
