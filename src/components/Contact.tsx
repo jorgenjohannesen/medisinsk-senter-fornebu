@@ -42,7 +42,7 @@ export default function Contact({ contactInformation }) {
   ]
 
   return (
-    <div className=" bg-white flex flex-col items-center justify-center lg:pb-4">
+    <div className="bg-white flex flex-col items-center justify-center lg:pb-4">
       <h1 className="lg:text-3xl md:text-3xl text-2xl font-medium text-primary lg:px-44 md:px-20 px-4 text-left self-start md:mt-16 mt-8 lg:pt-4">
         {language === 'no'
           ? 'Trenger du øyeblikkelig hjelp'
@@ -52,10 +52,10 @@ export default function Contact({ contactInformation }) {
         {emergencyContacts.map((contact, index) => (
           <Card
             key={index}
-            className="mb-4 w-full bg-primary rounded-lg shadow-md overflow-hidden lg:h-44 flex rounded-md"
+            className="mb-4 w-full bg-primary rounded-lg shadow-md overflow-hidden lg:h-46 flex rounded-md"
           >
-            <CardContent className="flex flex-col md:flex-row items-center justify-between md:p-8 p-4">
-              <div className="flex-grow md:p-4 p-0">
+            <CardContent className="flex flex-col md:flex-row justify-start md:p-8 p-4 w-full">
+              <div className="flex-grow md:pr-4">
                 <CardTitle className="lg:text-3xl text-2xl text-white mb-4 md:mb-2">
                   {contact.title}
                 </CardTitle>
@@ -63,11 +63,7 @@ export default function Contact({ contactInformation }) {
                   {contact.description}
                 </CardDescription>
               </div>
-              <div
-                className="flex-none flex items-center justify-center p-2 bg-white rounded-lg  h-[44px] md:h-28"
-                style={{ width: '256px' }}
-              >
-                {' '}
+              <div className="flex-none self-center  md:ml-auto w-[256px] h-[44px] md:h-28 bg-white rounded-lg flex items-center justify-center">
                 <CardHeader className="text-primary font-medium md:text-3xl text-lg">
                   {contact.number}
                 </CardHeader>
