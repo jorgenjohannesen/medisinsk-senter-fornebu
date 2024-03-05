@@ -10,7 +10,11 @@ import {
 } from '@/components/ui/card'
 import { useLanguage } from '~/context/LanguageContext'
 
-const InformationCard = ({ onEmployeesClick, contactInformation }) => {
+const InformationCard = ({
+  onEmployeesClick,
+  contactInformation,
+  pricePdf,
+}) => {
   const handleButtonClick = (onClickFunction: any) => {
     onClickFunction()
   }
@@ -18,7 +22,7 @@ const InformationCard = ({ onEmployeesClick, contactInformation }) => {
   const contactInfo = contactInformation[0]
 
   const openPDF = () => {
-    window.open('/prices.pdf', '_blank')
+    window.open(pricePdf.asset.url, '_blank')
   }
 
   return (

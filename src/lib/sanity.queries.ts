@@ -67,3 +67,16 @@ export const AllServicesQuery = graphql(/* GraphQL */ `
     }
   }
 `)
+
+export const PricesQuery = graphql(/* GraphQL */ `
+  query prices {
+    allPrices {
+      _id
+      pricePdf {
+        asset {
+          url
+        }
+      }
+    }
+  }
+`)

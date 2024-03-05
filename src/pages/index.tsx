@@ -18,6 +18,7 @@ import {
   AllNewsQuery,
   AllServicesQuery,
   ContactInformationQuery,
+  PricesQuery,
 } from '~/lib/sanity.queries'
 
 dotenv.config()
@@ -55,6 +56,7 @@ export const getStaticProps = async ({ draftMode = false }) => {
   const servicesEN = await request(GRAPHQL_ENDPOINT, AllServicesQuery, {
     language: 'en',
   })
+  const pricesPdf = await request(GRAPHQL_ENDPOINT, PricesQuery)
 
   return {
     props: {
@@ -66,6 +68,7 @@ export const getStaticProps = async ({ draftMode = false }) => {
       contactInformationEN: contactInformationEN.allContactInformation,
       servicesNO: servicesNO.allService,
       servicesEN: servicesEN.allService,
+      pricesPdf: pricesPdf.allPrices[0].pricePdf,
       draftMode,
       token: draftMode ? readToken : '',
     },
@@ -91,6 +94,7 @@ export default function IndexPage(
       : props.contactInformationNO
   const services =
     props.servicesEN && language === 'en' ? props.servicesEN : props.servicesNO
+  const pricePdf = props.pricesPdf
 
   const homeRef = useRef(null)
   const servicesRef = useRef(null)
@@ -145,6 +149,7 @@ export default function IndexPage(
             <InformationCard
               contactInformation={contactInformation}
               onEmployeesClick={() => scrollToRef(employeesRef)}
+              pricePdf={pricePdf}
             />
           </div>
           <div ref={servicesRef}>
