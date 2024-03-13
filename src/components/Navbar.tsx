@@ -173,7 +173,7 @@ export default function Navbar({
               </Button>
             </div>
 
-            <div className="xl:flex xl:mr-20">
+            <div className="language-flag">
               <LanguagePicker />
             </div>
             <div className="right-nav lg:mr-180 mr-4">
