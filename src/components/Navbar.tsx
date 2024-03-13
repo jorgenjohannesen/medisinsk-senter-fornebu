@@ -76,8 +76,9 @@ export default function Navbar({
             .custom-hamburger {
               display: block;
               order: 2;
-              margin-left: 8px;
             }
+          }
+          @media (max-width: 768px) {
             .important-info-text {
               display: none;
             }
@@ -113,21 +114,22 @@ export default function Navbar({
               margin-right: 212px;
             }
           }
+
         `}
       </style>
       <div>
-        <header className="relative z-10 bg-white border-b border-[#ced2d9] m-0 p-0">
-          <div className="flex justify-between items-center h-28 py-0 px-[var(--space-1)] m-0">
+        <header className="relative z-10 bg-white border-b border-[#ced2d9] m-0 p-0 h-[70px] md:h-auto">
+          <div className="flex justify-between items-center h-[70px] md:h-28 py-0 px-[var(--space-1)] m-0">
             <div
               className="flex items-center lg:ml-8 ml-4 cursor-pointer"
               onClick={handleLogoClick}
             >
               <img
-                className="md:h-20 h-12 lg:mr-8 mr-4"
+                className="md:h-[67.62px] h-[37.12px] w-[37.12px] md:w-[67.62px] lg:mr-4 mr-2"
                 src="/logo.svg"
                 alt="logo"
               />
-              <div className="flex flex-col md:text-base text-xs">
+              <div className="flex flex-col font-normal md:text-base text-[8.8px]">
                 <div>MEDISINSK</div>
                 <div>SENTER</div>
                 <div>FORNEBU</div>
@@ -137,55 +139,35 @@ export default function Navbar({
               <Button
                 variant={'link'}
                 onClick={() => handleButtonClick('home', onHomeClick)}
-                className={`border-b-2 pb-1 text-xl ${
-                  activeButton === 'home'
-                    ? 'border-current'
-                    : 'border-transparent'
-                }`}
+                className={'text-xl font-normal'}
               >
                 {language === 'no' ? 'Hjem' : 'Home'}
               </Button>
               <Button
                 variant={'link'}
                 onClick={() => handleButtonClick('services', onServicesClick)}
-                className={`border-b-2 pb-1 text-xl ${
-                  activeButton === 'services'
-                    ? 'border-current'
-                    : 'border-transparent'
-                }`}
+                className={`text-xl font-normal`}
               >
                 {language === 'no' ? 'Tjenester' : 'Services'}
               </Button>
               <Button
                 variant={'link'}
                 onClick={() => handleButtonClick('employees', onEmployeesClick)}
-                className={`border-b-2 pb-1 text-xl ${
-                  activeButton === 'employees'
-                    ? 'border-current'
-                    : 'border-transparent'
-                }`}
+                className={`text-xl font-normal`}
               >
                 {language === 'no' ? 'Ansatte' : 'Employees'}
               </Button>
               <Button
                 variant={'link'}
                 onClick={() => handleButtonClick('contact', onContactClick)}
-                className={`border-b-2 pb-1 text-xl ${
-                  activeButton === 'contact'
-                    ? 'border-current'
-                    : 'border-transparent'
-                }`}
+                className={`text-xl font-normal`}
               >
                 {language === 'no' ? 'Kontakt' : 'Contact'}
               </Button>
               <Button
                 variant={'link'}
                 onClick={() => handleButtonClick('price', onPriceClick)}
-                className={`border-b-2 pb-1 text-xl ${
-                  activeButton === 'price'
-                    ? 'border-current'
-                    : 'border-transparent'
-                }`}
+                className={`text-xl font-normal`}
               >
                 {language === 'no' ? 'Priser' : 'Prices'}
               </Button>
@@ -200,11 +182,11 @@ export default function Navbar({
                 onClick={() =>
                   handleButtonClick('important', onImportantInfoClick)
                 }
-                className="important-info-button md:h-[47px] h-[34px] px-2 md:py-2 md:px-4 z-20 bg-red text-white hover:bg-red-600 hover:text-white"
+                className="important-info-button rounded-sm md:h-[47px] h-[30px] w-[30px] md:w-[193px] px-2 md:py-2 md:px-4 z-20 bg-red text-white hover:bg-red-600 hover:text-white"
                 size={'lg'}
               >
                 <img
-                  className="md:h-[24px] h-[20px]"
+                  className="md:h-[24px] h-[16px] w-[16px] md:w-[20px]"
                   src="/bell.svg"
                   alt="bell"
                 />
@@ -223,7 +205,11 @@ export default function Navbar({
                     className="custom-hamburger cursor-pointer"
                     onClick={handleHamburgerClick}
                   >
-                    <img className="h-8" src="/hamburger.svg" alt="menu" />
+                    <img
+                      className="md:h-[30px] h-[23px] md:w-[40px]"
+                      src="/hamburger.svg"
+                      alt="menu"
+                    />
                   </div>
                 </DropdownMenuTrigger>
                 <HamburgerMenu

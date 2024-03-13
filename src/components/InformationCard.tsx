@@ -25,28 +25,28 @@ const InformationCard = ({ onEmployeesClick, contactInformation }) => {
     <div className="relative w-full mx-auto py-16">
       <div className="absolute top-0 left-0 w-full h-1/2 bg-secondary"></div>
       <div className="absolute bottom-0 left-0 w-full h-1/2 bg-white"></div>
-      <Card className="relative md:w-5/6 w-11/12 mx-auto bg-primary flex flex-col lg:flex-row items-center lg:h-[539px]">
+      <Card className="relative md:w-5/6 w-11/12 mx-auto bg-primary flex flex-col lg:flex-row items-center lg:h-[539px] rounded-md">
         <div className="w-full lg:w-1/2 lg:mt-0 p-6 lg:p-0">
           <img
-            className="lg:h-96 object-cover rounded-md mx-auto lg:ml-16 w-full lg:w-auto"
+            className="lg:h-96 min-h-[213px] md:h-auto object-cover rounded-md mx-auto lg:ml-16 w-full md:w-auto"
             src="/test-img.png"
             alt="Person in office"
           />
         </div>
-        <div className="text-white lg:pl-24  pt-2 md:pt-4 lg:pt-0">
+        <div className="text-white lg:pl-24 pt-2 md:pt-4 lg:pt-0">
           <CardHeader>
             <CardTitle className="md:text-3xl text-2xl">
               {language === 'no'
                 ? 'Hos oss vil du bli tatt godt vare på'
                 : 'We will take good care of you'}
             </CardTitle>
-            <CardDescription className="text-white w-full lg:w-3/4 text-base pt-4">
+            <CardDescription className="text-white w-full lg:w-3/4 pt-4 md:text-base text-sm">
               {language === 'no'
                 ? 'Her på Medisinsk Senter Fornebu er vi en gjeng med dyktige ansatte som gjerne vil hjelpe deg.'
                 : 'Here at Medisinsk Senter Fornebu we are a bunch of skilled employees who would love to help you.'}
             </CardDescription>
           </CardHeader>
-          <CardContent>
+          <CardContent className="md:text-base text-sm">
             <div className="flex md:flex-row flex-col mb-4">
               <div className="flex flex-col mr-2">
                 <span className="border-b border-white pb-1 w-28">
@@ -87,7 +87,7 @@ const InformationCard = ({ onEmployeesClick, contactInformation }) => {
             <div className="md:flex-row flex-col md:w-max flex gap-x-4 px-4">
               <Button
                 variant={'outline'}
-                className="bg-primary text-base text-black hover:bg-primary-600 bg-white mt-4 p-4"
+                className="bg-primary rounded-sm text-base text-black hover:bg-primary-600 bg-white mt-4 p-4"
               >
                 {language === 'no'
                   ? 'Send oss en henvendelse'
@@ -95,7 +95,7 @@ const InformationCard = ({ onEmployeesClick, contactInformation }) => {
               </Button>
               <Button
                 variant={'outline'}
-                className="bg-primary text-base text-black hover:bg-primary-600 bg-white mt-4 p-4"
+                className="bg-primary text-base rounded-sm text-black hover:bg-primary-600 bg-white mt-4 p-4"
                 onClick={openPDF}
               >
                 {language === 'no' ? 'Se våre priser' : 'See our prices'}
