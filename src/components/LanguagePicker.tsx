@@ -18,9 +18,12 @@ const LanguagePicker = () => {
 
   return (
     <Select defaultValue={language} onValueChange={handleLanguageChange}>
-      <SelectTrigger aria-label="Select language" className="">
+      <SelectTrigger
+        aria-label="Select language"
+        className="w-18 focus:outline-none"
+      >
         <img
-          className="h-8 w-8 object-fill rounded-sm"
+          className="h-[30px] w-[30px] md:h-[35px] md:w-[35px] object-fill rounded-sm"
           src={language === 'no' ? '/flag_no.png' : '/flag_en.png'}
           alt={language === 'no' ? 'Norwegian flag' : 'English flag'}
         />

@@ -105,11 +105,7 @@ export default function Employees({ employees }) {
           dialogDescription={
             <PortableText value={selectedEmployee.descriptionRaw} />
           }
-          buttonText={
-            language === 'no'
-              ? 'Bytt fastlege'
-              : 'Change your general practitioner'
-          }
+          buttonText={language === 'no' ? 'Bytt fastlege' : 'Change your GP'}
           href="#"
         />
       )}

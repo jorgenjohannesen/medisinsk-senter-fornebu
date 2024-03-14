@@ -32,7 +32,7 @@ const GeneralDialog = ({
           <Button
             variant={'outline'}
             onClick={undefined}
-            className="bg-primary md:text-base text-sm text-white hover:bg-primary-600 hover:text-white md:w-72 w-52"
+            className="bg-primary md:text-base text-sm text-white hover:bg-primary-600 hover:text-white break-text"
             size={'lg'}
           >
             {buttonText}

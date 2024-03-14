@@ -110,9 +110,6 @@ export default function Navbar({
             .bell-icon {
               height: 1.5rem;
             }
-            .language-flag {
-              margin-right: 212px;
-            }
           }
 
         `}
@@ -172,30 +169,31 @@ export default function Navbar({
                 {language === 'no' ? 'Priser' : 'Prices'}
               </Button>
             </div>
-
-            <div className="language-flag">
-              <LanguagePicker />
-            </div>
-            <div className="right-nav lg:mr-180 mr-4">
-              <Button
-                variant={'default'}
-                onClick={() =>
-                  handleButtonClick('important', onImportantInfoClick)
-                }
-                className="important-info-button rounded-sm md:h-[47px] h-[30px] w-[30px] md:w-[193px] px-2 md:py-2 md:px-4 z-20 bg-red text-white hover:bg-red-600 hover:text-white"
-                size={'lg'}
-              >
-                <img
-                  className="md:h-[24px] h-[16px] w-[16px] md:w-[20px]"
-                  src="/bell.svg"
-                  alt="bell"
-                />
-                <span className="important-info-text ml-2">
-                  {language === 'no'
-                    ? 'Viktig informasjon'
-                    : 'Important information'}
-                </span>
-              </Button>
+            <div className="right-nav lg:mr-180 mr-4 flex items-center gap-x-56">
+              <div className="flex align-center justify-center">
+                <LanguagePicker />
+              </div>
+              <div>
+                <Button
+                  variant={'default'}
+                  onClick={() =>
+                    handleButtonClick('important', onImportantInfoClick)
+                  }
+                  className="important-info-button rounded-sm md:h-[47px] h-[30px] w-[30px] md:w-[193px] px-2 md:py-2 md:px-4 z-20 bg-red text-white hover:bg-red-600 hover:text-white"
+                  size={'lg'}
+                >
+                  <img
+                    className="md:h-[24px] h-[16px] w-[16px] md:w-[20px]"
+                    src="/bell.svg"
+                    alt="bell"
+                  />
+                  <span className="important-info-text ml-2">
+                    {language === 'no'
+                      ? 'Viktig informasjon'
+                      : 'Important information'}
+                  </span>
+                </Button>
+              </div>
               <DropdownMenu
                 open={isHamburgerMenuOpen}
                 onOpenChange={setHamburgerMenuOpen}
