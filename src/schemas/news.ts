@@ -15,7 +15,8 @@ export default defineType({
     defineField({
       name: 'preview',
       title: 'Forhåndsvisning',
-      type: 'richText',
+      type: 'text',
+      validation: (Rule) => Rule.max(160),
     }),
     defineField({
       name: 'body',

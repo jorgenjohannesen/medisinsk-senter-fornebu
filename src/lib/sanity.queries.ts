@@ -8,7 +8,7 @@ export const AllEmployeesQuery = graphql(/* GraphQL */ `
     allEmployee(where: { language: { eq: $language } }) {
       _id
       name
-      descriptionRaw
+      description
       image {
         asset {
           url
@@ -23,7 +23,7 @@ export const AllNewsQuery = graphql(/* GraphQL */ `
     allNews(where: { language: { eq: $language } }) {
       _id
       title
-      previewRaw
+      preview
       bodyRaw
     }
   }

@@ -1,10 +1,11 @@
+import { WrenchIcon } from '@sanity/icons'
 import { defineType } from 'sanity'
 
 export default defineType({
   name: 'service',
   title: 'Tjenester',
   type: 'document',
-  icon: () => '🛠',
+  icon: WrenchIcon,
   fields: [
     {
       name: 'name',

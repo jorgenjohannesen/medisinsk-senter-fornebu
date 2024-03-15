@@ -50,7 +50,7 @@ export default function ImportantInfoPage({ news }) {
                 </CardHeader>
                 <CardContent>
                   <CardDescription className="text-primary prose text-base mb-4">
-                    <PortableText value={notification.previewRaw} />
+                    {notification.preview}
                   </CardDescription>
                   {isExpanded && (
                     <CardDescription className="text-primary prose">

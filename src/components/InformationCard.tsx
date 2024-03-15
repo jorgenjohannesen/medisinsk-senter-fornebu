@@ -53,7 +53,7 @@ const InformationCard = ({ onEmployeesClick, contactInformation }) => {
                   {language === 'no' ? 'Åpningstider:' : 'Opening hours:'}
                 </span>
               </div>
-              <div className="flex md:flex-row flex-col mt-4 md:mt-0">
+              <div className="flex flex-col md:flex-row lg:flex-col mt-4 md:mt-0">
                 <p>{contactInfo.openingHours}</p>
                 <p>
                   {language === 'no'

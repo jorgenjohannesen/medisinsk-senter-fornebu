@@ -15,8 +15,8 @@ export default defineType({
     defineField({
       name: 'description',
       title: 'Beskrivelse',
-      type: 'richText',
-      validation: (Rule) => Rule.max(200),
+      type: 'text',
+      validation: (Rule) => Rule.max(400),
     }),
     defineField({
       name: 'image',
