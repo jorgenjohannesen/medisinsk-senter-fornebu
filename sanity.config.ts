@@ -59,7 +59,6 @@ export default defineConfig({
           // Default form view
           S.view.form(),
           // Preview
-          S.view.component(Iframe).options(iframeOptions).title('Preview'),
         ])
       },
     }),
