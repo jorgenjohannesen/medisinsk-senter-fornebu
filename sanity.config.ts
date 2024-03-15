@@ -25,7 +25,6 @@ import { schema } from '~/schemas'
 const iframeOptions = {
   url: defineUrlResolver({
     base: '/api/draft',
-    requiresSlug: ['post'],
   }),
   urlSecretId: previewSecretId,
   reload: { button: true },
@@ -65,7 +64,6 @@ export default defineConfig({
     // Add the "Open preview" action
     previewUrl({
       base: '/api/draft',
-      requiresSlug: ['post'],
       urlSecretId: previewSecretId,
     }),
     // Vision lets you query your content with GROQ in the studio
