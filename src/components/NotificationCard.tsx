@@ -1,8 +1,9 @@
+import 'slick-carousel/slick/slick.css'
+import 'slick-carousel/slick/slick-theme.css'
+
 import { PortableText } from '@portabletext/react'
 import React, { useEffect, useState } from 'react'
 import Slider from 'react-slick'
-import 'slick-carousel/slick/slick.css'
-import 'slick-carousel/slick/slick-theme.css'
 
 import { Card, CardHeader, CardTitle } from '@/components/ui/card'
 
@@ -85,7 +86,7 @@ export default function NotificationSlideshow({
                 <img className="h-6 mr-4" src={'/bell-red.svg'} alt={'bell'} />
               </CardHeader>
               <div className="p-4 text-sm lg:text-lg prose max-h-[70px] overflow-hidden text-primary font-medium">
-                <PortableText value={notification.previewRaw} />
+                {notification.preview}
               </div>
             </Card>
           </div>

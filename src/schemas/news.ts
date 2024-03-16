@@ -15,14 +15,13 @@ export default defineType({
     defineField({
       name: 'preview',
       title: 'Forhåndsvisning',
-      type: 'richText',
-      validation: (Rule) => Rule.max(40),
+      type: 'text',
+      validation: (Rule) => Rule.max(160),
     }),
     defineField({
       name: 'body',
       title: 'Innhold',
       type: 'richText',
-      validation: (Rule) => Rule.max(10),
     }),
     defineField({
       name: 'language',

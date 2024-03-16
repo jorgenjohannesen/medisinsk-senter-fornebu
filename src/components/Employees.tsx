@@ -73,7 +73,7 @@ export default function Employees({ employees }) {
                     {hovered === employee && (
                       <div className="absolute inset-0 bg-primary bg-opacity-70 flex flex-col justify-between p-6">
                         <CardDescription className="text-white text-base">
-                          <PortableText value={employee.descriptionRaw} />
+                          {employee.description}
                         </CardDescription>
                         <Button
                           variant={'outline'}
@@ -102,9 +102,7 @@ export default function Employees({ employees }) {
           isOpen={dialogOpen}
           onDismiss={() => setDialogOpen(false)}
           dialogTitle={selectedEmployee.name}
-          dialogDescription={
-            <PortableText value={selectedEmployee.descriptionRaw} />
-          }
+          dialogDescription={selectedEmployee.description}
           buttonText={language === 'no' ? 'Bytt fastlege' : 'Change your GP'}
           href="#"
         />

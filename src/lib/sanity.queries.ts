@@ -2,31 +2,13 @@ import { Employee } from '~/gql/graphql'
 
 import { graphql } from '../gql'
 
-export const AllPostsQuery = graphql(/* GraphQL */ `
-  query allPost($language: String!) {
-    allPost {
-      _id
-      title
-      slug {
-        current
-      }
-      excerpt
-      mainImage {
-        asset {
-          url
-        }
-      }
-    }
-  }
-`)
-
 // All employees but with dynamic language
 export const AllEmployeesQuery = graphql(/* GraphQL */ `
   query allEmployee($language: String!) {
     allEmployee(where: { language: { eq: $language } }) {
       _id
       name
-      descriptionRaw
+      description
       image {
         asset {
           url
@@ -41,7 +23,7 @@ export const AllNewsQuery = graphql(/* GraphQL */ `
     allNews(where: { language: { eq: $language } }) {
       _id
       title
-      previewRaw
+      preview
       bodyRaw
     }
   }
