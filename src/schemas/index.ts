@@ -4,6 +4,7 @@ import contactInformation from './contactInformation'
 import employee from './employee'
 import news from './news'
 import post from './post'
+import prices from './prices'
 import richText from './richText'
 import service from './service'
 
@@ -16,5 +17,5 @@ export const schemaTypes = [
   service,
 ]
 export const schema: { types: SchemaTypeDefinition[] } = {
-  types: [post, contactInformation, employee, news, richText, service],
+  types: [post, contactInformation, employee, news, richText, service, prices],
 }
